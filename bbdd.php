@@ -1,3 +1,3 @@
 <?php
-    $conn = mysqli_connect('localhost', 'timerlab', 'Cuarentena2021.', 'php_login_database');
+    $conn = mysqli_connect('localhost', 'Timer_Lab', 'TimerLab2023.', 'timerlab');
 ?>

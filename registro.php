@@ -4,13 +4,13 @@ include 'bbdd.php';
 
 if(isset($_POST['submit'])){
 
-   $name = mysqli_real_escape_string($conn, $_POST['name']);
+   $nombre = mysqli_real_escape_string($conn, $_POST['nombre']);
    $email = mysqli_real_escape_string($conn, $_POST['email']);
    $cemail = mysqli_real_escape_string($conn, $_POST['cemail']);
    $pass = md5($_POST['password']);
    $cpass = md5($_POST['cpassword']);
 
-   $select = " SELECT * FROM users WHERE email = '$email'";
+   $select = " SELECT * FROM usuarios WHERE email = '$email'";
 
    $result = mysqli_query($conn, $select);
 
@@ -25,8 +25,8 @@ if(isset($_POST['submit'])){
       }elseif($email != $cemail){
          $error[] = 'Los correos no coinciden!';
       }else{
-         $insert = "INSERT INTO users (email, nombre, password) 
-         VALUES('$email','$name','$pass')";
+         $insert = "INSERT INTO usuarios (email, nombre, password) 
+         VALUES('$email','$nombre','$pass')";
          mysqli_query($conn, $insert);
          header('location:index.php');
       }
@@ -53,7 +53,7 @@ if(isset($_POST['submit'])){
       <label>Confirma tu correo electrónico</label>
       <input type="email" name="cemail" placeholder="Confirme su dirección de correo" required>
       <label>¿Cómo te llamamos?</label>
-      <input type="text" name="name" placeholder="Nombre" required>
+      <input type="text" name="nombre" placeholder="Nombre" required>
       <label>Crea una contraseña</label>
       <input type="password" minlength="8" name="password" placeholder="Contraseña" required>
       <label>Confirma tu contraseña</label>
