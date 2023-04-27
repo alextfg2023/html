@@ -28,7 +28,7 @@ if(isset($_POST['submit'])){
          $insert = "INSERT INTO users (email, nombre, password) 
          VALUES('$email','$name','$pass')";
          mysqli_query($conn, $insert);
-         header('location:registrocompleto.php');
+         header('location:index.php');
       }
    }
 
@@ -42,8 +42,7 @@ if(isset($_POST['submit'])){
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Resgistro</title>
-    <link rel="stylesheet" href="assets/css/stylesregistro.css">    
+    <title>TimerLab</title>
 </head>
 <body>
    <form method="POST" action="" enctype="multipart/form-data">

@@ -22,7 +22,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>TimerLab</title>
 </head>
 <body>
     <p><?php echo 'Hola '.$nombre;?></p>
@@ -32,7 +32,6 @@
         <input type="submit" value="Actualizar foto de perfil" name="subir">
     </form>
     <p><a href="logout.php">Cerrar sesión</a></p>
-    <a href="tabladesglose.php">Ver mis horarios</a>
 <?php
     if (isset($_POST['subir'])) {
         $ruta = 'fotoperfil/'.$id.'/';
