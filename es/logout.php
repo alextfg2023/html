@@ -5,5 +5,5 @@
 
     session_destroy();
 
-    header('Location: /FCT');
+    header('Location: ./index.php');
 ?>
