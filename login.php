@@ -14,12 +14,17 @@
             background-color: #264673;
             box-sizing: border-box;
             font-family: 'Bruno-Ace';
+            height: 100%;
+            overflow: hidden;
         }
 
-        form{
+        .form_log{
             background-color: white;
             padding: 10px;
-            margin: 90px auto;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
             width:410px;
         }
 
@@ -51,7 +56,7 @@
     </style>
 </head>
 <body>
-      <form action="" method="post">
+      <form action="" method="post" class="form_log">
          <?php
             session_start();
 
@@ -119,7 +124,7 @@
          <br>
       </form>
       <?php
-         include './idiomas/lista_idiomas.php';
+        include './complementos/footer.php';
       ?>
 </body>
 </html>

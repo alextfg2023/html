@@ -1,0 +1,51 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.body_foot{
+    font-family: 'Ubuntu Condensed', sans-serif;
+    position: relative;
+    padding-bottom: 2em;
+    min-height: 100vh;
+}
+.texto{
+    color: white;
+}
+.options{
+    border-radius: 5px;
+    border: solid 1px white;
+    color: white;
+    background-color: #152030;
+}
+.pie{
+    background-color: #152030;
+    padding: 1em 0;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+.logo{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 25px;
+}
+.formulario{
+    flex-direction: column;
+}
+label{
+    padding: 0px 2px 0px 0px;
+}
+select{
+    font-family: 'Ubuntu Condensed', sans-serif;
+    background: none;
+    border: solid 1px white;
+    padding: 3px 3px;
+    border-radius: 5px;
+}
+.header{
+    display: flex;
+    justify-content: space-between;
+    padding: 7px 20px 7px 20px;
+}
