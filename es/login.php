@@ -9,7 +9,7 @@
         body{
             background-color: #264673;
             box-sizing: border-box;
-            font-family: Arial;
+            font-family: 'Bruno-Ace';
         }
 
         form{
@@ -103,11 +103,11 @@
 
       ?>
       <h1>Inicia sesión</h1>
-      <label>Correo electrónico</label>
+      <p><label>Correo electrónico</label></p>
       <input type="text" name="email" placeholder="Dirección de correo">
       <br>
       <br>
-      <label>Contraseña</label>
+      <p><label>Contraseña</label></p>
       <input type="password" name="password" placeholder="Contraseña">
       <br>
       <br>

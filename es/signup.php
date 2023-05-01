@@ -9,7 +9,7 @@
         body{
             background-color: #264673;
             box-sizing: border-box;
-            font-family: Arial;
+            font-family: 'Bruno Ace';
         }
 
         form{
@@ -89,7 +89,7 @@
         }
         if($email == '' || strpos($email, '@') == false){
 
-            array_push($campos, 'Introduce un correo valido!');
+            array_push($campos, 'Introduce un correo Arialalido!');
 
         }
         if($email != $cemail){
@@ -128,23 +128,23 @@
     ?>
 
     <h1>Registrate</h1>
-        <label>¿Cual es tu correo electrónico?</label>
+        <p><label>¿Cual es tu correo electrónico?</label></p>
         <input type="text" name="email" placeholder="Dirección de correo">
         <br>
         <br>
-        <label>Confirma tu correo electrónico</label>
+        <p><label>Confirma tu correo electrónico</label></p>
         <input type="text" name="cemail" placeholder="Confirme su dirección de correo">
         <br>
         <br>
-        <label>¿Cómo te llamamos?</label>
+        <p><label>¿Cómo te llamamos?</label></p>
         <input type="text" name="nombre" placeholder="Nombre">
         <br>
         <br>
-        <label>Crea una contraseña</label>
+        <p><label>Crea una contraseña</label></p>
         <input type="password" minlength="8" name="password" placeholder="Contraseña">
         <br>
         <br>
-        <label>Confirma tu contraseña</label>
+        <p><label>Confirma tu contraseña</label></p>
         <input type="password" minlength="8" name="cpassword" placeholder="Confirme su contraseña">
 
         <div>
