@@ -1,0 +1,123 @@
+{
+    "idioma": "English",
+    "idiomas": {
+        "idioma1": "Spanish",
+        "idioma2": "English"
+    },
+    "config": {
+        "confirm_title": "Account Verification - TimerLab",
+        "index_title": "Home - TimerLab",
+        "login_title": "Log in - TimerLab",
+        "overview_title": "Overview - TimerLab",
+        "perfil_title": "My Profile - TimerLab",
+        "signup_title": "Sign up - TimerLab",
+        "verificacion_title": "Verified Account - TimerLab",
+        "cerrar_sesion": "Log out",
+        "idioma": "Language:"
+    },
+    "index":{
+        "bienvenida_h": "Welcome",
+        "bienvenida_m": "Welcome",
+        "bienvenida_o": "Welcome",
+        "perfil": "Go to my profile"
+    },
+    "general": {
+        "saludo": "Hi",
+        "correo": "Email",
+        "fecha_reg": "Sign up date",
+        "tipo_cuenta": "Account type",
+        "tipo_ambos": "Worker and Student",
+        "tipo_trabajador": "Worker",
+        "tipo_estudiante": "Student",
+        "edit_perf": "Edit profile"
+    },
+    "perfil": {
+        "saludo": "'s Profile",
+        "foto_perfil": "Profile picture:",
+        "añadir_foto": "Add profile picture",
+        "actualizar_foto": "Update profile picture",
+        "nombre": "Name",
+        "tipo_user": "User type",
+        "tipo_user_ambos": "Both",
+        "tipo_user_trabajador": "Worker",
+        "tipo_user_estudiante": "Student",
+        "actualizar_datos": "Update data",
+        "volver_overview": "Back to overview",
+        "alerta": "Data updated successfully!",
+        "sexo": "Gender",
+        "sexo_h": "Male",
+        "sexo_m": "Female",
+        "sexo_o": "Others"
+    },
+    "registro":{
+        "title": "Sign Up",
+        "crear_correo": "What is your email?",
+        "place_crear_correo": "Email address",
+        "place_conf_correo": "Confirm your email address",
+        "conf_correo": "Confirm your email",
+        "crear_nombre": "What do we call you?",
+        "place_crear_nombre": "Name",
+        "crear_pass": "Create a password",
+        "place_crear_pass": "Password",
+        "conf_pass": "Confirm your password",
+        "place_conf_pass": "Confirm password",
+        "tipo": "What do you do?",
+        "tipo_estudiante": "Student",
+        "tipo_trabajador": "Worker",
+        "tipo_ambos": "Both",
+        "sexo": "Enter your gender",
+        "sexo_m": "Male",
+        "sexo_f": "Female",
+        "sexo_o": "Other",
+        "boton_reg": "Sign up",
+        "cuenta_si": "Already have an account?",
+        "log_in": "Log in",
+        "errores": {
+            "nom_vacio": "The name can't be empty!",
+            "pass_vacia_corta": "The password cannot be empty or have less than 8 characters!",
+            "pass_distintas": "Password do not match!",
+            "correo_en_uso": "The email is already in use!",
+            "correo_invalido": "Introduce a valid email!",
+            "correos_distintos": "Emails do not match!",
+            "elegir_tipo": "You have to choose a type of account!. Ex: Student, Worker or Both",
+            "elegir_sexo": "Please indicate your gender"
+        },
+        "correcto": {
+            "registro_correcto": "You have registered successfully! Please check your mailbox and verify your account before logging in."
+        }
+    },
+    "login":{
+        "title": "Log in",
+        "correo": "Email",
+        "pass": "Password",
+        "place_correo": "Email address",
+        "place_pass": "Password",
+        "boton_log": "Log in",
+        "cuenta_no": "Don't you have an account?",
+        "sign_up": "Sign up",
+        "errores": {
+            "correo_no_regis": "The email is not registered, please register first to log in",
+            "correo_valido": "Enter a valid email!",
+            "pass_incorrecta": "Incorrect password, please try again",
+            "cuenta_no_verif": "The account is not verified. Please check the email and verify it before logging in"
+        }
+    },
+    "envio_mail":{
+        "subject": "Verify your account in TimerLab!",
+        "codigo_verif": "Your verification code is:",
+        "enlace": "Go to the following link to verify your account:"
+
+    },
+    "verificacion":{
+        "verify_ok": "Account verified successfully, you can now",
+        "log_in": "log in!",
+        "verify_error": "There was an error verifying the account, please try again"
+    },
+    "confirmacion":{
+        "verify_acc": "Verify Account",
+        "cod_verify": "Introduce your verification code",
+        "cod_verify_ej": "Ex: 7654321",
+        "boton_verify": "Verify"
+    }
+}
+

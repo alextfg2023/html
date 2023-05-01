@@ -1,16 +1,18 @@
 <?php
+session_start();
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 
 require 'PHPMailer/Exception.php';
 require 'PHPMailer/PHPMailer.php';
 require 'PHPMailer/SMTP.php';
+include '../idiomas/idiomas.php';
 
-$codigo = rand(10000,99999);
+$codigo = rand(100000,9999999);
 
 $nombre = htmlentities($_POST['nombre']);
 $email = htmlentities($_POST['email']);
-$subject = 'Verfica tu cuenta en TimerLab!';
+$subject = $palabras['envio_mail']['subject'];
 $mensaje = '
 <html>
     <head>
@@ -18,10 +20,10 @@ $mensaje = '
         </title>
     </head>
     <body>
-        <p>Tu codigo de verificación es:</p>
+        <p>'.$palabras['envio_mail']['codigo_verif'].'</p>
         <h2>'.$codigo.'</h2>
         <p>
-            Ve al siguiente enlace para verificar tu cuenta: <a href="https://timerlab.es/es/confirm.php?email='.$email.'">https://timerlab.es/es/confirm.php?email='.$email.'</a>
+        '.$palabras['envio_mail']['enlace'].' '.'<a href="https://timerlab.es/confirm.php?email='.$email.'">https://timerlab.es/confirm.php?email='.$email.'</a>
         </p>
     </body>
 </html>';

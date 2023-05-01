@@ -1,0 +1,122 @@
+{
+    "idioma": "Español",
+    "idiomas": {
+        "idioma1": "Español",
+        "idioma2": "Inglés"
+    },
+    "config": {
+        "confirm_title": "Verifiación de cuenta - TimerLab",
+        "index_title": "Home - TimerLab",
+        "login_title": "Login - TimerLab",
+        "overview_title": "General - TimerLab",
+        "perfil_title": "Mi Perfil - TimerLab",
+        "signup_title": "Registro - TimerLab",
+        "verificacion_title": "Cuenta Verificada - TimerLab",
+        "cerrar_sesion": "Cerrar sesión",
+        "idioma": "Idioma:"
+    },
+    "index":{
+        "bienvenida_h": "Bienvenido",
+        "bienvenida_m": "Bienvenida",
+        "bienvenida_o": "Bienvenid@",
+        "perfil": "Ir a mi perfil"
+    },
+    "general": {
+        "saludo": "Hola",
+        "correo": "Correo electronico",
+        "fecha_reg": "Fecha de registro",
+        "tipo_cuenta": "Tipo de cuenta",
+        "tipo_ambos": "Trabajador y Estudiante",
+        "tipo_trabajador": "Trabajador",
+        "tipo_estudiante": "Estudiante",
+        "edit_perf": "Editar perfil"
+    },
+    "perfil": {
+        "saludo": "Perfil de",
+        "foto_perfil": "Foto de perfil:",
+        "añadir_foto": "Añadir foto de perfil",
+        "actualizar_foto": "Actualizar foto de perfil",
+        "nombre": "Nombre",
+        "tipo_user": "Tipo de usuario",
+        "tipo_user_ambos": "Ambos",
+        "tipo_user_trabajador": "Trabajador",
+        "tipo_user_estudiante": "Estudiante",
+        "actualizar_datos": "Actualizar datos",
+        "volver_overview": "Voler a general",
+        "alerta": "Datos actualizados correctamente!",
+        "sexo": "Sexo",
+        "sexo_h": "Hombre",
+        "sexo_m": "Mujer",
+        "sexo_o": "Otros"
+    },
+    "registro":{
+        "title": "Registrate",
+        "crear_correo": "¿Cual es tu correo electrónico?",
+        "place_crear_correo": "Dirección de correo",
+        "place_conf_correo": "Confirme su dirección de correo",
+        "conf_correo": "Confirma tu correo electrónico",
+        "crear_nombre": "¿Cómo te llamamos?",
+        "place_crear_nombre": "Nombre",
+        "crear_pass": "Crea una contraseña",
+        "place_crear_pass": "Contraseña",
+        "conf_pass": "Confirma tu contraseña",
+        "place_conf_pass": "Confirme su contraseña",
+        "tipo": "¿A que te dedicas?",
+        "tipo_estudiante": "Estudiante",
+        "tipo_trabajador": "Trabajador",
+        "tipo_ambos": "Ambos",
+        "sexo": "Introduce tu sexo:",
+        "sexo_m": "Hombre",
+        "sexo_f": "Mujer",
+        "sexo_o": "otros",
+        "boton_reg": "Registrarse",
+        "cuenta_si": "¿Ya tienes una cuenta?",
+        "log_in": "Inicia sesión",
+        "errores": {
+            "nom_vacio": "El nombre no puede estar vacio!",
+            "pass_vacia_corta": "La contraseña no puede estar vacia ni tener menos de 8 caracteres!",
+            "pass_distintas": "Las contraseñas no coinciden!",
+            "correo_en_uso": "El correo ya está en uso!",
+            "correo_invalido": "Introduce un correo valido!",
+            "correos_distintos": "Los correos introducidos no coinciden!",
+            "elegir_tipo": "Debes elegir un tipo de cuenta!. Ej: Estudiante, Trabajador o Ambos",
+            "elegir_sexo": "Por favor indica tu sexo."
+        },
+        "correcto": {
+            "registro_correcto": "Te has registrado correctamente! Por favor revisa tu bandeja de correo y verifica tu cuenta antes de iniciar sesión"
+        }
+    },
+    "login":{
+        "title": "Inicia Sesión",
+        "correo": "Correo electronico",
+        "pass": "Contraseña",
+        "place_correo": "Dirección de correo",
+        "place_pass": "Contraseña",
+        "boton_log": "Iniciar sesión",
+        "cuenta_no": "¿No tienes cuenta?",
+        "sign_up": "Registrate",
+        "errores": {
+            "correo_no_regis": "El correo no está registrado, por favor registrate primero para iniciar sesión",
+            "correo_valido": "Introduce un correo valido!",
+            "pass_incorrecta": "Contraseña incorrecta, por favor intentalo de nuevo",
+            "cuenta_no_verif": "La cuenta no está verificada. Por favor revisa el correo y verificala antes de iniciar sesión"
+        }
+    },
+    "envio_mail":{
+        "subject": "Verfica tu cuenta en TimerLab!",
+        "codigo_verif": "Tu codigo de verificación es:",
+        "enlace": "Ve al siguiente enlace para verificar tu cuenta:"
+
+    },
+    "verificacion":{
+        "verify_ok": "Cuenta verificada correctamente, ya puedes",
+        "log_in": "iniciar sesión!",
+        "verify_error": "Hubo un error al verificar la cuenta, por favor intentalo de nuevo"
+    },
+    "confirmacion":{
+        "verify_acc": "Verificar cuenta",
+        "cod_verify": "Introduce tu codigo de verificación",
+        "cod_verify_ej": "Ej: 7654321",
+        "boton_verify": "Verificar"
+    }
+}
