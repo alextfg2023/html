@@ -5,7 +5,7 @@
         header("Location: index.php");
     }
 
-    include './idiomas/idiomas.php'; 
+    include '../idiomas/idiomas.php'; 
 
 ?>
 <!DOCTYPE html>

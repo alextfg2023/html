@@ -1,5 +1,5 @@
 <?php
-    include '../idiomas/idiomas2.php';
+    include '../idiomas/idiomas.php';
 ?>
 <html>
     <head>

@@ -3,10 +3,10 @@
     session_start();
 
     if(!isset($_SESSION['SESSION_EMAIL'])){
-        header("Location: index.php");
+        header("Location: home.php");
     }
 
-    include './idiomas/idiomas.php';
+    include '../idiomas/idiomas.php';
 
 ?>
 <!DOCTYPE html>
@@ -22,7 +22,7 @@
 <body>
 <?php
 if(isset($_GET['id'])){
-    include "./bbdd.php";
+    include "bbdd.php";
 
     $query = $conn->query("SELECT * FROM usuarios WHERE id = '{$_GET['id']}'");
 

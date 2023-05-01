@@ -1,6 +1,6 @@
 <?php
     session_start();
-    include './idiomas/idiomas.php'; 
+    include '../idiomas/idiomas.php'; 
 ?>
 <!DOCTYPE html>
 <html>
@@ -8,67 +8,18 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <link rel="stylesheet" href="../assets/css/registro.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Ubuntu+Condensed&display=swap" rel="stylesheet">
     <title><?php echo $palabras['config']['signup_title'];?></title>
-    <style>
-        body{
-            background-color: #264673;
-            box-sizing: border-box;
-            font-family: 'Ubuntu Condensed', sans-serif;
-            height: 100%;
-            overflow: hidden;
-        }
-
-        .form_reg{
-            background-color: white;
-            padding: 10px;
-            position: fixed;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width:410px;
-        }
-
-        input[type=text], input[type=password]{
-            font-family: 'Ubuntu Condensed', sans-serif;
-            padding: 10px;
-            width: 380px;
-        }
-
-        input[type="submit"]{
-            font-family: 'Ubuntu Condensed', sans-serif;
-            border: 0;
-            background-color: #ED8824;
-            padding: 10px 20px;
-            cursor: pointer;
-        }
-
-        .error{
-            background-color: #FF9185;
-            font-size: 13px;
-            padding: 10px;
-            padding-left: 15px;
-        }
-
-        .correcto{
-            background-color: #A0DEA7;
-            font-size: 13px;
-            padding: 10px;
-            padding-left: 15px;
-        }
-        .inputs{
-            margin-left: 6px;
-        }
-    </style>
 </head>
 <body>
     <div class="form_reg">
         <form method="POST" action="" enctype="multipart/form-data">
             <?php
 
-            include './bbdd.php';
+            include 'bbdd.php';
 
             $sexo = '';
             $tipo = '';
@@ -149,7 +100,7 @@
                 }else{
 
                     echo '<div class="correcto">'.$palabras['registro']['correcto']['registro_correcto'].'</div>';
-                    include "./mail/mail.php";
+                    include "../mail/mail.php";
 
                     if($enviado){
 
@@ -226,7 +177,7 @@
         </form>
     </div>
     <?php
-        include './complementos/footer.php';
+        include '../complementos/footer.php';
     ?>
 </body>
 </html>

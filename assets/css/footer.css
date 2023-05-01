@@ -16,10 +16,10 @@
     border-radius: 5px;
     border: solid 1px white;
     color: white;
-    background-color: #152030;
+    background-color: rgba(21, 32, 48, 0.5);
 }
 .pie{
-    background-color: #152030;
+    background-color: rgba(20, 32, 48, 0.5);
     padding: 1em 0;
     position: fixed;
     bottom: 0;

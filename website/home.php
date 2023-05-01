@@ -1,13 +1,13 @@
 <?php
 
-include './bbdd.php';
+include 'bbdd.php';
 session_start();
 
 if(!isset($_SESSION['SESSION_EMAIL'])){
-        header("Location: login.php");
+        header("Location: home.php");
     }
 
-    include './idiomas/idiomas.php'; 
+    include '../idiomas/idiomas.php'; 
 
 
 $query = mysqli_query($conn, "SELECT * FROM usuarios WHERE email = '{$_SESSION['SESSION_EMAIL']}'");
@@ -40,7 +40,7 @@ if (mysqli_num_rows($query) > 0) {
     <br>
     <br>
 <?php
-include './idiomas/lista_idiomas.php';
+include '../idiomas/lista_idiomas.php';
 ?>
 </body>
 </html>

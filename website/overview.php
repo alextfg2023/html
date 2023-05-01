@@ -2,10 +2,10 @@
     
     session_start();
     if(!isset($_SESSION['SESSION_EMAIL'])){
-        header("Location: index.php");
+        header("Location: home.php");
     }
 
-    include './idiomas/idiomas.php'; 
+    include '../idiomas/idiomas.php'; 
 
 ?>
 <!DOCTYPE html>
@@ -19,7 +19,7 @@
 <body>
 <?php
 if(isset($_GET['id'])){
-    include './bbdd.php';
+    include 'bbdd.php';
 
     $query = $conn->query("SELECT * FROM usuarios WHERE id = '{$_GET['id']}'");
 
@@ -56,10 +56,10 @@ if(isset($_GET['id'])){
     <?php
     }
     ?>
-    <p><a href="./profile.php?id=<?php echo $id;?>"><?php echo $palabras['general']['edit_perf']?></a></p>
-    <p><a href="./logout.php"><?php echo $palabras['config']['cerrar_sesion']?></a></p>
+    <p><a href="profile.php?id=<?php echo $id;?>"><?php echo $palabras['general']['edit_perf']?></a></p>
+    <p><a href="logout.php"><?php echo $palabras['config']['cerrar_sesion']?></a></p>
     <?php
-        include './idiomas/lista_idiomas.php';
+        include '../idiomas/lista_idiomas.php';
     }     
     ?>
 

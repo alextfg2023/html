@@ -5,10 +5,10 @@ if(isset($_GET['email'])){
     $email = $_GET['email'];
     
 }else{
-    header('Location: ./login.php');
+    header('Location: login.php');
 }
 
-include './idiomas/idiomas.php'; 
+include '../idiomas/idiomas.php'; 
 
 ?>
 
@@ -31,7 +31,7 @@ include './idiomas/idiomas.php';
     </form>
     <br>
     <?php
-        include './idiomas/lista_idiomas.php';
+        include '../idiomas/lista_idiomas.php';
     ?>
 </body>
 </html>
