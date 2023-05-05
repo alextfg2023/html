@@ -34,6 +34,10 @@
             $errores = true;
 
         }else{
+            if(isset($_POST['recordar'])){
+                setcookie("identificador",$_POST['identificador'], 5);
+                setcookie("password", $_POST['password'], 5);
+            }
 
             $_SESSION['id'] = $id;
             $_SESSION['SESSION_EMAIL'] = $identificador;

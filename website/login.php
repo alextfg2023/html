@@ -35,19 +35,21 @@
       <form action="" method="post" class="form_log">
          <div class="user-details">
             <div class="input-box">
-               <input type="text" name="identificador" placeholder="<?php echo $palabras['login']['place_identificador'];?>" required>
+               <input type="text" name="identificador" placeholder="<?php echo $palabras['login']['place_identificador'];?>" 
+               value="<?php if ($_COOKIE['identificador'] == '') { echo $_POST['identificador'];} else{ echo $_COOKIE['identificador']; } ?>" required>
                <i class="uil uil-envelope-alt email"></i>
             </div>
             <div class="input-box">
-               <input type="password" name="password" placeholder="<?php echo $palabras['login']['place_pass'];?>" required>
+               <input type="password" name="password" placeholder="<?php echo $palabras['login']['place_pass'];?>" 
+               value="<?php if ($_COOKIE['password'] == '') { echo $_POST['password'];} else{ echo $_COOKIE['password']; } ?>" required>
                <i class="uil uil-lock password"></i>
                <i class="uil uil-eye-slash pw_hide"></i>
             </div>
             <br>
             <div class="recordar">
               <span class="checkbox">
-                <input type="checkbox" id="check" />
-                <label for="check"><?php echo $palabras['login']['recordar'];?></label>
+                <input type="checkbox" name="recordar" id="recordar" <?php if(isset($_COOKIE['usuario_login'])){?> checked <?php }?>/>
+                <label for="recordar"><?php echo $palabras['login']['recordar'];?></label>
               </span>
               <a href="../password.reset/pass_reset.php" class="forgot_pw"><?php echo $palabras['login']['pass_olvidada'];?></a>
             </div>
