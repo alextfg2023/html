@@ -19,7 +19,7 @@
 <body>
 <?php
 if(isset($_GET['id'])){
-    include 'bbdd.php';
+    include '../complementosPHP/bbdd.php';
 
     $query = $conn->query("SELECT * FROM usuarios WHERE id = '{$_GET['id']}'");
 
@@ -30,13 +30,14 @@ if(isset($_GET['id'])){
     $tipo = $row['tipo'];
     $email = $row['email'];
     $fecha_reg = $row['fecha_registro'];
+    $username = $row['username'];
 
     
 
 }
     if($_GET['id'] == $id){
 ?>
-    <p><?php echo $palabras['general']['saludo']." ".$nombre;?></p>
+    <p><?php echo $palabras['general']['saludo']." ".$username;?></p>
     <p><?php echo $palabras['general']['correo']." ".$email; ?></p>
     <p><?php echo $palabras['general']['fecha_reg']." ".$fecha_reg; ?></p>
     <?php if($tipo == 'ambos'){
@@ -57,7 +58,7 @@ if(isset($_GET['id'])){
     }
     ?>
     <p><a href="profile.php?id=<?php echo $id;?>"><?php echo $palabras['general']['edit_perf']?></a></p>
-    <p><a href="logout.php"><?php echo $palabras['config']['cerrar_sesion']?></a></p>
+    <p><a href="../complementosPHP/logout.php"><?php echo $palabras['config']['cerrar_sesion']?></a></p>
     <?php
         include '../idiomas/lista_idiomas.php';
     }     

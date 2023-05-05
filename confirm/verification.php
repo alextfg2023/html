@@ -1,7 +1,7 @@
 <?php
 session_start();
 include '../idiomas/idiomas.php'; 
-include "bbdd.php";
+include "../complementosPHP/bbdd.php";
 $email = $_POST['email'];
 $codigo = $_POST['codigo'];
 
@@ -9,7 +9,7 @@ $res = $conn->query("SELECT * FROM usuarios WHERE email = '$email' AND codigo = 
 
 if(mysqli_num_rows($res) > 0){
 
-    echo $palabras['verificacion']['verify_ok'].' '."<a href='login.php'>".$palabras['verificacion']['log_in']."</a>";
+    echo $palabras['verificacion']['verify_ok'].' '."<a href='../website/login.php'>".$palabras['verificacion']['log_in']."</a>";
     
     $conn->query("UPDATE usuarios SET confirmado = 'si' WHERE email = '$email'");
 

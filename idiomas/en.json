@@ -5,8 +5,9 @@
         "idioma2": "English"
     },
     "config": {
+        "index_title": "TimerLab",
         "confirm_title": "Account Verification - TimerLab",
-        "index_title": "Home - TimerLab",
+        "home_title": "Home - TimerLab",
         "login_title": "Log in - TimerLab",
         "overview_title": "Overview - TimerLab",
         "perfil_title": "My Profile - TimerLab",
@@ -16,9 +17,28 @@
         "idioma": "Language:"
     },
     "index":{
-        "bienvenida_h": "Welcome",
-        "bienvenida_m": "Welcome",
-        "bienvenida_o": "Welcome",
+        "logo": "TimerLab",
+        "logo_inicial": "TimerLab",
+        "nav_bar_1": "Home",
+        "nav_bar_2": "How it works?",
+        "boton_reg": "Sign up",
+        "boton_o": "Or",
+        "boton_log": "Log in",
+        "texto_inicio_p1": "Do you work, study, or both and want to organize yourself?",
+        "texto_inicio_p2": "TimerLab allows you to create your totally personalized schedule in your study/work hours so that you can organize the most complicated tasks.",
+        "texto_inicio_p3": "Sign up now and create your first schedule!",
+        "funcionamiento": "How does TimerLab works?",
+        "explicacion_funcionamiento": "TimerLab allows you to create a schedule based on your needs. To create it, follow the steps below",
+        "paso_1": "Signing up",
+        "paso_1_descrip": "First you must sign up in TimerLab and there select if you are a Student, Worker or Both.",
+        "paso_2": "Creating Schedules",
+        "paso_2_descrip": "Once you have registered you can go to the 'Schedules' section and there you can create your first personalized schedule!",
+        "paso_3": "View Schedules",
+        "paso_3_descrip": "After creating your first schedule, you can view it as many times as you want from the 'My schedules' section",
+        "primer_horario": "Create your first schedule"
+    },
+    "home":{
+        "bienvenida": "Welcome",
         "perfil": "Go to my profile"
     },
     "general": {
@@ -51,19 +71,21 @@
     },
     "registro":{
         "title": "Sign Up",
+        "crear_user": "What nickname do we give you?",
+        "place_crear_user": "Ex: Test1234",
         "crear_correo": "What is your email?",
         "place_crear_correo": "Email address",
         "place_conf_correo": "Confirm your email address",
         "conf_correo": "Confirm your email",
-        "crear_nombre": "What do we call you?",
+        "crear_nombre": "What's your name'?",
         "place_crear_nombre": "Name",
         "crear_pass": "Create a password",
         "place_crear_pass": "Password",
         "conf_pass": "Confirm your password",
         "place_conf_pass": "Confirm password",
         "tipo": "What do you do?",
-        "tipo_estudiante": "Student",
-        "tipo_trabajador": "Worker",
+        "tipo_estudiante": "Study",
+        "tipo_trabajador": "Work",
         "tipo_ambos": "Both",
         "sexo": "Enter your gender",
         "sexo_m": "Male",
@@ -73,6 +95,9 @@
         "cuenta_si": "Already have an account?",
         "log_in": "Log in",
         "errores": {
+            "username_en_uso": "The username is already in use!",
+            "username_vacio_invalido": "The username cannot be empty!",
+            "username_invalido": "The username cannot contain this special characters!",
             "nom_vacio": "The name can't be empty!",
             "pass_vacia_corta": "The password cannot be empty or have less than 8 characters!",
             "pass_distintas": "Password do not match!",
@@ -88,23 +113,24 @@
     },
     "login":{
         "title": "Log in",
-        "correo": "Email",
+        "identificador": "Enter your email or username",
         "pass": "Password",
-        "place_correo": "Email address",
+        "place_identificador": "Email address or username",
         "place_pass": "Password",
         "boton_log": "Log in",
         "cuenta_no": "Don't you have an account?",
         "sign_up": "Sign up",
         "errores": {
-            "correo_no_regis": "The email is not registered, please register first to log in",
-            "correo_valido": "Enter a valid email!",
+            "usuario_no_regis": "The user requested is not registered, please register first to log in",
+            "usuario_valido": "The emaill/username field cannot be empty!",
             "pass_incorrecta": "Incorrect password, please try again",
             "cuenta_no_verif": "The account is not verified. Please check the email and verify it before logging in"
         }
     },
     "envio_mail":{
+        "saludo": "Hey",
         "subject": "Verify your account in TimerLab!",
-        "codigo_verif": "Your verification code is:",
+        "codigo_verif": "your verification code is:",
         "enlace": "Go to the following link to verify your account:"
 
     },

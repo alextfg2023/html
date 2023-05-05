@@ -21,7 +21,7 @@
 <body>
 <?php
 if(isset($_GET['id'])){
-    include "./bbdd.php";
+    include "../complementosPHP/bbdd.php";
 
     $query = $conn->query("SELECT * FROM usuarios WHERE id = '{$_GET['id']}'");
 
@@ -34,13 +34,14 @@ if(isset($_GET['id'])){
     $pass = $row['password'];
     $email = $row['email'];
     $sexo = $row['sexo'];
+    $username = $row['username'];
 
 }
 
 
 
 if (isset($_POST['actualizar_foto'])) {
-    $ruta = './profilepictures/'.md5($id).'/';
+    $ruta = '../profilepictures/'.md5($id).'/';
     $fichero = $ruta.basename($_FILES['imagen']['name']);
     $directorio = $ruta.md5(basename($_FILES['imagen']['name'])).'jpg';
     if(!file_exists($ruta)){
@@ -48,7 +49,7 @@ if (isset($_POST['actualizar_foto'])) {
     }
     if(move_uploaded_file($_FILES['imagen']['tmp_name'], $directorio)){
 
-        require ('./bbdd.php');
+        require ('../complementosPHP/bbdd.php');
 
         if ($imagen != '') {
             unlink($imagen);
@@ -72,7 +73,7 @@ if(isset($_POST['actualizar_datos'])){
         if ($_SESSION['lang'] == 'en') {
             echo $nombre.$palabras['perfil']['saludo'];
         } else {
-            echo $palabras['perfil']['saludo']." ".$nombre;
+            echo $palabras['perfil']['saludo']." ".$username;
         }
 ?>
     <p><?php echo $palabras['perfil']['foto_perfil'] ?><img src="<?php echo $imagen; ?>" width="100"></p>
@@ -85,7 +86,8 @@ if(isset($_POST['actualizar_datos'])){
         <?php } ?>
         <br>
         <br>
-        <label><?php echo $palabras['perfil']['nombre'] ?></label> <input type="text" name="nombre_act" value="<?php echo $nombre;?>" autocomplete="off">
+        <label><?php echo $palabras['perfil']['nombre'] ?></label> 
+        <input type="text" name="nombre_act" value="<?php echo $nombre;?>" autocomplete="off">
         <br>
         <br>
         <label><?php echo $palabras['perfil']['tipo_user'] ?></label>
@@ -135,7 +137,7 @@ if(isset($_POST['actualizar_datos'])){
         <input type="submit" value="<?php echo $palabras['perfil']['actualizar_datos'] ?>" name="actualizar_datos">
     </form>
     <p><a href="./overview.php?id=<?php echo $id; ?>"><?php echo $palabras['perfil']['volver_overview'] ?></a></p>
-    <p><a href="./logout.php"><?php echo $palabras['config']['cerrar_sesion'] ?></a></p>
+    <p><a href="../complementosPHP/logout.php"><?php echo $palabras['config']['cerrar_sesion'] ?></a></p>
 
     <?php
     include './idiomas/lista_idiomas.php';

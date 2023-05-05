@@ -22,7 +22,7 @@
 <body>
 <?php
 if(isset($_GET['id'])){
-    include "bbdd.php";
+    include '../complementosPHP/bbdd.php';
 
     $query = $conn->query("SELECT * FROM usuarios WHERE id = '{$_GET['id']}'");
 

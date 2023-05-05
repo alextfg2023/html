@@ -5,7 +5,7 @@ if(isset($_GET['email'])){
     $email = $_GET['email'];
     
 }else{
-    header('Location: login.php');
+    header('Location: ../website/login.php');
 }
 
 include '../idiomas/idiomas.php'; 
@@ -21,10 +21,10 @@ include '../idiomas/idiomas.php';
     <title><?php echo $palabras['config']['confirm_title'] ?></title>
 </head>
 <body>
-    <form action="./verification.php" method="POST">
+    <form action="verification.php" method="POST">
         <h2><?php echo $palabras['confirmacion']['verify_acc'] ?></h2>
             <label for="c" class="form-label"><?php echo $palabras['confirmacion']['cod_verify'] ?></label>
-            <input type="number" class="form-control" id="codigo" name="codigo" placeholder="<?php echo $palabras['confirmacion']['cod_verify_ej'] ?>">
+            <input type="text" class="form-control" id="codigo" name="codigo" placeholder="<?php echo $palabras['confirmacion']['cod_verify_ej'] ?>">
             <input type="hidden" class="form-control" id="email" name="email" value="<?php echo $email;?>">
                
             <button type="submit" class="btn btn-primary"><?php echo $palabras['confirmacion']['boton_verify'] ?></button>

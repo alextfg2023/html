@@ -10,22 +10,24 @@
 
 body{
     font-family: 'Poppins', sans-serif;
+    width: 100%;
 }
 
 .contenedor{
-    max-width: 98%;
-    margin: 0 auto;
+    max-width: 100%;
+    margin: 0;
 }
 
 .header{
     background-image: linear-gradient(
         rgba(0, 0, 0, 0.7),
         rgba(0, 0, 0, 0.7)),
-        url(../img_test/bg.jpg);
-    background-position: center bottom;
+        url(../img/index/header.png);
+    background-position: center center;
     background-repeat: no-repeat;
     background-size: cover;
-    min-height: 70vh;
+    background-attachment: fixed;
+    min-height: 80vh;
     display: flex;
     align-items: center;
 }
@@ -42,6 +44,7 @@ body{
 
 .logo{
     color: #FFFDFC;
+    padding: 20px;
     font-size: 25px;
     font-weight: 800;
 }
@@ -84,7 +87,6 @@ body{
     font-size: 75px;
     line-height: 80px;
     color: #F9FAFC;
-    text-transform: uppercase;
     margin-bottom: 35px;
 }
 
@@ -96,6 +98,7 @@ body{
 }
 
 .btn-1{
+    border-radius: 5px;
     display: inline-block;
     padding: 11px 35px;
     background-color: #CE967B;
@@ -107,17 +110,17 @@ body{
     background-color: #EBAD8D;
 }
 
-.coffee{
+.funcionamiento{
     padding: 100px 0;
     background-color: #E1E2E6;
     position: relative;
 }
 
-.coffee-content{
+.funcionamiento-content{
     text-align: center;
 }
 
-.coffee-content h2{
+.funcionamiento-content h2{
     font-size: 55px;
     line-height: 70px;
     color: #323337;
@@ -133,27 +136,35 @@ body{
     margin-bottom: 35px;
 }
 
-.coffee-group{
+.funcionamiento-group{
     display: flex;
     justify-content: space-between;
     margin-bottom: 50px;
 }
 
-.coffee-1{
+.funcionamiento-1{
     padding: 0 25px;
 }
 
-.coffee-1 img{
+.img-1{
+    width: 221.8px;
+}
+
+.img-2{
     width: 200px;
 }
 
-.coffee-img{
+.img-3{
+    width: 208.9px;
+}
+
+.funcionamiento-img{
     position: absolute;
     top: 0;
     right: 0;
 }
 
-.coffee-1 h3{
+.funcionamiento-1 h3{
     color: #323337;
     font-size: 20px;
     margin-bottom: 15px;
@@ -275,17 +286,7 @@ p{
     color: #323337;
 }
 
-.footer{
-    padding: 100px 0;
-    background-color: #000000;
-}
-
-.footer-content{
-    display: flex;
-    justify-content: space-between;
-}
-
-link h3{
+.link h3{
     font-size: 18px;
     color: #F9FAFC;
     margin-bottom: 15px;
@@ -300,6 +301,11 @@ link h3{
 
 
 @media(max-width: 991px){
+    .contenedor{
+        max-width: 100%;
+        margin: 0;
+    }
+
     .menu{
         padding: 30px;
     }
@@ -333,15 +339,23 @@ link h3{
         padding: 100px 30px;
     }
 
+    .header-content .btn-1 {
+        display: block;
+        margin-bottom: 10px;
+    }
+    .header-content h1{
+        font-size: 67px;
+    }
+
     .header-content p{
         padding: 0;
     }
 
-    .coffee{
+    .funcionamiento{
         padding: 30px;
     }
 
-    .coffee-content h2{
+    .funcionamiento-content h2{
         padding: 0;
     }
 
@@ -349,12 +363,12 @@ link h3{
         padding: 0;
     }
     
-    .coffee-group{
+    .funcionamiento-group{
         flex-direction: column;
         margin-bottom: 0;
     }
 
-    .coffee-img{
+    .funcionamiento-img{
         display: none;
     }
 
@@ -383,6 +397,10 @@ link h3{
         width: 100%;
         padding: 30px;
         text-align: center;
+    }
+
+    .general-1 h2{
+        font-size: 47px;
     }
 
     .general-2, .general-3{

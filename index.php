@@ -1,3 +1,7 @@
+<?php
+    session_start();
+    include './idiomas/idiomas_index.php';
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,27 +9,27 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="assets/css/index_style.css">
-    <title>Document</title>
+    <title><?php echo $palabras['config']['index_title']?></title>
 </head>
 <body>
     <header class="header">
 
         <div class="menu contenedor">
 
-            <a href = "#" class="logo">Logo</a>
+            <a href = "index.php" class="logo"><?php echo $palabras['index']['logo']?></a>
             <input type="checkbox" id ="menu" />
 
             <label for="menu">
 
-                <img class="menu-icono" src="assets/img_test/menu.png" alt="">
+                <img class="menu-icono" src="assets/img/index/menu.png" alt="">
 
             </label>
             <nav class="navbar">
 
                 <ul>
-                    <li><a href="#">Inicio</a></li>
-                    <li><a href="#">Servicios</a></li>
-                    <li><a href="#">Productos</a></li>
+                    <li><a href="./index.php"><?php echo $palabras['index']['nav_bar_1']?></a></li>
+                    <li><a href="#funcionamiento"><?php echo $palabras['index']['nav_bar_2']?></a></li>
+                    <li><a href="#">PEPEP</a></li>
                     <li><a href="#">Contacto</a></li>
                 </ul>
 
@@ -34,65 +38,63 @@
 
         <div class="header-content contenedor">
 
-            <h1>Spanish coffe</h1>
+            <h1><?php echo $palabras['index']['logo_inicial']?></h1>
             <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. 
-                Atque quas fugiat aut? Repudiandae doloribus fugit nisi 
-                eaque debitis repellendus eos, corporis cum perspiciatis consectetur 
-                modi impedit ipsam aut aliquam itaque!
+                <?php echo $palabras['index']['texto_inicio_p1']?>
             </p>
-            <a href="#" class="btn-1">Información</a>
+            <p>
+                <?php echo $palabras['index']['texto_inicio_p2']?>
+            </p>
+            <p>
+                <?php echo $palabras['index']['texto_inicio_p3']?>
+            </p>
+            <p>
+            <a href="./website/signup.php" class="btn-1"><?php echo $palabras['index']['boton_reg']?></a>
+                <?php echo $palabras['index']['boton_o']?>
+            <a href="./website/login.php" class="btn-1"><?php echo $palabras['index']['boton_log']?></a>
+            </p>
 
         </div>
 
     </header>
 
-    <section class="coffee">
+    <section class="funcionamiento" id="funcionamiento">
 
-        <img class="coffee-img" src="assets/img_test/bg2.png" alt="">
+        <img class="funcionamiento-img" src="assets/img/index/seccion1.png" alt="">
 
-        <div class="coffee-content contenedor">
+        <div class="funcionamiento-content contenedor">
 
-            <h2>Los diferentes tipos de café</h2>
+            <h2><?php echo $palabras['index']['funcionamiento']?></h2>
             <p class="txt-p">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. 
-                A molestias, quos consectetur quas eligendi nisi sed? Nihil placeat 
-                ipsum vero assumenda quisquam eius dignissimos sed, voluptas ratione? 
-                Consequatur, neque molestiae.
+                <?php echo $palabras['index']['explicacion_funcionamiento']?>
             </p>
-            <div class="coffee-group">
+            <div class="funcionamiento-group">
 
-                <div class="coffee-1">
-                    <img src="assets/img_test/c1.png" alt="">
-                    <h3>Cafe lorem</h3>
+                <div class="funcionamiento-1">
+                    <img src="assets/img/index/paso_1.png" alt="" class="img-1">
+                    <h3><?php echo $palabras['index']['paso_1']?></h3>
                     <p>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. 
-                        Atque quas fugiat aut? Repudiandae doloribus fugit nisi 
-                        eaque debitis repellendus eos
+                        <?php echo $palabras['index']['paso_1_descrip']?>
                     </p>
                 </div>
-                <div class="coffee-1">
-                    <img src="assets/img_test/c2.png" alt="">
-                    <h3>Cafe lorem</h3>
+                <div class="funcionamiento-1">
+                    <img src="assets/img/index/paso_2.png" alt="" class="img-2">
+                    <h3><?php echo $palabras['index']['paso_2']?></h3>
                     <p>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. 
-                        Atque quas fugiat aut? Repudiandae doloribus fugit nisi 
-                        eaque debitis repellendus eos
+                        <?php echo $palabras['index']['paso_2_descrip']?>
                     </p>
                 </div>
-                <div class="coffee-1">
-                    <img src="assets/img_test/c3.png" alt="">
-                    <h3>Cafe lorem</h3>
+                <div class="funcionamiento-1">
+                    <img src="assets/img/index/paso_3.png" alt="" class="img-3">
+                    <h3><?php echo $palabras['index']['paso_3']?></h3>
                     <p>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. 
-                        Atque quas fugiat aut? Repudiandae doloribus fugit nisi 
-                        eaque debitis repellendus eos
+                        <?php echo $palabras['index']['paso_3_descrip']?>
                     </p>
                 </div>
 
             </div>
 
-            <a href="#" class="btn-1">Información</a>
+            <a href="./website/signup.php" class="btn-1"><?php echo $palabras['index']['primer_horario']?></a>
 
         </div>
 
@@ -220,48 +222,8 @@
         <a href="#" class="btn-1">Información</a>
 
     </section>
-
-    <footer class="footer">
-
-        <div class="footer-content contenedor">
-
-            <div class="link">
-
-                <h3>Lorem</h3>
-                <ul>
-                    <li><a href="#">Lorem</a></li>
-                    <li><a href="#">Lorem</a></li>
-                    <li><a href="#">Lorem</a></li>
-                    <li><a href="#">Lorem</a></li>
-                </ul>
-
-            </div>
-            <div class="link">
-
-                <h3>Lorem</h3>
-                <ul>
-                    <li><a href="#">Lorem</a></li>
-                    <li><a href="#">Lorem</a></li>
-                    <li><a href="#">Lorem</a></li>
-                    <li><a href="#">Lorem</a></li>
-                </ul>
-
-            </div>
-            <div class="link">
-
-                <h3>Lorem</h3>
-                <ul>
-                    <li><a href="#">Lorem</a></li>
-                    <li><a href="#">Lorem</a></li>
-                    <li><a href="#">Lorem</a></li>
-                    <li><a href="#">Lorem</a></li>
-                </ul>
-
-            </div>
-
-        </div>
-
-    </footer>
-
+    <?php
+        include './complementos/footer.php'
+    ?>
 </body>
 </html>
