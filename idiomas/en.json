@@ -167,16 +167,42 @@
             "error":{
                 "titulo": "Error!",
                 "mensaje": "The email is not registred!",
-                "registrar": "Sign Up now here"
+                "registrar": "You can sign up ",
+                "enlace": "here"
             },
             "correcto":{
                 "titulo": "Email sent successfully!",
                 "mensaje": "Check your mailbox and verify your account to be able to reset the password"
             }
-        }     
-
-
-
+        },
+        "correo_verif":{
+            "titulo": "Reset Code",
+            "codigo": "Introduce your reset code",
+            "boton": "Send",
+            "error": {
+                "titulo": "Error!",
+                "mensaje1": "The code entered is incorrect or expired!",
+                "mensaje2": "Request for a new one ",
+                "enlace": "now"
+            }
+        },
+        "cambiar_pass":{
+            "titulo": "Reset Password",
+            "boton": "Reset",
+            "new_pass": "Introduce new password",
+            "cnew_pass":  "Confirm new password",
+            "correcto":{
+                "titulo": "Password changed successfully!",
+                "mensaje1": "You can now ",
+                "enlace": "log in!"
+            },
+            "error":{
+                "titulo": "Error!",
+                "mensaje1": "Passwords do not match!",
+                "mensaje2": "The password must be different from the previous one!",
+                "boton": "Retry"
+            }
+        }
     }
 }
 

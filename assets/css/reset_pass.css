@@ -222,7 +222,7 @@ form .error-button input:hover{
 
 .error-message .a{
     text-decoration: none;
-    color: rgb(133, 133, 133);
+    color: white;
 }
 
 .error-message .a:hover{
@@ -261,7 +261,7 @@ form .error-button input:hover{
 
 .correct-message .a{
     text-decoration: none;
-    color: rgb(133, 133, 133);
+    color: white;
 }
 
 .correct-message .a:hover{

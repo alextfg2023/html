@@ -53,7 +53,7 @@
                 <br>
                 <p><?php echo $palabras['recuperar_pass']['conf_correo']['error']['mensaje'] ?></p>
                 <br>
-                <p><a class="a" href="../website/signup.php"><?php echo $palabras['recuperar_pass']['conf_correo']['error']['registrar']?></a></p>
+                <p><?php echo $palabras['recuperar_pass']['conf_correo']['error']['registrar']?><b><a class="a" href="../website/signup.php"><?php echo $palabras['recuperar_pass']['conf_correo']['error']['enlace']?></b></a></p>
             </div>
         </div>
     <?php } elseif($enviado){ ?> 

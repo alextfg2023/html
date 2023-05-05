@@ -52,16 +52,16 @@
 <body>
 <?php if($correcto){ ?>
     <div class="contenedor">
-    <div class="title">Restablecer Password</div>
+    <div class="title"><?php echo $palabras['recuperar_pass']['cambiar_pass']['titulo'] ?></div>
         <form action="cambiar_contraseña.php" method="POST">
             <div class="password-change">
                 <div class="input-box-new">
-                    <input type="password"name="password" placeholder="Introducir nueva contraseña" minlength="8" required>
+                    <input type="password"name="password" placeholder="<?php echo $palabras['recuperar_pass']['cambiar_pass']['new_pass'] ?>" minlength="8" required>
                     <i class="uil uil-lock password"></i>
                     <i class="uil uil-eye-slash pw_hide"></i>
                 </div>
                 <div class="input-box-new">
-                    <input type="password"name="cpassword" placeholder="Confirmar nueva contraseña" minlength="8" required>
+                    <input type="password"name="cpassword" placeholder="<?php echo $palabras['recuperar_pass']['cambiar_pass']['cnew_pass'] ?>" minlength="8" required>
                     <i class="uil uil-lock password"></i>
                     <i class="uil uil-eye-slash pw_hide"></i>
                     <input type="hidden" name="email" value="<?php echo $email ?>">
@@ -70,17 +70,17 @@
                 </div>
             </div>
             <div class="button">
-                <input type="submit" name="submit" value="Restablecer"/>
+                <input type="submit" name="submit" value="<?php echo $palabras['recuperar_pass']['cambiar_pass']['boton'] ?>"/>
             </div>
         </form>
         <?php }else{ ?>
             <div class="error-container">
                 <div class="error-message">
-                    <h1>Error</h1>
+                    <h1><?php echo $palabras['recuperar_pass']['correo_verif']['error']['titulo'] ?></h1>
                     <br>
-                    <p>El código introducido es incorrecto o está vencido!</p>
+                    <p><?php echo $palabras['recuperar_pass']['correo_verif']['error']['mensaje1'] ?></p>
                     <br>
-                    <p>Solicita un codigo nuevo <a class="a" href="../password.reset/pass_reset.php">aquí</a></p>
+                    <p><?php echo $palabras['recuperar_pass']['correo_verif']['error']['mensaje2'] ?><a class="a" href="../password.reset/pass_reset.php"><b><?php echo $palabras['recuperar_pass']['correo_verif']['error']['enlace'] ?></b></a></p>
                 </div>
             </div>
         <?php } ?>

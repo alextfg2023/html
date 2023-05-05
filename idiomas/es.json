@@ -167,11 +167,41 @@
             "error":{
                 "titulo": "Error!",
                 "mensaje": "El correo no está registrado",
-                "registrar": "Registrate aquí ahora"
+                "registrar": "Puedes registrarte ",
+                "enlace": "aquí"
             },
             "correcto":{
                 "titulo": "Correo enviado correctamente!",
                 "mensaje": "Revisa tu bandeja de correo y verifica tu cuenta para poder restablecer la contraseña"
+            }
+        },
+        "correo_verif":{
+            "titulo": "Codigo de restablecimiento",
+            "codigo": "Introduce tu codigo de reseteo",
+            "boton": "Enviar",
+            "error": {
+                "titulo": "Error!",
+                "mensaje1": "El código introducido es incorrecto o está caducado!",
+                "mensaje2": "Solicita uno nuevo ",
+                "enlace": "ahora"
+
+            }
+        },
+        "cambiar_pass":{
+            "titulo": "Restablecer Contraseña",
+            "boton": "Restablecer",
+            "new_pass": "Introducir nueva contraseña",
+            "cnew_pass":  "Confirmar nueva contraseña",
+            "correcto":{
+                "titulo": "Contraseña cambiada correctamente!",
+                "mensaje1": "Ahora puedes ",
+                "enlace": "iniciar sesión!"
+            },
+            "error":{
+                "titulo": "Error!",
+                "mensaje1": "Las contraseñas no coinciden!",
+                "mensaje2": "La contraseña debe ser distinta a la anterior!",
+                "boton": "Reintentar"
             }
         }
 
