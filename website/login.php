@@ -14,14 +14,25 @@
    <title><?php echo $palabras['config']['login_title'];?></title>
 </head>
 <body>
+   <?php
+      include '../complementosPHP/bbdd.php';
+      include '../complementosPHP/codigo_iniciar_sesion.php';
+      if($errores){
+   ?> 
+   <div class="error-container">
+        <div class="error-message">
+            <h1><?php echo $palabras['login']['errores']['titulo_error'] ?></h1>
+            <br>
+            <p><?php for ($i=0; $i < count($campos); $i++) { echo '<li class="info">'.$campos[$i].'</li>'; } ?></p>
+            <br>
+            <p class="a"><a class="a" href="login.php">Volver</a></p>
+        </div>
+   </div>
+   <?php }else{?>
    <div class="contenedor">
       <div class="title"><?php echo $palabras['login']['title'] ?></div>
       <br>
       <form action="" method="post" class="form_log">
-         <?php
-            include '../complementosPHP/bbdd.php';
-            include '../complementosPHP/codigo_iniciar_sesion.php';
-         ?>
          <div class="user-details">
             <div class="input-box">
                <input type="text" name="identificador" placeholder="<?php echo $palabras['login']['place_identificador'];?>" required>
@@ -36,9 +47,9 @@
             <div class="recordar">
               <span class="checkbox">
                 <input type="checkbox" id="check" />
-                <label for="check">Remember me</label>
+                <label for="check"><?php echo $palabras['login']['recordar'];?></label>
               </span>
-              <a href="../password.reset/pass_reset.php" class="forgot_pw">Forgot password?</a>
+              <a href="../password.reset/pass_reset.php" class="forgot_pw"><?php echo $palabras['login']['pass_olvidada'];?></a>
             </div>
          </div>
          <div class="button">
@@ -57,5 +68,6 @@
       </span> 
    </div>
    <script src="../complementosJS/show_pass.js"></script> 
+   <?php }?>
 </body>
 </html>

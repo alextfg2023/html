@@ -95,6 +95,7 @@
         "cuenta_si": "¿Ya tienes una cuenta?",
         "log_in": "Inicia sesión",
         "errores": {
+            "titulo_error": "Error al registrarse!",
             "username_en_uso": "El nombre de usuario ya está en uso!",
             "username_vacio_invalido": "El usuario no puede estar vacio!",
             "username_invalido": "El usuario no puede contener caracteres especiales!",
@@ -105,22 +106,25 @@
             "correo_invalido": "Introduce un correo valido!",
             "correos_distintos": "Los correos introducidos no coinciden!",
             "elegir_tipo": "Debes elegir un tipo de cuenta. Ej: Estudiante, Trabajador o Ambos",
-            "elegir_sexo": "Por favor indica tu sexo."
+            "elegir_sexo": "Por favor indica tu sexo.",
+            "reintentar_registro": "Reintentar registro"
         },
         "correcto": {
-            "registro_correcto": "Te has registrado correctamente! Por favor revisa tu bandeja de correo y verifica tu cuenta antes de iniciar sesión"
+            "registro_correcto": "Por favor revisa tu bandeja de correo y verifica tu cuenta antes de iniciar sesión"
         }
     },
     "login":{
         "title": "Inicia Sesión",
         "identificador": "Introduce tu correo o usuario",
-        "pass": "Contraseña",
         "place_identificador": "Dirección de correo o usuario",
         "place_pass": "Contraseña",
         "boton_log": "Iniciar sesión",
         "cuenta_no": "¿No tienes cuenta?",
         "sign_up": "Registrate",
+        "pass_olvidada": "¿Contraseña olvidada?",
+        "recordar": "Recuérdame",
         "errores": {
+            "titulo_error": "Error al Iniciar Sesión!",
             "usuario_no_regis": "El usuario solicitado no está registrado, por favor registrate primero para iniciar sesión",
             "usuario_valido": "El campo correo/usuario no puede estar vacio!",
             "pass_incorrecta": "Contraseña incorrecta, por favor intentalo de nuevo",
@@ -135,8 +139,12 @@
             "enlace": "Ve al siguiente enlace para verificar tu cuenta:"
         },
         "reset_pass": {
+            "titulo": "Verificar Identidad",
             "subject": "Restablecer contraseña en TimerLab",
-            "cod_restablecer": "Tu codigo para restablecer tu contraseña es:"
+            "cod_restablecer": "Tu codigo para restablecer tu contraseña es:",
+            "mensaje1": "Para restablecer tu contraseña haz",
+            "enlace": "click aquí",
+            "mensaje_no_sol": "Si no solicitó este codigo por favor omita el mensaje"
         }
 
     },
@@ -150,5 +158,23 @@
         "cod_verify": "Introduce tu codigo de verificación",
         "cod_verify_ej": "Ej: 7654321",
         "boton_verify": "Verificar"
+    },
+    "recuperar_pass": {
+        "conf_correo":{
+            "titulo": "Verificar Identidad",
+            "place_correo": "Introduce tu correo electronico",
+            "boton": "Enviar",
+            "error":{
+                "titulo": "Error!",
+                "mensaje": "El correo no está registrado",
+                "registrar": "Registrate aquí ahora"
+            },
+            "correcto":{
+                "titulo": "Correo enviado correctamente!",
+                "mensaje": "Revisa tu bandeja de correo y verifica tu cuenta para poder restablecer la contraseña"
+            }
+        }
+
+
     }
 }

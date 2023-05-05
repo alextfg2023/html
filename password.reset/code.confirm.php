@@ -1,11 +1,13 @@
 <?php
+    session_start();
+    include '../idiomas/idiomas.php'; 
+
     if(isset($_GET['email']) && isset($_GET['token'])){
         $email=$_GET['email'];
         $token=$_GET['token'];
     }else{
         header('Location: ../index.php');
     }
-
 ?>
 
 <!DOCTYPE html>
@@ -16,24 +18,26 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Restablecer</title>
     <!-- CSS only -->
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+<link href="../assets/css/reset_pass.css" rel="stylesheet">
 </head>
 <body>
-    <div class="container">
-        <div class="row justify-content-md-center" style="margin-top:15%">
-            <form class="col-3" action="../complementosPHP/codigo_restablecer_pass_verif_token.php" method="POST">
-                <h2>Restablecer Password</h2>
-                <div class="mb-3">
-                    <label for="c" class="form-label">Codigo</label>
-                    <input type="text" class="form-control" id="c" name="codigo">
-                    <input type="hidden" class="form-control" id="c" name="email" value="<?php echo $email; ?>">
-                    <input type="hidden" class="form-control" id="c" name="token" value="<?php echo $token; ?>">
-                 
+    <div class="contenedor">
+        <div class="title">Restablecer contraseña</div>
+        <form action="../complementosPHP/codigo_restablecer_pass_verif_token.php" method="POST">
+            <div class="password-change">
+                <div class="input-box">
+                    <input type="text" name="codigo" placeholder="Introduce tu codigo" autocomplete="off">
+                    <input type="hidden" name="email" value="<?php echo $email; ?>">
+                    <input type="hidden" name="token" value="<?php echo $token; ?>">
                 </div>
-               
-                <button type="submit" class="btn btn-primary">Restablecer</button>
-            </form>
-        </div>
+            </div>
+            <div class="button">
+                <input type="submit" name="submit" value="Enviar">
+            </div>
+        </form>
+        <span class="idiomas">
+                <?php include '../idiomas/lista_idiomas.php';?>
+        </span> 
     </div>
 </body>
 </html>

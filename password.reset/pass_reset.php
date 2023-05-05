@@ -1,3 +1,40 @@
+<?php
+    session_start();
+
+    include '../idiomas/idiomas.php'; 
+
+    include '../complementosPHP/bbdd.php';
+
+    if($_POST['submit']){
+
+        $email = $_POST['email'];
+
+        $reg = $conn->query("SELECT * FROM usuarios WHERE email = '$email'") or die($conn->$error);
+
+        $no_registrado = false;
+
+        if(mysqli_num_rows($reg) == 0){
+
+            $no_registrado = true;
+            
+        }else{
+
+            $token = $token = bin2hex(random_bytes(5));
+
+            include '../mail/mail_reset_pass.php';
+
+            if($enviado){
+
+            $conn->query("INSERT INTO passwords (email, token, codigo) 
+            VALUES ('$email', '$token', '$codigo')") or die($conn->error);
+
+            }
+
+        }
+    }
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,22 +43,43 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Restablecer</title>
     <!-- CSS only -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+    <link href="../assets/css/reset_pass.css" rel="stylesheet">
 </head>
 <body>
-    <div class="container">
-        <div class="row justify-content-md-center" style="margin-top:15%">
-            <form class="col-3" action="../complementosPHP/codigo_restablecer_pass.php" method="POST">
-                <h2>Restablecer Password</h2>
-                <div class="mb-3">
-                    <label class="form-label">Email</label>
-                    <input type="email" class="form-control" name="email">
-                 
-                </div>
-               
-                <button type="submit" name ="submit" class="btn btn-primary">Restablecer</button>
-            </form>
+    <?php if($no_registrado){ ?> 
+        <div class="error-container">
+            <div class="error-message">
+                <h1><?php echo $palabras['recuperar_pass']['conf_correo']['error']['titulo'] ?></h1>
+                <br>
+                <p><?php echo $palabras['recuperar_pass']['conf_correo']['error']['mensaje'] ?></p>
+                <br>
+                <p><a class="a" href="../website/signup.php"><?php echo $palabras['recuperar_pass']['conf_correo']['error']['registrar']?></a></p>
+            </div>
         </div>
+    <?php } elseif($enviado){ ?> 
+        <div class="correct-container">
+            <div class="correct-message">
+                <h1><?php echo $palabras['recuperar_pass']['conf_correo']['correcto']['titulo'] ?></h1>
+                <p><?php echo $palabras['recuperar_pass']['conf_correo']['correcto']['mensaje'] ?></p>
+            </div>
+        </div>
+    <?php } else {?> 
+    <div class="contenedor">
+        <div class="title"><?php echo $palabras['recuperar_pass']['conf_correo']['titulo'] ?></div>
+        <form action="" method="POST">
+            <div class="password-change">
+                <div class="input-box">
+                    <input type="email" name="email" placeholder="<?php echo $palabras['recuperar_pass']['conf_correo']['place_correo'] ?>">
+                </div>
+                <div class="button">
+                    <input type="submit" name ="submit" value="<?php echo $palabras['recuperar_pass']['conf_correo']['boton'] ?>">
+                </div>
+            </div>
+        </form>
+        <span class="idiomas">
+            <?php include '../idiomas/lista_idiomas.php';?>
+        </span> 
+        <?php } ?>
     </div>
 </body>
 </html>

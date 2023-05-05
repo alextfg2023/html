@@ -1,5 +1,8 @@
 <?php
 
+    session_start();
+
+    include '../idiomas/idiomas.php'; 
     include 'bbdd.php';
 
     $email = $_POST['email'];
@@ -10,6 +13,7 @@
     email = '$email' AND token = '$token' AND codigo = '$codigo'")or die($conn->error);
 
     $correcto = false;
+    
     if(mysqli_num_rows($res) > 0){
 
         $fila = mysqli_fetch_row($res);
@@ -17,7 +21,8 @@
         $fecha_actual = date("Y-md h:m:s");
         $secons = strtotime($fecha_actual) - strtotime($fecha);
         $minutos = $seconds / 60;
-        if($minutos > 10){
+
+        if($minutos > 8){
 
             echo 'token vencido';
 
@@ -31,7 +36,6 @@
         $correcto = false;
     }
 
-
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -41,32 +45,46 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cambiar contraseña</title>
     <!-- CSS only -->
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+<link href="../assets/css/reset_pass.css" rel="stylesheet">
+<link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
 </head>
 <body>
-    <div class="container">
-        <div class="row justify-content-md-center" style="margin-top:15%">
-        <?php if($correcto){ ?>
-            <form class="col-3" action="cambiar_contraseña.php" method="POST">
-                <h2>Restablecer Password</h2>
-                <div class="mb-3">
-                    <label for="c" class="form-label">Nueva contraseña</label>
-                    <input type="password" class="form-control" id="c" name="password">
-                 
+<?php if($correcto){ ?>
+    <div class="contenedor">
+    <div class="title">Restablecer Password</div>
+        <form action="cambiar_contraseña.php" method="POST">
+            <div class="password-change">
+                <div class="input-box-new">
+                    <input type="password"name="password" placeholder="Introducir nueva contraseña" minlength="8" required>
+                    <i class="uil uil-lock password"></i>
+                    <i class="uil uil-eye-slash pw_hide"></i>
                 </div>
-                <div class="mb-3">
-                    <label for="c" class="form-label">Confirmar nueva contraseña</label>
-                    <input type="password" class="form-control" id="c" name="cpassword">
-                    <input type="hidden" class="form-control" id="c" name="email" value="<?php echo $email ?>">
+                <div class="input-box-new">
+                    <input type="password"name="cpassword" placeholder="Confirmar nueva contraseña" minlength="8" required>
+                    <i class="uil uil-lock password"></i>
+                    <i class="uil uil-eye-slash pw_hide"></i>
+                    <input type="hidden" name="email" value="<?php echo $email ?>">
+                    <input type="hidden" name="codigo" value="<?php echo $codigo ?>">
+                    <input type="hidden" name="token" value="<?php echo $token ?>">
                 </div>
-                <button type="submit" class="btn btn-primary">Restablecer</button>
-            </form>
-            <?php }else{ ?>
-
-                <div class="alert alert-danger"> Código incorrecto o vencido</div>
-                
-            <?php } ?>
-        </div>
+            </div>
+            <div class="button">
+                <input type="submit" name="submit" value="Restablecer"/>
+            </div>
+        </form>
+        <?php }else{ ?>
+            <div class="error-container">
+                <div class="error-message">
+                    <h1>Error</h1>
+                    <br>
+                    <p>El código introducido es incorrecto o está vencido!</p>
+                    <br>
+                    <p>Solicita un codigo nuevo <a class="a" href="../password.reset/pass_reset.php">aquí</a></p>
+                </div>
+            </div>
+        <?php } ?>
     </div>
+    <script src="../complementosJS/show_pass.js"></script> 
 </body>
 </html>

@@ -27,16 +27,16 @@ $subject = $palabras['envio_mail']['reset_pass']['subject'];
 $mensaje = '
 <html>
 <head>
-  <title>Restablecer</title>
+  <title></title>
 </head>
 <body>
     <h1>TimerLab</h1>
     <div style="text-align:center; background-color:#ccc">
-        <p>Restablecer contraseña</p>
+        <p>'.$palabras['envio_mail']['reset_pass']['titulo'].'</p>
         <h3>'.$codigo.'</h3>
-        <p>Para restablecer tu contraseña haz <a href="https://timerlab.es/password.reset/code.confirm.php?email='.$email.'&token='.$token.'">
-        click aquí</a></p>
-        <p> <small>Si no solicitó este codigo por favor omita el mensaje</small> </p>
+        <p>'.$palabras['envio_mail']['reset_pass']['mensaje1'].' <a href="https://timerlab.es/password.reset/code.confirm.php?email='.$email.'&token='.$token.'">
+        '.$palabras['envio_mail']['reset_pass']['enlace'].'</a></p>
+        <p>'.$palabras['envio_mail']['reset_pass']['mensaje_no_sol'].'</p>
     </div>
 </body>
 </html>

@@ -95,6 +95,7 @@
         "cuenta_si": "Already have an account?",
         "log_in": "Log in",
         "errores": {
+            "titulo_error": "Failed to Sign Up!",
             "username_en_uso": "The username is already in use!",
             "username_vacio_invalido": "The username cannot be empty!",
             "username_invalido": "The username cannot contain this special characters!",
@@ -105,7 +106,8 @@
             "correo_invalido": "Introduce a valid email!",
             "correos_distintos": "Emails do not match!",
             "elegir_tipo": "You have to choose a type of account!. Ex: Student, Worker or Both",
-            "elegir_sexo": "Please indicate your gender"
+            "elegir_sexo": "Please indicate your gender",
+            "reintentar_registro": "Sign Up again"
         },
         "correcto": {
             "registro_correcto": "You have registered successfully! Please check your mailbox and verify your account before logging in."
@@ -120,7 +122,10 @@
         "boton_log": "Log in",
         "cuenta_no": "Don't you have an account?",
         "sign_up": "Sign up",
+        "pass_olvidada": "Forgot password?",
+        "recordar": "Remember me",
         "errores": {
+            "titulo_error": "Failed to Log In!",
             "usuario_no_regis": "The user requested is not registered, please register first to log in",
             "usuario_valido": "The emaill/username field cannot be empty!",
             "pass_incorrecta": "Incorrect password, please try again",
@@ -128,11 +133,20 @@
         }
     },
     "envio_mail":{
-        "saludo": "Hey",
-        "subject": "Verify your account in TimerLab!",
-        "codigo_verif": "your verification code is:",
-        "enlace": "Go to the following link to verify your account:"
-
+        "registro":{
+            "saludo": "Hey",
+            "subject": "Verify your account in TimerLab!",
+            "codigo_verif": "your verification code is:",
+            "enlace": "Go to the following link to verify your account:"
+        },
+        "reset_pass": {
+            "titulo": "Reset password",
+            "subject": "Reset password in TimerLab",
+            "cod_reset": "Your code to reset your password is:",
+            "mensaje1": "To reset your password please",
+            "enlace": "click here",
+            "mensaje_no_sol": "If you did not request this code please skip the message"
+        }
     },
     "verificacion":{
         "verify_ok": "Account verified successfully, you can now",
@@ -144,6 +158,25 @@
         "cod_verify": "Introduce your verification code",
         "cod_verify_ej": "Ex: 7654321",
         "boton_verify": "Verify"
+    },
+    "recuperar_pass": {
+        "conf_correo":{
+            "titulo": "Verify Identity",
+            "place_correo": "Introduce your email",
+            "boton": "Send",
+            "error":{
+                "titulo": "Error!",
+                "mensaje": "The email is not registred!",
+                "registrar": "Sign Up now here"
+            },
+            "correcto":{
+                "titulo": "Email sent successfully!",
+                "mensaje": "Check your mailbox and verify your account to be able to reset the password"
+            }
+        }     
+
+
+
     }
 }
 

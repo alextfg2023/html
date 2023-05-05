@@ -26,7 +26,6 @@ body{
     background-position: center center;
     background-repeat: no-repeat;
     background-size: cover;
-    background-attachment: fixed;
     min-height: 80vh;
     display: flex;
     align-items: center;
@@ -81,6 +80,7 @@ body{
 
 .header-content{
     text-align: center;
+    margin: 0 auto;
 }
 
 .header-content h1{

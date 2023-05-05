@@ -1,46 +1,47 @@
 <?php
-if(isset($_POST['submit'])){
-    $identificador = $_POST['identificador'];
-    $pass = md5($_POST['password']);
+    if(isset($_POST['submit'])){
+        
+        $identificador = $_POST['identificador'];
+        $pass = md5($_POST['password']);
 
-    $res = $conn->query("SELECT * FROM usuarios WHERE email = '$identificador' OR username = '$identificador'") or die($conn->$error);
+        $res = $conn->query("SELECT * FROM usuarios WHERE email = '$identificador' OR username = '$identificador'") or die($conn->$error);
 
-    $usuario = mysqli_fetch_assoc($res);
+        $usuario = mysqli_fetch_assoc($res);
 
-    $campos = array();
+        $campos = array();
 
-    if(mysqli_num_rows($res) == 0){
+        $errores = false;
 
-    array_push($campos, $palabras['login']['errores']['usuario_no_regis']);
+        if(mysqli_num_rows($res) == 0){
 
-    }elseif($identificador == ''){
+            array_push($campos, $palabras['login']['errores']['usuario_no_regis']);
 
-    array_push($campos, $palabras['login']['errores']['correo_valido']);
+        }elseif($identificador == ''){
 
-    }elseif($pass == '' || $pass != $usuario['password']){
+            array_push($campos, $palabras['login']['errores']['correo_valido']);
 
-    array_push($campos, $palabras['login']['errores']['pass_incorrecta']);
+        }elseif($pass == '' || $pass != $usuario['password']){
 
-    }elseif($usuario['confirmado'] != 'si'){
+            array_push($campos, $palabras['login']['errores']['pass_incorrecta']);
 
-    array_push($campos, $palabras['login']['errores']['cuenta_no_verif']);
+        }elseif($usuario['confirmado'] != 'si'){
 
+            array_push($campos, $palabras['login']['errores']['cuenta_no_verif']);
+
+        }
+        if(count($campos) > 0){
+        
+            $errores = true;
+
+        }else{
+
+            $_SESSION['id'] = $id;
+            $_SESSION['SESSION_EMAIL'] = $identificador;
+
+            header("Location: home.php");
+        
+        }
+        
+        echo '</div>';
     }
-    if(count($campos) > 0){
-
-    echo '<div class="error">';
-    for ($i=0; $i < count($campos); $i++) { 
-        echo '<li>'.$campos[$i].'</i>';
-    }
-
-    }else{
-
-    $_SESSION['id'] = $id;
-    $_SESSION['SESSION_EMAIL'] = $identificador;
-
-    header("Location: home.php");
-    
-    }
-echo '</div>';
-}
 ?>

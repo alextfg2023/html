@@ -15,14 +15,33 @@
     <title><?php echo $palabras['config']['signup_title'];?></title>
 </head>
 <body>
+    <?php
+        include '../complementosPHP/bbdd.php';
+        include '../complementosPHP/codigo_registrar.php';
+        if($reg_completo){
+    ?> 
+    <div class="correct-container">
+        <div class="correct-message">
+            <h1>Te has registrado correctamente!</h1>
+            <br>
+            <p><?php echo $palabras['registro']['correcto']['registro_correcto'] ?></p>
+        </div>
+    </div>
+    <?php }elseif($errores){ ?> 
+    <div class="error-container">
+        <div class="error-message">
+            <h1><?php echo $palabras['registro']['errores']['titulo_error'] ?></h1>
+            <br>
+            <p><?php for ($i=0; $i < count($campos); $i++) { echo '<li class="info">'.$campos[$i].'</li>'; } ?></p>
+            <br>
+            <p class="a"><a class="a" href="signup.php"><?php echo $palabras['registro']['errores']['reintentar_registro'] ?></a></p>
+        </div>
+    </div>
+    <?php }else { ?>
     <div class="contenedor">
         <div class="title"><?php echo $palabras['registro']['title'] ?></div>
         <br>
         <form method="POST" action="" enctype="multipart/form-data">
-            <?php
-                include '../complementosPHP/bbdd.php';
-                include '../complementosPHP/codigo_registrar.php';
-            ?>
             <div class="user-details">
                 <div class="input-box">
                     <input type="text" name="nombre" placeholder="<?php echo $palabras['registro']['crear_nombre'] ?>">
@@ -107,5 +126,6 @@
         </span> 
     </div>
     <script src="../complementosJS/show_pass.js"></script>
+    <?php } ?>
 </body>
 </html>

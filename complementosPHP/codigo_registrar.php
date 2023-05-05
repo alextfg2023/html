@@ -15,8 +15,12 @@
             
         $res_email = $conn->query("SELECT * FROM usuarios WHERE email = '$email' ") or die($conn->$error);
         $res_username = $conn->query("SELECT * FROM usuarios WHERE username = '$username' ") or die($conn->$error);
-            
+        
+        $reg_completo = false;
+        $errores = false;
+
         if(isset($_POST['tipo_usuario'])){
+
             $tipo = $_POST['tipo_usuario'];
             }else{
                 $tipo = '';
@@ -29,7 +33,6 @@
                         
             $pattern = '/[^\w]/';
             $campos = array();
-            $correcto = array();
                     
             if(mysqli_num_rows($res_username) > 0){
                 array_push($campos, $palabras['registro']['errores']['username_en_uso']);
@@ -66,19 +69,12 @@
                             array_push($campos, $palabras['registro']['errores']['elegir_sexo']);
             }
             if(count($campos) > 0){
-                echo '<div class="error">';
-                for ($i=0; $i < count($campos); $i++) { 
-                    echo '<li>'.$campos[$i].'</i>';
-                }
-            
+
+                $errores = true;
+                
             }else{
-
-                array_push($correcto, $palabras['registro']['correcto']['registro_correcto']);
-
-                echo '<div class="correcto">';
-                for ($i=0; $i < count($correcto); $i++) { 
-                    echo '<li>'.$correcto[$i].'</i>';
-                }
+                
+                $reg_completo = true;
 
                 include "../mail/mail_registro.php";
             
