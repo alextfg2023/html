@@ -29,7 +29,7 @@
                 <ul>
                     <li><a href="./index.php"><?php echo $palabras['index']['nav_bar_1']?></a></li>
                     <li><a href="#funcionamiento"><?php echo $palabras['index']['nav_bar_2']?></a></li>
-                    <li><a href="#">PEPEP</a></li>
+                    <li><a href="#">Ayuda</a></li>
                     <li><a href="#">Contacto</a></li>
                 </ul>
 

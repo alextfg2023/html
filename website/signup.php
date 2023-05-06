@@ -22,9 +22,9 @@
     ?> 
     <div class="correct-container">
         <div class="correct-message">
-            <h1>Te has registrado correctamente!</h1>
+            <h1><?php echo $palabras['registro']['correcto']['titulo'] ?></h1>
             <br>
-            <p><?php echo $palabras['registro']['correcto']['registro_correcto'] ?></p>
+            <p><?php echo $palabras['registro']['correcto']['registro_correcto'] ?><b><a href="login.php" class="a"><?php echo $palabras['registro']['correcto']['enlace'] ?></a></b></p>
         </div>
     </div>
     <?php }elseif($errores){ ?> 
@@ -34,7 +34,7 @@
             <br>
             <p><?php for ($i=0; $i < count($campos); $i++) { echo '<li class="info">'.$campos[$i].'</li>'; } ?></p>
             <br>
-            <p class="a"><a class="a" href="signup.php"><?php echo $palabras['registro']['errores']['reintentar_registro'] ?></a></p>
+            <p class="a"><b><a class="a" href="signup.php"><?php echo $palabras['registro']['errores']['reintentar_registro'] ?></a></b></p>
         </div>
     </div>
     <?php }else { ?>

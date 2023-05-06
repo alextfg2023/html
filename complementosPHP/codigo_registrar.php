@@ -44,29 +44,29 @@
                 array_push($campos, $palabras['registro']['errores']['username_invalido']);
             }
             if($nombre == ''){
-                            array_push($campos, $palabras['registro']['errores']['nom_vacio']);
+                array_push($campos, $palabras['registro']['errores']['nom_vacio']);
             }
             if($pass == '' || strlen($pass) < 8){
-                            array_push($campos, $palabras['registro']['errores']['pass_vacia_corta']);
+                array_push($campos, $palabras['registro']['errores']['pass_vacia_corta']);
             }
             if($pass != $cpass){
-                            array_push($campos, $palabras['registro']['errores']['pass_distintas']);
+                array_push($campos, $palabras['registro']['errores']['pass_distintas']);
             }
             if(mysqli_num_rows($res_email) > 0){
-                            array_push($campos, $palabras['registro']['errores']['correo_en_uso']);
+                array_push($campos, $palabras['registro']['errores']['correo_en_uso']);
             }
             if($email == '' || strpos($email, '@') == false){
-                            array_push($campos, $palabras['registro']['errores']['correo_invalido']);
+                array_push($campos, $palabras['registro']['errores']['correo_invalido']);
             }
             if($email != $cemail){
-                            array_push($campos, $palabras['registro']['errores']['correos_distintos']);
+                array_push($campos, $palabras['registro']['errores']['correos_distintos']);
             }
             if($tipo == ''){
-                            array_push($campos, $palabras['registro']['errores']['elegir_tipo']);
+                array_push($campos, $palabras['registro']['errores']['elegir_tipo']);
             }
             if($sexo == ''){
             
-                            array_push($campos, $palabras['registro']['errores']['elegir_sexo']);
+                array_push($campos, $palabras['registro']['errores']['elegir_sexo']);
             }
             if(count($campos) > 0){
 

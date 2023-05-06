@@ -5,6 +5,7 @@
         "idioma2": "Inglés"
     },
     "config": {
+        "reset_title": "Recuperar contraseña - TimerLab",
         "index_title": "TimerLab",
         "confirm_title": "Verifiación de cuenta - TimerLab",
         "home_title": "Home - TimerLab",
@@ -110,7 +111,9 @@
             "reintentar_registro": "Reintentar registro"
         },
         "correcto": {
-            "registro_correcto": "Por favor revisa tu bandeja de correo y verifica tu cuenta antes de iniciar sesión"
+            "titulo": "Te has registrado correctamente!",
+            "registro_correcto": "Por favor revisa tu bandeja de correo y verifica tu cuenta antes de ",
+            "enlace": "iniciar sesión"
         }
     },
     "login":{

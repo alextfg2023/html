@@ -296,6 +296,17 @@ form .button input:hover{
 .correct-message p {
     font-size: 1.2rem;
 }
+
+.correct-message .a{
+    text-align: center;
+    text-decoration: none;
+    color: white;
+}
+
+.correct-message .a:hover{
+    text-decoration: underline;
+}
+
 select{
     font-family: 'Poppins', sans-serif;
     background: transparent;

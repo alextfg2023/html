@@ -5,6 +5,7 @@
         "idioma2": "English"
     },
     "config": {
+        "reset_title": "Reset password - TimerLab",
         "index_title": "TimerLab",
         "confirm_title": "Account Verification - TimerLab",
         "home_title": "Home - TimerLab",
@@ -110,7 +111,9 @@
             "reintentar_registro": "Sign Up again"
         },
         "correcto": {
-            "registro_correcto": "You have registered successfully! Please check your mailbox and verify your account before logging in."
+            "titulo": "You have signed up successfully!",
+            "registro_correcto": "You have registered successfully! Please check your mailbox and verify your account before ",
+            "enlace": "logging in"
         }
     },
     "login":{
