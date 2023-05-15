@@ -18,15 +18,19 @@
             $no_registrado = true;
             
         }else{
-
-            $token = $token = bin2hex(random_bytes(5));
+            
+            if (mysqli_num_rows($reg) > 0) {
+                $row = mysqli_fetch_assoc($reg);
+                $id = $row['id'];
+                }
+                $token = $token = bin2hex(random_bytes(5));
 
             include '../mail/mail_reset_pass.php';
 
             if($enviado){
 
-            $conn->query("INSERT INTO passwords (email, token, codigo) 
-            VALUES ('$email', '$token', '$codigo')") or die($conn->error);
+            $conn->query("INSERT INTO passwords (email, token, codigo, id_user) 
+            VALUES ('$email', '$token', '$codigo', '$id')") or die($conn->error);
 
             }
 

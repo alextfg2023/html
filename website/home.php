@@ -35,6 +35,12 @@ if (mysqli_num_rows($query) > 0) {
     <a href="overview.php?id=<?php echo $id; ?>"><?php echo $palabras['home']['perfil']?></a>
     <br>
     <br>
+    <a href="../test_tablas/procesar.php" class="">Crear tabla</a>
+    <br>
+    <br>
+    <a href="../test_tablas/ver_tabla.php" class="">Ver mis tablas</a>
+    <br>
+    <br>
 <?php
 include '../idiomas/lista_idiomas.php';
 ?>
