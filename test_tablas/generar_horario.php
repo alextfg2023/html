@@ -3,7 +3,6 @@
 include '../complementosPHP/bbdd.php';
 
 if(isset($_POST['submit'])){
-
     $id = $_POST['id'];
     $horario = $_POST['horario'];
     $tareas = $_POST['tareas'];
@@ -11,21 +10,25 @@ if(isset($_POST['submit'])){
     $fechas = $_POST['fechas'];
 
     // Insertar las tareas en la base de datos
+    $stmt = $conn->prepare("INSERT INTO tareas (id_usuario, tarea, importancia, fecha_tarea, horario) VALUES (?, ?, ?, ?, ?)");
+
     for ($i = 0; $i < count($tareas); $i++) {
         $nombreTarea = $conn->real_escape_string($tareas[$i]);
         $importancia = intval($importancias[$i]);
         $fecha = $conn->real_escape_string($fechas[$i]);
 
-        $tareas_add = $conn->query("INSERT INTO tareas (id_usuario, tarea, importancia, fecha_tarea, horario)
-        VALUES ('$id', '$nombreTarea', '$importancia', '$fecha', '$horario')")or die($conn->$error);
+        $stmt->bind_param("isiss", $id, $nombreTarea, $importancia, $fecha, $horario);
+        $result = $stmt->execute();
 
-        echo 'Tarea '.$nombreTarea.' creada correctamente para el dia '.$fecha.'<br>';
-
-        if ($tareas_add !== TRUE) {
-
+        if ($result) {
+            echo 'Tarea '.$nombreTarea.' creada correctamente para el día '.$fecha.'<br>';
+        } else {
             echo "Error al insertar la tarea: " . $conn->error;
         }
     }
+
+    $stmt->close();
+
     echo 'Para ver tu tabla ver <a href="ver_tabla.php">Aquí</a>';
 }
-    ?>
+?>

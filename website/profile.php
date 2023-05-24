@@ -38,9 +38,7 @@ if(isset($_GET['id'])){
 
 }
 
-
-
-if (isset($_POST['actualizar_foto'])) {
+if (!isset($_POST['actualizar_foto'])) {
     $ruta = '../profilepictures/'.md5($id).'/';
     $fichero = $ruta.basename($_FILES['imagen']['name']);
     $directorio = $ruta.md5(basename($_FILES['imagen']['name'])).'jpg';
@@ -55,7 +53,7 @@ if (isset($_POST['actualizar_foto'])) {
             unlink($imagen);
         }
 
-        $insert = $conn->query("UPDATE usuarios SET imagen = '$directorio' WHERE id = '$id'");
+        $conn->query("UPDATE usuarios SET imagen = '$directorio' WHERE id = '$id'");
         header('Location:profile.php?id='.$id.'');
     }
 }
@@ -80,9 +78,9 @@ if(isset($_POST['actualizar_datos'])){
     <form method="POST" action="" enctype="multipart/form-data">
         <input type="file" name="imagen">
         <?php if($imagen == '') {?>
-        <input type="submit" value="<?php echo $palabras['perfil']['añadir_foto'] ?>" name="actualizar_foto">
+        <input type="submit" name="fotos" value="<?php echo $palabras['perfil']['añadir_foto'] ?>" name="actualizar_foto">
         <?php }else{?>
-        <input type="submit" value="<?php echo $palabras['perfil']['actualizar_foto'] ?>" name="actualizar_foto">
+        <input type="submit" name="foto" value="<?php echo $palabras['perfil']['actualizar_foto'] ?>" name="actualizar_foto">
         <?php } ?>
         <br>
         <br>

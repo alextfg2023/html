@@ -1,3 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Tabla con PHP</title>
+</head>
+<body>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Columna 1</th>
+                <th>Columna 2</th>
+                <th>Columna 3</th>
+                <th>Columna 4</th>
+            </tr>
+        </thead>
+        <tbody>
+            <?php
+            // Valor a mostrar en la columna 1
+            $valor = "X";
+            
+            // Importancia (número de celdas en la columna 1)
+            $importancia = 2;
+            
+            // Número de filas y columnas
+            $filas = 6;
+            $columnas = 5;
+            
+            // Calcular el número de celdas necesarias en la columna 1
+            $celdasColumna1 = $filas - $importancia;
+            
+            // Generar las filas y columnas de la tabla
+            for ($i = 1; $i <= $filas; $i++) {
+                echo "<tr>";
+                
+                for ($j = 1; $j <= $columnas; $j++) {
+                    if ($j === 1 && $i <= $celdasColumna1) {
+                        if ($i <= $celdasColumna1) {
+                            echo "<td>$valor</td>";
+                        } else {
+                            echo "<td></td>";
+                        }
+                    } else {
+                        echo "<td></td>";
+                    }
+                }
+                
+                echo "</tr>";
+            }
+            ?>
+        </tbody>
+    </table>
+</body>
+</html>
+
+
+
+
+
+
+
+
 <?php
 include '../complementosPHP/bbdd.php';
 session_start();
@@ -43,16 +104,16 @@ $calendario = array(
 // Recorrer los resultados de la consulta y agregar las tareas al calendario
 while ($row = $result->fetch_assoc()) {
     $nombreTarea = $row['tarea'];
-    $importancia = $row['importancia'];
+    $importancia = intval($row['importancia']);
     $fecha_tarea = $row['fecha_tarea'];
     $horarioTarea = $row['horario'];
 
     // Obtener el día de la semana a partir de la fecha
     $diaSemana = date('l', strtotime($fecha_tarea));
 
-    // Calcular el número de celdas que ocupará la tarea según la importancia (mínimo 1 celda)
-    $numCeldas = max(1, min(6, floor($importancia / 2)));
-
+    // Calcular el número de celdas que ocupará la tarea según la importancia (máximo 6 celdas)
+    $numCeldas = min(6, ceil($importancia / 2));
+    
     // Agregar la tarea al día correspondiente en el calendario
     $calendario[$diaSemana][] = array('tarea' => $nombreTarea, 'numCeldas' => $numCeldas);
 }
@@ -61,10 +122,6 @@ while ($row = $result->fetch_assoc()) {
 list($horaInicio, $horaFin) = explode('-', $horarioPersonalizado);
 list($inicioHora, $inicioMinuto) = explode(':', $horaInicio);
 list($finHora, $finMinuto) = explode(':', $horaFin);
-
-// Convertir las horas a valores enteros
-$inicioHora = intval($inicioHora);
-$finHora = intval($finHora);
 
 // Imprimir la tabla del calendario
 ?>
@@ -96,45 +153,37 @@ $finHora = intval($finHora);
             <th>Viernes</th>
         </tr>
         <?php
-        // Generar las filas de tiempo en la tabla
-        for ($hora = $inicioHora; $hora < $finHora; $hora++) {
-            $horaInicio = sprintf("%02d:00", $hora);
-            $horaFin = sprintf("%02d:00", $hora + 1);
-            echo "<tr><td>$horaInicio - $horaFin</td>";
-        }
             $diasSemana = array('Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday');
+            
+            // Generar las filas de tiempo
+            for ($hora = $inicioHora; $hora < $finHora; $hora++) {
+                $horaInicio = sprintf("%02d:00", $hora);
+                $horaFin = sprintf("%02d:00", $hora + 1);
+                echo "<tr><td>$horaInicio - $horaFin</td>";
+                
+                // Generar las celdas de tareas para cada día
+                foreach ($diasSemana as $dia) {
+                    $tareas = $calendario[$dia] ?? [];
+                    $numCeldas = count($tareas);
 
-            // Generar las celdas de cada día en la tabla
-            foreach ($diasSemana as $diaTabla) {
+                    if ($numCeldas > 0) {
+                        $tarea = $tareas[0]['tarea'];
+                        $numCeldas = $tareas[0]['numCeldas'];
+                        unset($tareas[0]);
+                        $calendario[$dia] = array_values($tareas);
 
-                if (isset($calendario[$diaTabla]) && count($calendario[$diaTabla]) > 0) {
-                    $tareaImpresa = false;
-
-                    // Recorrer las tareas del día
-                    foreach ($calendario[$diaTabla] as $index => $tarea) {
-                        $numCeldasTarea = $tarea['numCeldas'];
-
-                        // Verificar si la tarea ocupa la celda actual
-                        if ($hora >= $numCeldasTarea && $hora < ($numCeldasTarea + 1)) {
-                            echo "<td>".$tarea['tarea']."</td>";
-                            $tareaImpresa = true;
-                            break;
+                        if ($numCeldas > 0) {
+                            echo "<td >$tarea</td>";
                         }
-                    }
 
-                    // Si no se ha impreso ninguna tarea en la celda actual, imprimir una celda vacía
-                    if (!$tareaImpresa) {
-                        echo "<td>".$tarea['tarea']."</td>";
+                        $numCeldas--;
+                    } else {
+                        echo "<td></td>";
                     }
-                } else {
-                    // Si no hay tareas para el día actual, imprimir una celda vacía
-                    echo "&nbsp;";
                 }
 
+                echo "</tr>";
             }
-
-            echo "</tr>";
-        
         ?>
     </table>
 </body>
