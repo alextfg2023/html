@@ -39,6 +39,7 @@
         "primer_horario": "Create your first schedule"
     },
     "home":{
+        "bienvenido": "Welcome",
         "bienvenida": "Welcome",
         "perfil": "Go to my profile"
     },

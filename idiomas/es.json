@@ -39,7 +39,8 @@
         "primer_horario": "Crea tu primer horario"
     },
     "home":{
-        "bienvenida": "Bienvenido",
+        "bienvenido": "Bienvenido",
+        "bienvenida": "Bienvenida",
         "perfil": "Ir a mi perfil"
     },
     "general": {

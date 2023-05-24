@@ -30,12 +30,19 @@ if (mysqli_num_rows($query) > 0) {
 </head>
 <body>
     <br>
-    <p><?php echo $palabras['home']['bienvenida'].' '.$username ?></p>
+    <p>
+        <?php 
+            if($sexo == 'hombre'){
+                echo $palabras['home']['bienvenido'].' '.$username;
+            } elseif($sexo == 'mujer'){
+                echo $palabras['home']['bienvenida'].' '.$username;
+            } ?>
+    </p>
     <br>
     <a href="overview.php?id=<?php echo $id; ?>"><?php echo $palabras['home']['perfil']?></a>
     <br>
     <br>
-    <a href="../test_tablas/procesar.php" class="">Crear tabla</a>
+    <a href="../create.tables/create.table.php" class="">Crear tabla</a>
     <br>
     <br>
     <a href="../test_tablas/ver_tabla.php" class="">Ver mis tablas</a>

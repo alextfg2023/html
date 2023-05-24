@@ -29,7 +29,7 @@ if (mysqli_num_rows($query) > 0) {
 </head>
 <body>
 	<h1>Generar horario de trabajo</h1>
-	<form method="post" action="generar_horario.php">
+	<form method="post" action="ver_tabla.php">
 		<label for="horario">Horario:</label>
 		<input type="text" name="horario" id="horario" placeholder="Ej. 9:00-18:00" required><br><br>
 
