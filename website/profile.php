@@ -61,9 +61,10 @@ if (!isset($_POST['actualizar_foto'])) {
 if(isset($_POST['actualizar_datos'])){
     $nombre_n = $_POST['nombre_act'];
     $tipo_n = $_POST['tipo_act'];
-    $sexo_n = $_POST['sexo'];
+    $sexo_n = $_POST['sexo_act'];
+    $username_n = $_POST['username_act'];
 
-    $conn->query("UPDATE usuarios SET nombre = '$nombre_n', tipo = '$tipo_n', sexo = '$sexo_n' WHERE id = '$id'")or die($conn->$error);
+    $conn->query("UPDATE usuarios SET username = '$username_n', nombre = '$nombre_n', tipo = '$tipo_n', sexo = '$sexo_n' WHERE id = '$id'")or die($conn->$error);
     header('Location:.profile.php?id='.$id.'');
 
 }
@@ -86,6 +87,10 @@ if(isset($_POST['actualizar_datos'])){
         <br>
         <label><?php echo $palabras['perfil']['nombre'] ?></label> 
         <input type="text" name="nombre_act" value="<?php echo $nombre;?>" autocomplete="off">
+        <br>
+        <br>
+        <label>Usuario</label> 
+        <input type="text" name="username_act" value="<?php echo $username;?>" autocomplete="off">
         <br>
         <br>
         <label><?php echo $palabras['perfil']['tipo_user'] ?></label>
@@ -112,19 +117,19 @@ if(isset($_POST['actualizar_datos'])){
         <br>
         <label><?php echo $palabras['perfil']['sexo'] ?></label>
         <?php if($sexo == 'hombre'){ ?>
-        <select name="sexo">
+        <select name="sexo_act">
             <option value="hombre"><?php echo $palabras['perfil']['sexo_h'] ?></option>
             <option value="mujer"><?php echo $palabras['perfil']['sexo_m'] ?></option>
             <option value="otros"><?php echo $palabras['perfil']['sexo_o'] ?></option>
         </select>
         <?php } if ($sexo == 'mujer'){?>
-        <select name="sexo">
+        <select name="sexo_act">
             <option value="mujer"><?php echo $palabras['perfil']['sexo_m'] ?></option>
             <option value="hombre"><?php echo $palabras['perfil']['sexo_h'] ?></option>
             <option value="otros"><?php echo $palabras['perfil']['sexo_o'] ?></option>
         </select>
         <?php } if($sexo == 'otros'){?>
-        <select name="sexo">
+        <select name="sexo_act">
             <option value="otros"><?php echo $palabras['perfil']['sexo_o'] ?></option>
             <option value="hombre"><?php echo $palabras['perfil']['sexo_h'] ?></option>
             <option value="mujer"><?php echo $palabras['perfil']['sexo_m'] ?></option>
