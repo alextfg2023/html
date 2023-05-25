@@ -25,7 +25,11 @@
             <br>
             <p><?php for ($i=0; $i < count($campos); $i++) { echo '<li class="info">'.$campos[$i].'</li>'; } ?></p>
             <br>
-            <p class="a"><a class="a" href="login.php">Volver</a></p>
+            <form action="login.php">
+               <div class="error-button">
+                    <input type="submit" value="<?php echo $palabras['recuperar_pass']['cambiar_pass']['error']['boton'] ?>">
+               </div>
+            </form>
         </div>
    </div>
    <?php }else{?>

@@ -162,6 +162,29 @@ form .button input:hover{
     background: #EBAD8D;
     cursor: pointer;
 }
+
+form .error-button{
+    height: 45px;
+}
+
+form .error-button input{
+    height: 100%;
+    width: 100%;
+    outline: none;
+    color: #fff;
+    border: none;
+    font-size: 18px;
+    font-weight: 500;
+    border-radius: 5px;
+    letter-spacing: 1px;
+    background-color: rgba(168, 51, 51, 0.9);
+}
+
+form .error-button input:hover{
+    background-color: rgba(252, 59, 59, 0.9);
+    cursor: pointer;
+}
+
 /*ERROR LOGIN*/
 .error-container {
     position: fixed;

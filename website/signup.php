@@ -34,7 +34,12 @@
             <br>
             <p><?php for ($i=0; $i < count($campos); $i++) { echo '<li class="info">'.$campos[$i].'</li>'; } ?></p>
             <br>
-            <p class="a"><b><a class="a" href="signup.php"><?php echo $palabras['registro']['errores']['reintentar_registro'] ?></a></b></p>
+            <form action="signup.php">
+               <div class="error-button">
+                    <input type="submit" value="<?php echo $palabras['registro']['errores']['reintentar_registro'] ?>">
+               </div>
+            </form>
+            <p class="a"><b><a class="a" href="signup.php"><?php  ?></a></b></p>
         </div>
     </div>
     <?php }else { ?>
