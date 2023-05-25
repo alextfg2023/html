@@ -29,7 +29,7 @@
                 <ul>
                     <li><a href="./index.php"><?php echo $palabras['index']['nav_bar_1']?></a></li>
                     <li><a href="#funcionamiento"><?php echo $palabras['index']['nav_bar_2']?></a></li>
-                    <li><a href="#">Ayuda</a></li>
+                    <li><a href="#ayuda">Ayuda</a></li>
                     <li><a href="#">Contacto</a></li>
                 </ul>
 
@@ -100,7 +100,7 @@
 
     </section>
 
-    <main class="servicios">
+    <main class="servicios" id="ayuda">
 
         <div class="servicios-content contenedor">
 
@@ -141,87 +141,6 @@
         </div>
 
     </main>
-
-    <section class="general">
-        
-        <div class="general-1">
-
-            <h2>Voluptates voluptate quasi autem ex nisi?</h2>
-            <p>
-                Lorem ipsum dolor, sit amet consectetur adipisicing elit. 
-                Officia iure repudiandae, sint dignissimos ipsum facere tempora 
-                architecto molestiae animi, commodi vero temporibus fugiat quam? 
-                Voluptates voluptate quasi autem ex nisi?
-            </p>
-            <a href="#" class="btn-1">Información</a>
-
-        </div>
-        <div class="general-2"></div>
-
-    </section>
-    
-    <section class="general">
-
-        <div class="general-3"></div>
-        
-        <div class="general-1">
-
-            <h2>Voluptates voluptate quasi autem ex nisi?</h2>
-            <p>
-                Lorem ipsum dolor, sit amet consectetur adipisicing elit. 
-                Officia iure repudiandae, sint dignissimos ipsum facere tempora 
-                architecto molestiae animi, commodi vero temporibus fugiat quam? 
-                Voluptates voluptate quasi autem ex nisi?
-            </p>
-            <a href="#" class="btn-1">Información</a>
-
-        </div>
-
-    </section>
-
-    <section class="blog contenedor">
-
-        <h2>Blog</h2>
-        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit.</p>
-
-        <div class="blog-content">
-
-            <div class="blog-1">
-                <img src="assets/img_test/blog1.jpg" alt="">
-                <h3>Blog 1</h3>
-                <p>
-                    Lorem ipsum dolor, sit amet consectetur adipisicing elit. 
-                    Officia iure repudiandae, sint dignissimos ipsum facere tempora 
-                    architecto molestiae animi, commodi vero temporibus fugiat quam? 
-                    Voluptates voluptate quasi autem ex nisi?
-                </p>
-            </div>
-            <div class="blog-1">
-                <img src="assets/img_test/blog2.jpg" alt="">
-                <h3>Blog 2</h3>
-                <p>
-                    Lorem ipsum dolor, sit amet consectetur adipisicing elit. 
-                    Officia iure repudiandae, sint dignissimos ipsum facere tempora 
-                    architecto molestiae animi, commodi vero temporibus fugiat quam? 
-                    Voluptates voluptate quasi autem ex nisi?
-                </p>
-            </div>
-            <div class="blog-1">
-                <img src="assets/img_test/blog3.jpg" alt="">
-                <h3>Blog 3</h3>
-                <p>
-                    Lorem ipsum dolor, sit amet consectetur adipisicing elit. 
-                    Officia iure repudiandae, sint dignissimos ipsum facere tempora 
-                    architecto molestiae animi, commodi vero temporibus fugiat quam? 
-                    Voluptates voluptate quasi autem ex nisi?
-                </p>
-            </div>
-
-        </div>
-
-        <a href="#" class="btn-1">Información</a>
-
-    </section>
     <?php
         include './complementos/footer.php'
     ?>
