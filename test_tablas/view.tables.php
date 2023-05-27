@@ -57,11 +57,11 @@ foreach ($tareas as $index => $tarea) {
     ?>
         <form action="../complementosPHP/create.tables.php" method="POST">
     <?php
-    echo '<input type="text" name="tareas[]" value='.$nombreTarea.'>';
-    echo '<input type="text" name="importancias[]" value='.$importancia.'>';
-    echo '<input type="text" name="fechas[]" value='.$fecha_tarea.'>';
+    echo '<input type="hidden" name="tareas[]" value="'.$tarea.'">';
+    echo '<input type="hidden" name="importancias[]" value="'.$importancia.'">';
+    echo '<input type="hidden" name="fechas[]" value="'.$fecha_tarea.'">';
 }
-    echo '<input type="text" name="horario" value='.$horarioPersonalizado.'>';
+    echo '<input type="hidden" name="horario" value="'.$horarioPersonalizado.'">';
 
 // Obtener la hora de inicio y la hora de fin del horario personalizado
 list($horaInicio, $horaFin) = explode('-', $horarioPersonalizado);
@@ -182,46 +182,8 @@ if (!$tablaGenerada) {
         </div>
     </div>
 <?php
-} else if (isset($_POST['crear'])) {
-    $nombre_tabla = $_POST['nombre_tabla'];
-
-    $insert = mysqli_query($conn, "INSERT INTO tablas (nombre, id_usuario) VALUES ('$nombre_tabla', '$id')") or die($conn->error);
-    
-    if ($insert) {
-        $tablaId = mysqli_insert_id($conn);
-
-        $select = mysqli_query($conn, "SELECT id FROM tablas WHERE id = '$tablaId'");
-
-        if (mysqli_num_rows($select) > 0) {
-            $row = mysqli_fetch_assoc($select);
-            $id_tabla = $row['id'];
-
-            echo "Tabla ".$nombre_tabla." agregada correctamente<br>";
-            echo "ID de la tabla: $id_tabla";
-        }
-    }
-}
-
-
-
-
-    
-
-    /*// Obtener las tareas enviadas por el formulario
-    $tareas = $_POST['tareas'];
-    $importancias = $_POST['importancias'];
-    $fechas = $_POST['fechas'];
-
-    // Insertar las tareas en la base de datos
-    foreach ($tareas as $index => $tarea) {
-        $nombreTarea = mysqli_real_escape_string($conn, $tarea);
-        $importancia = intval($importancias[$index]);
-        $fechaTarea = mysqli_real_escape_string($conn, $fechas[$index]);
-
-        // Insertar la tarea en la base de datos
-        $query = "INSERT INTO tareas (tarea, importancia, fecha_tarea, horario, id_tabla) VALUES ('$nombreTarea', $importancia, '$fechaTarea', '$nombreTabla')";
-        mysqli_query($conn, $query);
-    }*/
-
-
+} 
 ?>
+
+
+
