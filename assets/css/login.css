@@ -1,0 +1,275 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body{
+    display: flex;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    background-image: linear-gradient(
+        rgba(0, 0, 0, 0.7),
+        rgba(0, 0, 0, 0.7)),
+        url(../img/registro/fondo.jpg);
+    background-position: center bottom;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.contenedor{
+
+    max-width: 600px;
+    width: 90%;
+    background: rgba(230, 228, 228, 0.8);
+    padding: 25px 30px;
+    border-radius: 5px;
+}
+
+.contenedor .title{
+    font-size: 25px;
+    text-align: center;
+    font-weight: 500;
+    position: relative;
+}
+
+.contenedor .title::before{
+    content: '';
+    position: absolute;
+    left: 35.5%;
+    bottom: 0;
+    height: 3px;
+    width: 30px;
+    background: #CE967B;
+}
+
+.contenedor form .user-details{
+    margin: 20px 0 12px 0;
+}
+
+form .user-details .details{
+    display: block;
+    font-weight: 500;
+    margin-bottom: 5px;
+}
+
+form .user-details .input-box{
+    position: relative;
+    margin-top: 30px;
+    width: 100%;
+    height: 40px;
+}
+
+.user-details .input-box input{
+    height: 100%;
+    width: 100%;
+    outline: none;
+    border: none;
+    border-radius: 6px;
+    border-bottom: 2px solid #fff;
+    font-size: 16px;
+    background: transparent;
+    transition: all 0.3s ease;
+    padding: 0 30px;
+    color: #333;
+}
+
+.user-details .input-box input:focus{
+    border-bottom: 2px solid #CE967B;
+}
+
+.user-details .input-box i{
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 19px;
+    color: #707070; 
+}
+
+.user-details .input-box i.email{
+    transition: all 0.3s ease;
+    left: 5px;
+}
+.user-details .input-box i.password{
+    transition: all 0.3s ease;
+    left: 6px;
+}
+
+.user-details .input-box input:focus ~ i.email,
+.user-details .input-box input:focus ~ i.password{
+    color: #CE967B;
+}
+
+.user-details .input-box i.pw_hide{
+    cursor: pointer;
+    right: 5px;
+    font-size: 20px;
+}
+.recordar {
+    margin-left: 5px;
+    margin-top: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.contenedor a {
+    text-decoration: none;
+    color: #a1725a;
+    font-size: 16px;
+}
+.contenedor a:hover {
+    text-decoration: underline;
+}
+.checkbox {
+    display: flex;
+    column-gap: 8px;
+    white-space: nowrap;
+}
+.checkbox input {
+    accent-color: #a1725a;
+}
+.checkbox label {
+    font-size: 16px;
+    cursor: pointer;
+    user-select: none;
+    color: #0b0217;
+}
+
+form .button{
+    height: 45px;
+    margin: 45px 0;
+}
+
+form .button input{
+    height: 100%;
+    width: 100%;
+    outline: none;
+    color: #fff;
+    border: none;
+    font-size: 18px;
+    font-weight: 500;
+    border-radius: 5px;
+    letter-spacing: 1px;
+    background: #CE967B;
+}
+
+form .button input:hover{
+    background: #EBAD8D;
+    cursor: pointer;
+}
+
+form .error-button{
+    height: 45px;
+}
+
+form .error-button input{
+    height: 100%;
+    width: 100%;
+    outline: none;
+    color: #fff;
+    border: none;
+    font-size: 18px;
+    font-weight: 500;
+    border-radius: 5px;
+    letter-spacing: 1px;
+    background-color: rgba(168, 51, 51, 0.9);
+}
+
+form .error-button input:hover{
+    background-color: rgba(252, 59, 59, 0.9);
+    cursor: pointer;
+}
+
+/*ERROR LOGIN*/
+.error-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.error-message {
+    background-color: rgba(255, 0, 0, 0.7);
+    padding: 20px;
+    border-radius: 5px;
+    max-width: 80%;
+    color: white;
+}
+
+.error-message h1 {
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 10px;
+}
+  
+.error-message .info {
+    margin-left: 3%;
+}
+
+.error-message p {
+    font-size: 1.2rem;
+}
+
+.error-message .a{
+    text-align: center;
+    text-decoration: none;
+    color: white;
+}
+
+.error-message .a:hover{
+    text-decoration: underline;
+}
+
+select{
+    font-family: 'Poppins', sans-serif;
+    background: transparent;
+    border: solid 1px white;
+    padding: 3px 3px;
+    border-radius: 5px;
+}
+
+select:focus,
+select:valid{
+    border: solid 2px #a1725a;
+}
+
+option{
+    background-color: #ccc;
+}
+
+.enlace a{
+    text-decoration: none;
+    color: #a1725a;
+}
+
+.enlace a:hover{
+    text-decoration: underline;
+}
+
+@media(max-width: 584px){
+    .contenedor{
+        max-width: 90%;
+    }
+
+    form .user-details .input-box{
+        margin-bottom: 15px;
+        width: 100%;
+    }
+
+    @media(max-width: 459px){
+        .contenedor .content .category{
+        flex-direction: column;
+        }
+    }
+
+}
