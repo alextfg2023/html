@@ -1,6 +1,10 @@
 <?php
-
 include '../complementosPHP/bbdd.php';
+session_start();
+
+if (!isset($_SESSION['SESSION_EMAIL'])) {
+    header("Location: ../index.php");
+}
 
 if (isset($_POST['guardar'])) {
     $email = $_POST['email'];

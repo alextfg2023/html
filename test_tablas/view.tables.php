@@ -1,5 +1,6 @@
 <?php
 session_start();
+include '../complementosPHP/bbdd.php';
 
 include '../complementosPHP/bbdd.php';
 include '../complementosPHP/create.tables.php';
