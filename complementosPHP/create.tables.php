@@ -1,13 +1,12 @@
 <?php
-include '../complementosPHP/bbdd.php';
-session_start();
 
-if (!isset($_SESSION['SESSION_EMAIL'])) {
-    header("Location: ../index.php");
-}
+include '../complementosPHP/bbdd.php';
 
 if (isset($_POST['guardar'])) {
-    $query = mysqli_query($conn, "SELECT * FROM usuarios WHERE email = '{$_SESSION['SESSION_EMAIL']}' OR username = '{$_SESSION['SESSION_EMAIL']}'");
+    $email = $_POST['email'];
+    $username = $_POST['username'];
+
+    $query = mysqli_query($conn, "SELECT * FROM usuarios WHERE email = '$email' OR username = '$username'");
 
     if (mysqli_num_rows($query) > 0) {
         $row = mysqli_fetch_assoc($query);

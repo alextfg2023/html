@@ -42,7 +42,7 @@ $mensaje = '
         <p>'.$palabras['envio_mail']['registro']['saludo'].' '.$usuario.', '.$palabras['envio_mail']['registro']['codigo_verif'].'</p>
         <h2>'.$codigo.'</h2>
         <p>
-        '.$palabras['envio_mail']['registro']['enlace'].' '.'<a href="https://timerlab.es/confirm/confirm.php?email='.$email.'">https://timerlab.es/confirm/confirm.php?email='.$email.'</a>
+        '.$palabras['envio_mail']['registro']['enlace'].' '.'<a href="timerlab.ddns.net/email.confirm/confirm.php?email='.$email.'">timerlab.ddns.net/email.confirm/confirm.php?email='.$email.'</a>
         </p>
     </body>
 </html>';

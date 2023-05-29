@@ -1,6 +1,8 @@
 <?php
-include '../complementosPHP/bbdd.php';
 session_start();
+
+include '../complementosPHP/bbdd.php';
+include '../complementosPHP/create.tables.php';
 
 if (!isset($_SESSION['SESSION_EMAIL'])) {
     header("Location: ../index.php");
@@ -15,6 +17,7 @@ if (mysqli_num_rows($query) > 0) {
     $sexo = $row['sexo'];
     $username = $row['username'];
     $imagen = $row['imagen'];
+    $email = $row['email'];
 }
 
 include '../idiomas/idiomas.php';
@@ -62,6 +65,8 @@ foreach ($tareas as $index => $tarea) {
     echo '<input type="hidden" name="fechas[]" value="'.$fecha_tarea.'">';
 }
     echo '<input type="hidden" name="horario" value="'.$horarioPersonalizado.'">';
+    echo '<input type="text" name="email" value="'.$email.'">';
+    echo '<input type="text" name="username" value="'.$username.'">';
 
 // Obtener la hora de inicio y la hora de fin del horario personalizado
 list($horaInicio, $horaFin) = explode('-', $horarioPersonalizado);
@@ -103,7 +108,6 @@ foreach ($fechas as $fecha) {
                 </style>
             </head>
             <body>
-                <?php include '../complementosPHP/create.tables.php'; ?>
                 <h1>Horario Semana: <?php echo $numeroSemana; ?></h1>
                     <label>Nombre del horario: </label>
                     <input type="text" name="tablas[]" placeholder="Introduce el nombre"></input>

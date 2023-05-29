@@ -16,6 +16,8 @@
 </head>
 <body>
     <?php
+    $reg_completo = false;
+    $errores = false;
         include '../complementosPHP/bbdd.php';
         include '../complementosPHP/codigo_registrar.php';
         if($reg_completo){
@@ -27,7 +29,7 @@
             <p><?php echo $palabras['registro']['correcto']['registro_correcto'] ?><b><a href="login.php" class="a"><?php echo $palabras['registro']['correcto']['enlace'] ?></a></b></p>
         </div>
     </div>
-    <?php }elseif($errores){ ?> 
+    <?php } elseif($errores){ ?> 
     <div class="error-container">
         <div class="error-message">
             <h1><?php echo $palabras['registro']['errores']['titulo_error'] ?></h1>

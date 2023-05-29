@@ -1,5 +1,5 @@
 <?php
-    include '../idiomas/idiomas.php';
+    include 'idiomas\idiomas_index.php'; 
 ?>
 <html>
     <link rel="stylesheet" href="../assets/css/footer.css">

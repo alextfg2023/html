@@ -1,6 +1,7 @@
 <?php
    session_start();
     include '../idiomas/idiomas.php'; 
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -15,8 +16,9 @@
 </head>
 <body>
    <?php
-      include '../complementosPHP/bbdd.php';
-      include '../complementosPHP/codigo_iniciar_sesion.php';
+   $errores = false;
+   include '../complementosPHP/bbdd.php';
+   require ('../complementosPHP/codigo_iniciar_sesion.php');
       if($errores){
    ?> 
    <div class="error-container">
@@ -40,12 +42,12 @@
          <div class="user-details">
             <div class="input-box">
                <input type="text" name="identificador" placeholder="<?php echo $palabras['login']['place_identificador'];?>" 
-               value="<?php if ($_COOKIE['identificador'] == '') { echo $_POST['identificador'];} else{ echo $_COOKIE['identificador']; } ?>" required>
+               value="<?php if (isset($_COOKIE['identificador']) && $_COOKIE['identificador'] != '') { echo $_COOKIE['identificador']; } else { echo isset($_POST['identificador']) ? $_POST['identificador'] : ''; } ?>" required>
                <i class="uil uil-envelope-alt email"></i>
             </div>
             <div class="input-box">
-               <input type="password" name="password" placeholder="<?php echo $palabras['login']['place_pass'];?>" 
-               value="<?php if ($_COOKIE['password'] == '') { echo $_POST['password'];} else{ echo $_COOKIE['password']; } ?>" required>
+            <input type="password" name="password" placeholder="<?php echo $palabras['login']['place_pass'];?>" 
+            value="<?php if (isset($_COOKIE['password']) && $_COOKIE['password'] != '') { echo $_COOKIE['password']; } else { echo isset($_POST['password']) ? $_POST['password'] : ''; } ?>" required>
                <i class="uil uil-lock password"></i>
                <i class="uil uil-eye-slash pw_hide"></i>
             </div>

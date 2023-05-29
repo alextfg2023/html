@@ -97,52 +97,8 @@
             <a href="./website/signup.php" class="btn-1"><?php echo $palabras['index']['primer_horario']?></a>
 
         </div>
-
-    </section>
-
-    <main class="servicios" id="ayuda">
-
-        <div class="servicios-content contenedor">
-
-            <h2>Cafeteria servicios</h2>
-
-            <div class="servicios-group">
-
-                <div class="servicios-1">
-
-                    <img src="assets/img_test/i1.svg" alt="">
-                    <h3>Servicio 1</h3>
-
-                </div>
-                <div class="servicios-1">
-
-                    <img src="assets/img_test/i2.svg" alt="">
-                    <h3>Servicio 2</h3>
-
-                </div>
-                <div class="servicios-1">
-
-                    <img src="assets/img_test/i3.svg" alt="">
-                    <h3>Servicio 3</h3>
-
-                </div>
-
-            </div>
-
-            <p>
-                Lorem ipsum dolor, sit amet consectetur adipisicing elit. 
-                Officia iure repudiandae, sint dignissimos ipsum facere tempora 
-                architecto molestiae animi, commodi vero temporibus fugiat quam? 
-                Voluptates voluptate quasi autem ex nisi?
-            </p>
-
-            <a href="#" class="btn-1">Información</a>
-
-        </div>
-
-    </main>
     <?php
-        include './complementos/footer.php'
+        include 'complementosPHP\footer.php';
     ?>
 </body>
 </html>

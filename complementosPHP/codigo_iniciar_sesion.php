@@ -21,8 +21,11 @@ if (isset($_POST['submit'])) {
     }
 
     if (count($campos) > 0) {
+
         $errores = true;
+
     } else {
+        $errores = false;
         if (isset($_POST['recordar'])) {
             setcookie("identificador", urlencode($_POST['identificador']), time() + (86400 * 30), "/"); // Cookie válida por 30 días
             setcookie("password", urlencode($_POST['password']), time() + (86400 * 30), "/"); // Cookie válida por 30 días
@@ -31,8 +34,7 @@ if (isset($_POST['submit'])) {
         $_SESSION['id'] = $id;
         $_SESSION['SESSION_EMAIL'] = $identificador;
 
-        header("Location: ../website_test/home.php");
-        exit(); // Importante agregar esta línea para detener la ejecución del código después de redirigir
+        header("Location: ../website/home.php");
     }
 
     echo '</div>';
