@@ -98,7 +98,7 @@
 
         </div>
     <?php
-        include 'complementosPHP\footer.php';
+        include 'complementosPHP/footer.php';
     ?>
 </body>
 </html>
