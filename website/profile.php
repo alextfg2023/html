@@ -50,19 +50,13 @@ if (isset($_GET['id'])) {
             $tipo_n = $_POST['tipo_act'];
             $sexo_n = $_POST['sexo_act'];
             $username_n = $_POST['username_act'];
+            
+            $actdatos = $conn->query("UPDATE usuarios SET username = '$username_n', nombre = '$nombre_n', tipo = '$tipo_n', sexo = '$sexo_n' WHERE id = '$id'") or die($conn->$error);
+            
+            header('Location: .profile.php?id=' . $id);
 
-            $conn->query("UPDATE usuarios SET username = '$username_n', nombre = '$nombre_n', tipo = '$tipo_n', sexo = '$sexo_n' WHERE id = '$id'") or die($conn->$error);
-            header('Location: profile.php?id=' . $id);
         }
-    } else {
-        // Manejo de error cuando no se encuentra el usuario con el ID proporcionado.
-        echo "El usuario no existe.";
-        exit();
     }
-} else {
-    // Manejo de error cuando no se proporciona el ID del usuario.
-    echo "ID de usuario no proporcionado.";
-    exit();
 }
 ?>
 
@@ -78,20 +72,21 @@ if (isset($_GET['id'])) {
 
 <body>
     <?php
+    $langKey = isset($palabras['lang']) ? $palabras['lang'] : '';
     if ($_GET['id'] == $id) {
         if ($_SESSION['lang'] == 'en') {
             echo $nombre . $palabras['perfil']['saludo'];
         } else {
-            echo $palabras['perfil']['saludo'] . " " . $username;
+            echo $palabras['perfil']['saludo'] . " " . $nombre;
         }
     ?>
         <p><?php echo isset($palabras['perfil']['foto_perfil']) ? $palabras['perfil']['foto_perfil'] : ''; ?><img src="<?php echo isset($imagen) ? $imagen : ''; ?>" width="100"></p>
         <form method="POST" action="" enctype="multipart/form-data">
             <input type="file" name="imagen">
             <?php if ($imagen == '') { ?>
-                <input type="submit" name="fotos" value="<?php echo isset($palabras['perfil']['añadir_foto']) ? $palabras['perfil']['añadir_foto'] : ''; ?>" name="actualizar_foto">
+                <input type="submit" value="<?php echo isset($palabras['perfil']['añadir_foto']) ? $palabras['perfil']['añadir_foto'] : ''; ?>" name="actualizar_foto">
             <?php } else { ?>
-                <input type="submit" name="foto" value="<?php echo isset($palabras['perfil']['actualizar_foto']) ? $palabras['perfil']['actualizar_foto'] : ''; ?>" name="actualizar_foto">
+                <input type="submit" value="<?php echo isset($palabras['perfil']['actualizar_foto']) ? $palabras['perfil']['actualizar_foto'] : ''; ?>" name="actualizar_foto">
             <?php } ?>
             <br><br>
             <label><?php echo $palabras['perfil']['nombre'] ?></label>
