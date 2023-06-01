@@ -78,10 +78,10 @@ if (mysqli_num_rows($calendario_escolar) > 0){
     <a href="overview.php?id=<?php echo $id; ?>"><?php echo $palabras['home']['perfil']?></a>
     <br>
     <br>
-    <a href="../test_tablas/create.table.php" class="">Crear tabla</a>
+    <a href="../create.tables/create.table.php" class=""><?php echo $palabras['home']['tablas_c']?></a>
     <br>
     <br>
-    <a href="../test_tablas/ver_tabla.php" class="">Ver mis tablas</a>
+    <a href="../create.tables/ver_tabla.php" class=""><?php echo $palabras['home']['tablas_v']?></a>
     <br>
     <br>
     <?php
@@ -90,7 +90,7 @@ if (mysqli_num_rows($calendario_escolar) > 0){
             $totalFechasE = count($calendario_diaE);
             echo "<h3>Total de fechas en el calendario escolar: " . $totalFechasE . "</h3>";
 
-            $diasSemanaE = array('Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado', 'Domingo');
+            $diasSemanaE = array($palabras['home']['lunes'], $palabras['home']['martes'], $palabras['home']['miercoles'], $palabras['home']['jueves'], $palabras['home']['viernes'], $palabras['home']['sabado'], $palabras['home']['domingo']);
 
             echo '<table>';
 
@@ -151,7 +151,7 @@ if (mysqli_num_rows($calendario_escolar) > 0){
             $totalFechasT = count($calendario_diaT);
             echo "<h3>Total de fechas en el calendario laboral: " . $totalFechasT . "</h3>";
 
-            $diasSemanaT = array('Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado', 'Domingo');
+            $diasSemanaT = array($palabras['home']['lunes'], $palabras['home']['martes'], $palabras['home']['miercoles'], $palabras['home']['jueves'], $palabras['home']['viernes'], $palabras['home']['sabado'], $palabras['home']['domingo']);
 
             echo '<table>';
 
@@ -213,7 +213,7 @@ if (mysqli_num_rows($calendario_escolar) > 0){
             $totalFechasT = count($calendario_diaT);
             echo "<h3>Total de fechas en el calendario laboral: " . $totalFechasT . "</h3>";
 
-            $diasSemanaT = array('Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado', 'Domingo');
+            $diasSemanaT = array($palabras['home']['lunes'], $palabras['home']['martes'], $palabras['home']['miercoles'], $palabras['home']['jueves'], $palabras['home']['viernes'], $palabras['home']['sabado'], $palabras['home']['domingo']);
 
             echo '<table>';
 
@@ -275,7 +275,7 @@ if (mysqli_num_rows($calendario_escolar) > 0){
             $totalFechasE = count($calendario_diaE);
             echo "<h3>Total de fechas en el calendario escolar: " . $totalFechasE . "</h3>";
 
-            $diasSemanaE = array('Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado', 'Domingo');
+            $diasSemanaE = array($palabras['home']['lunes'], $palabras['home']['martes'], $palabras['home']['miercoles'], $palabras['home']['jueves'], $palabras['home']['viernes'], $palabras['home']['sabado'], $palabras['home']['domingo']);
 
             echo '<table>';
 

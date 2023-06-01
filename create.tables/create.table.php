@@ -1,124 +1,30 @@
 <?php
+
 include '../complementosPHP/bbdd.php';
 session_start();
 
-if (!isset($_SESSION['SESSION_EMAIL'])) {
+if(!isset($_SESSION['SESSION_EMAIL'])){
     header("Location: ../index.php");
 }
 
-include '../idiomas/idiomas.php';
+include '../idiomas/idiomas.php'; 
 
-if (isset($_POST['Generar_tabla'])) {
-    $horarioPersonalizado = $_POST['horario'];
-    $tareas = $_POST['tareas'];
-    $importancias = $_POST['importancias'];
-    $fechas = $_POST['fechas'];
-    $id = $_POST['id'];
+$query = mysqli_query($conn, "SELECT * FROM usuarios WHERE email = '{$_SESSION['SESSION_EMAIL']}' OR username = '{$_SESSION['SESSION_EMAIL']}'");
 
-    // Crear una matriz para almacenar las tareas por día y hora
-    $calendario = array(
-        'Monday' => array(),
-        'Tuesday' => array(),
-        'Wednesday' => array(),
-        'Thursday' => array(),
-        'Friday' => array()
-    );
-
-    // Recorrer las tareas y agregarlas al calendario
-    foreach ($tareas as $index => $tarea) {
-        $nombreTarea = $tarea;
-        $importancia = intval($importancias[$index]);
-        $fecha_tarea = $fechas[$index];
-
-        // Obtener el día de la semana a partir de la fecha
-        $diaSemana = date('l', strtotime($fecha_tarea));
-
-        // Calcular el número de celdas que ocupará la tarea según la importancia (máximo 6 celdas)
-        $numCeldas = min(6, ceil($importancia / 2));
-
-        // Agregar la tarea al día correspondiente en el calendario
-        for ($i = 0; $i < $numCeldas; $i++) {
-            $calendario[$diaSemana][] = array('tarea' => $nombreTarea);
-        }
-    }
-
-    // Obtener la hora de inicio y la hora de fin del horario personalizado
-    list($horaInicio, $horaFin) = explode('-', $horarioPersonalizado);
-    list($inicioHora, $inicioMinuto) = explode(':', $horaInicio);
-    list($finHora, $finMinuto) = explode(':', $horaFin);
-
-    // Imprimir la tabla del calendario
+if (mysqli_num_rows($query) > 0) {
+    $row = mysqli_fetch_assoc($query);
+    $nombre = $row['nombre'];
+    $id = $row['id'];
+    $sexo = $row['sexo'];
+    $username = $row['username'];
+    $imagen = $row['imagen'];
+    $tipo = $row['tipo'];
+}
 ?>
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Calendario de tareas</title>
-    <style>
-        table {
-            border-collapse: collapse;
-            width: 100%;
-        }
-
-        th, td {
-            border: 1px solid #ccc;
-            padding: 8px;
-        }
-    </style>
-</head>
-<body>
-    <h1>Calendario de tareas</h1>
-    <table>
-        <tr>
-            <th>Tiempo</th>
-            <th>Lunes</th>
-            <th>Martes</th>
-            <th>Miércoles</th>
-            <th>Jueves</th>
-            <th>Viernes</th>
-        </tr>
-        <?php
-            $diasSemana = array('Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday');
-            
-            // Generar las filas de tiempo
-            for ($hora = $inicioHora; $hora < $finHora; $hora++) {
-                $horaInicio = sprintf("%02d:00", $hora);
-                $horaFin = sprintf("%02d:00", $hora + 1);
-                echo "<tr><td>$horaInicio - $horaFin</td>";
-                
-                // Generar las celdas de tareas para cada día
-                foreach ($diasSemana as $dia) {
-                    $tareas = $calendario[$dia] ?? [];
-                    $numTareas = count($tareas);
-
-                    if ($numTareas > 0) {
-                        $tarea = $tareas[0]['tarea'];
-                        unset($tareas[0]);
-                        $calendario[$dia] = array_values($tareas);
-
-                        echo "<td>$tarea</td>";
-                    } else {
-                        echo "<td></td>";
-                    }
-                }
-
-                echo "</tr>";
-            }
-        ?>
-    </table>
-    <br>
-        <form action="" method="POST">
-            <input type="submit" name="Nueva_tabla" value="Modificar tabla">
-        </form>
-</body>
-</html>
-<?php
-} else {
-    // Si no se ha enviado el formulario, mostrar el formulario de creación
-?>
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Generar horario de trabajo</title>
+    <title><?php echo $palabras['config']['createtable_title']?></title>
     <style>
         .tarea {
             margin-bottom: 10px;
@@ -126,32 +32,39 @@ if (isset($_POST['Generar_tabla'])) {
     </style>
 </head>
 <body>
-    <h1>Generar horario de trabajo</h1>
-    <form method="post" action="<?php echo $_SERVER['PHP_SELF']; ?>">
-        <label for="horario">Horario:</label>
-        <input type="text" name="horario" id="horario" placeholder="Ej. 9:00-18:00" required><br><br>
+    <?php
+        if($tipo == 'ambos'){
+            echo "<h1>".$palabras['crear_tablas']['titutloA']."</h1>";
+        }if($tipo == 'estudiante'){
+            echo "<h1>".$palabras['crear_tablas']['titutloE']."</h1>";
+        }if($tipo == 'trabajador'){
+            echo "<h1>".$palabras['crear_tablas']['titutloT']."</h1>";
+        }
+    ?>
+    <form method="post" action="../create.tables/preview.tables.php">
+        <label for="horario"><?php echo $palabras['crear_tablas']['horario']?></label>
+        <input type="text" name="horario" id="horario" placeholder="<?php echo $palabras['crear_tablas']['ejemplo_horario']?>" required><br><br>
 
         <div id="tareas">
             <div class="tarea">
-                <label for="tarea1">Tarea:</label>
-                <input type="text" name="tareas[]" id="tarea1" required>
-                <label for="importancia1">Importancia:</label>
-                <input type="number" name="importancias[]" id="importancia1" min="1" max="10" required>
-                <label for="fecha1">Fecha:</label>
+                <label for="tarea1"><?php echo $palabras['crear_tablas']['tareas']?></label>
+                <input type="text" name="tareas[]" id="tarea1" placeholder="<?php echo $palabras['crear_tablas']['ejemplo_tarea']?>" required>
+                <label for="importancia1"><?php echo $palabras['crear_tablas']['importancia']?></label>
+                <input type="number" name="importancias[]" id="importancia1" min="1" max="10" placeholder="<?php echo $palabras['crear_tablas']['ejemplo_imp']?>" required>
+                <label for="fecha1"> <?php echo $palabras['crear_tablas']['fecha']?></label>
                 <input type="date" name="fechas[]" id="fecha1" required>
                 <input type="hidden" name="id" value="<?php echo $id; ?>">
             </div>
         </div><br>
 
-        <button type="button" id="agregar_tarea">Agregar tarea</button><br><br>
+        <button type="button" id="agregar_tarea"><?php echo $palabras['crear_tablas']['agregar_tarea']?></button><br><br>
 
-        <button type="submit" name="Generar_tabla">Generar horario</button><br><br>
+        <button type="submit" name="Generar_tabla"><?php echo $palabras['crear_tablas']['generar_horario']?></button><br><br>
     </form>
 
     <form method="post" action="../website/home.php">
-        <button type="submit" name="Volver">Volver</button>
+        <button type="submit" name="Volver"><?php echo $palabras['crear_tablas']['volver']?></button>
     </form>
-
     <script>
         // Agregar nueva tarea al formulario
         let numTareas = 1;
@@ -162,7 +75,7 @@ if (isset($_POST['Generar_tabla'])) {
             divTarea.className = "tarea";
 
             let labelTarea = document.createElement("label");
-            labelTarea.textContent = "Tarea:";
+            labelTarea.textContent = "<?php echo $palabras['crear_tablas']['tareas']?> ";
             let inputTarea = document.createElement("input");
             inputTarea.type = "text";
             inputTarea.name = "tareas[]";
@@ -170,7 +83,7 @@ if (isset($_POST['Generar_tabla'])) {
             inputTarea.required = true;
 
             let labelImportancia = document.createElement("label");
-            labelImportancia.textContent = "Importancia:";
+            labelImportancia.textContent = " <?php echo $palabras['crear_tablas']['importancia']?> ";
             let inputImportancia = document.createElement("input");
             inputImportancia.type = "number";
             inputImportancia.name = "importancias[]";
@@ -180,7 +93,7 @@ if (isset($_POST['Generar_tabla'])) {
             inputImportancia.required = true;
 
             let labelFecha = document.createElement("label");
-            labelFecha.textContent = "Fecha:";
+            labelFecha.textContent = " <?php echo $palabras['crear_tablas']['fecha']?> ";
             let inputFecha = document.createElement("input");
             inputFecha.type = "date";
             inputFecha.name = "fechas[]";
@@ -197,8 +110,9 @@ if (isset($_POST['Generar_tabla'])) {
             document.getElementById("tareas").appendChild(divTarea);
         });
     </script>
+    <br>
+    <?php
+        include '../idiomas/lista_idiomas.php';
+    ?>
 </body>
 </html>
-<?php
-}
-?>

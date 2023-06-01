@@ -14,6 +14,8 @@
         "perfil_title": "Mi Perfil - TimerLab",
         "signup_title": "Registro - TimerLab",
         "verificacion_title": "Cuenta Verificada - TimerLab",
+        "createtable_title": "Crear Horario - TimerLab",
+        "preview_title": "Visualización de Horario - TimerLab",
         "cerrar_sesion": "Cerrar sesión",
         "idioma": "Idioma:"
     },
@@ -41,7 +43,17 @@
     "home":{
         "bienvenido": "Bienvenido",
         "bienvenida": "Bienvenida",
-        "perfil": "Ir a mi perfil"
+        "perfil": "Ir a mi perfil",
+        "tablas_c": "Crear un horario",
+        "tablas_v": "Ver mis horarios",
+        "lunes": "Lunes",
+        "martes": "Martes",
+        "miercoles": "Miércoles",
+        "jueves": "Jueves",
+        "viernes": "Viernes",
+        "sabado": "Sábado",
+        "domingo": "Domingo"
+        
     },
     "general": {
         "saludo": "Hola",
@@ -59,6 +71,7 @@
         "añadir_foto": "Añadir foto de perfil",
         "actualizar_foto": "Actualizar foto de perfil",
         "nombre": "Nombre",
+        "username": "Usuario",
         "tipo_user": "Tipo de usuario",
         "tipo_user_ambos": "Ambos",
         "tipo_user_trabajador": "Trabajador",
@@ -210,5 +223,32 @@
         }
 
 
+    },
+    "crear_tablas": {
+        "titutloT": "Crear un horario de trabajo",
+        "titutloE": "Crear un horario de estudio",
+        "titutloA": "Crear un horario de estudio/trabajo",
+        "horario": "Horario:",
+        "ejemplo_horario": "Ej: 9:00-18:00",
+        "tareas": "Tarea:",
+        "ejemplo_tarea": "Ej: Estudiar", 
+        "importancia": "Importancia:",
+        "ejemplo_imp": "1 - 10",
+        "fecha": "Fecha:",
+        "agregar_tarea": "Agregar Tarea",
+        "generar_horario": "Generar Horario",
+        "volver": "Volver"
+    },
+    "preview_tablas":{
+        "titulo": "Horario de la Semana: ",
+        "nombre": "Nombre del Horario: ",
+        "horas": "Horas",
+        "lunes": "Lunes",
+        "martes": "Martes",
+        "miercoles": "Miércoles",
+        "jueves": "Jueves",
+        "viernes": "Viernes",
+        "guardar": "Guardar Horarios",
+        "cambiar": "Modificar Horarios"
     }
 }

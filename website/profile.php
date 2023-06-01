@@ -92,7 +92,7 @@ if (isset($_GET['id'])) {
             <label><?php echo $palabras['perfil']['nombre'] ?></label>
             <input type="text" name="nombre_act" value="<?php echo $nombre; ?>" autocomplete="off">
             <br><br>
-            <label>Usuario</label>
+            <label><?php echo $palabras['perfil']['username'] ?></label>
             <input type="text" name="username_act" value="<?php echo $username; ?>" autocomplete="off">
             <br><br>
             <label><?php echo $palabras['perfil']['tipo_user'] ?></label>

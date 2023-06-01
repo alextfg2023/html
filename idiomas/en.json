@@ -14,6 +14,8 @@
         "perfil_title": "My Profile - TimerLab",
         "signup_title": "Sign up - TimerLab",
         "verificacion_title": "Verified Account - TimerLab",
+        "createtable_title": "Create Schedule - TimerLab",
+        "preview_title": "Schedule Preview - TimerLab",
         "cerrar_sesion": "Log out",
         "idioma": "Language:"
     },
@@ -41,7 +43,16 @@
     "home":{
         "bienvenido": "Welcome",
         "bienvenida": "Welcome",
-        "perfil": "Go to my profile"
+        "perfil": "Go to my profile",
+        "tablas_c": "Create a schedule",
+        "tablas_v": "View my schedules",
+        "lunes": "Monday",
+        "martes": "Tuesday",
+        "miercoles": "Wednesday",
+        "jueves": "Thursday",
+        "viernes": "Friday",
+        "sabado": "Saturday",
+        "domingo": "Sunday"
     },
     "general": {
         "saludo": "Hi",
@@ -59,6 +70,7 @@
         "añadir_foto": "Add profile picture",
         "actualizar_foto": "Update profile picture",
         "nombre": "Name",
+        "username": "Username",
         "tipo_user": "User type",
         "tipo_user_ambos": "Both",
         "tipo_user_trabajador": "Worker",
@@ -207,6 +219,33 @@
                 "boton": "Retry"
             }
         }
+    },
+    "crear_tablas": {
+        "titutloT": "Create a working schedule",
+        "titutloE": "Create a studying schedule",
+        "titutloA": "Create a studying/working schedule",
+        "horario": "Schedule:",
+        "ejemplo_horario": "Ex: 9:00-18:00",
+        "tareas": "Task:",
+        "ejemplo_tarea": "Ex: Study", 
+        "importancia": "Importance:",
+        "ejemplo_imp": "1 - 10",
+        "fecha": "Date:",
+        "agregar_tarea": "Add Task",
+        "generar_horario": "Generate Schedule",
+        "volver": "Back"
+    },
+    "preview_tablas":{
+        "titulo": "Shedule Week: ",
+        "nombre": "Schedule Name: ",
+        "horas": "Hours",
+        "lunes": "Monday",
+        "martes": "Tuesday",
+        "miercoles": "Wednesday",
+        "jueves": "Thursday",
+        "viernes": "Friday",
+        "guardar": "Save Schedules",
+        "cambiar": "Modify Schedules"
     }
 }
 

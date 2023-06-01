@@ -18,7 +18,7 @@
         if(isset($_POST['semana_tabla'])){
             $semanasTabla = $_POST['semana_tabla'];
         }
-        
+
         $tablas = $_POST['tablas'];
         $horario = $_POST['horario'];
         $tablasAgregadas = [];
@@ -27,13 +27,13 @@
         $tareas = $_POST['tareas']; 
         $importancias = $_POST['importancias'];
         $fechas = $_POST['fechas'];
+        $semanasTabla = $_POST['semana_tabla'];
         $campos = array();
                     
-        if (empty($tablas)) {
-            $campos[] = "ERROR: Debes ingresar al menos una tabla.";
+        if($tablas == ''){
+            array_push($campos, $palabras['registro']['errores']['username_vacio_invalido']);
         }
-
-        if(count($campos) < 0){
+        if(count($campos) > 0){
 
             $errores = true;
                 
@@ -72,6 +72,8 @@
                                 if ($insert_tareas) {
                                     $tareasAgregadas[] = $nombreTarea; // Agregar la tarea al array de tareas agregadas
                                     $tareasTabla[] = $nombreTarea; // Agregar la tarea al array de tareas correspondientes a la tabla actual
+                                } else {
+                                    echo "Error al agregar la tarea $nombreTarea: " . mysqli_error($conn);
                                 }
                             }
                         }
@@ -79,5 +81,7 @@
                 }
             }
         }
+                        
+        echo '</div>';
     }
 ?>

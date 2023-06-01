@@ -22,75 +22,76 @@
         if(isset($_POST['tipo_usuario'])){
 
             $tipo = $_POST['tipo_usuario'];
-            }else{
+        }else{
                 $tipo = '';
-            }
-            if(isset($_POST['sexo'])){
-                $sexo = $_POST['sexo'];
-            }else{
-                $sexo = '';
-            }
+        }
+    
+        if(isset($_POST['sexo'])){
+            $sexo = $_POST['sexo'];
+        }else{
+            $sexo = '';
+        }
                         
-            $pattern = '/[^\w]/';
-            $campos = array();
+        $pattern = '/[^\w]/';
+        $campos = array();
                     
-            if(mysqli_num_rows($res_username) > 0){
-                array_push($campos, $palabras['registro']['errores']['username_en_uso']);
-            }
-            if($username == ''){
-                array_push($campos, $palabras['registro']['errores']['username_vacio_invalido']);
-            }
-            if(preg_match($pattern, $username)){
-                array_push($campos, $palabras['registro']['errores']['username_invalido']);
-            }
-            if($nombre == ''){
-                array_push($campos, $palabras['registro']['errores']['nom_vacio']);
-            }
-            if($pass == '' || strlen($pass) < 8){
-                array_push($campos, $palabras['registro']['errores']['pass_vacia_corta']);
-            }
-            if($pass != $cpass){
-                array_push($campos, $palabras['registro']['errores']['pass_distintas']);
-            }
-            if(mysqli_num_rows($res_email) > 0){
-                array_push($campos, $palabras['registro']['errores']['correo_en_uso']);
-            }
-            if($email == '' || strpos($email, '@') == false){
-                array_push($campos, $palabras['registro']['errores']['correo_invalido']);
-            }
-            if($email != $cemail){
-                array_push($campos, $palabras['registro']['errores']['correos_distintos']);
-            }
-            if($tipo == ''){
-                array_push($campos, $palabras['registro']['errores']['elegir_tipo']);
-            }
-            if($sexo == ''){
+        if(mysqli_num_rows($res_username) > 0){
+            array_push($campos, $palabras['registro']['errores']['username_en_uso']);
+        }
+        if($username == ''){
+            array_push($campos, $palabras['registro']['errores']['username_vacio_invalido']);
+        }
+        if(preg_match($pattern, $username)){
+            array_push($campos, $palabras['registro']['errores']['username_invalido']);
+        }
+        if($nombre == ''){
+            array_push($campos, $palabras['registro']['errores']['nom_vacio']);
+        }
+        if($pass == '' || strlen($pass) < 8){
+            array_push($campos, $palabras['registro']['errores']['pass_vacia_corta']);
+        }
+        if($pass != $cpass){
+            array_push($campos, $palabras['registro']['errores']['pass_distintas']);
+        }
+        if(mysqli_num_rows($res_email) > 0){
+            array_push($campos, $palabras['registro']['errores']['correo_en_uso']);
+        }
+        if($email == '' || strpos($email, '@') == false){
+            array_push($campos, $palabras['registro']['errores']['correo_invalido']);
+        }
+        if($email != $cemail){
+            array_push($campos, $palabras['registro']['errores']['correos_distintos']);
+        }
+        if($tipo == ''){
+            array_push($campos, $palabras['registro']['errores']['elegir_tipo']);
+        }
+        if($sexo == ''){
             
-                array_push($campos, $palabras['registro']['errores']['elegir_sexo']);
-            }
-            if(count($campos) > 0){
+            array_push($campos, $palabras['registro']['errores']['elegir_sexo']);
+        }
+        if(count($campos) > 0){
 
-                $errores = true;
+            $errores = true;
                 
-            }else{
+        }else{
                 
-                $reg_completo = true;
+            $reg_completo = true;
 
-                include "../mail/mail_registro.php";
+            include "../mail/mail_registro.php";
             
-                if($enviado){
+            if($enviado){
             
                 $secure_pass = md5($pass);
-            
+                
                 $conn->query("INSERT INTO usuarios (nombre, email, password, tipo, confirmado, codigo, imagen, fecha_registro, sexo, username) 
                 VALUES ('$nombre', '$email', '$secure_pass', '$tipo', 'no', '$codigo', '', '$fecha_reg', '$sexo', '$username') ")or die($conn->$error);
             
-                }else{
+            }else{
             
-                    echo 'El correo de verificación no se pudo enviar';
-                }
+                echo 'El correo de verificación no se pudo enviar';
             }
+        }
                         
-            echo '</div>';
+        echo '</div>';
     }
 ?>
