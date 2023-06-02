@@ -1,9 +1,8 @@
 <?php
 session_start();
-$tabla_añadida = false;
-$errores = false;
+
 include '../complementosPHP/bbdd.php';
-include '../complementosPHP/create.tables.test.php';
+
 
 if (!isset($_SESSION['SESSION_EMAIL'])) {
     header("Location: ../index.php");
@@ -106,7 +105,10 @@ foreach ($tareas as $index => $tarea) {
     </head>
     <body>
         <?php
-        if($tabla_añadida){
+        $tabla_añadida = false;
+        $errores = false;
+        include '../complementosPHP/create.sches.php';
+        if($tabla_añadida == true){
         ?>
             <div class="correct-container">
                 <div class="correct-message">
@@ -114,14 +116,17 @@ foreach ($tareas as $index => $tarea) {
                     <p>
                         <?php 
                         for ($i=0; $i < count($tablasAgregadas); $i++) { 
-                            echo '<li class="info">Semana: '.$semanasTabla[$i].' --> Horario:' .$tablasAgregadas[$i].'</li>'; 
+                            echo '<li class="info">Semana: '.$semanasTabla[$i].' --> Nombre del Horario: ' .$tablasAgregadas[$i].'</li>'; 
                         } 
                         ?>
                     </p>
+                    <form method="post" action="view.sche.php">
+                        <button type="submit" name="ver"><?php echo $palabras['crear_tablas']['ver_horario']?></button>
+                    </form>
                 </div>
             </div>
         <?php 
-        } elseif($errores){ 
+        } elseif($errores == true){ 
         ?> 
             <div class="error-container">
                 <div class="error-message">
@@ -154,7 +159,7 @@ foreach ($tareas as $index => $tarea) {
                 </h1>
                 <input type="checkbox" name="tablas_seleccionadas[]" value="<?php echo $numeroSemana; ?>">
                 <label><?php echo $palabras['preview_tablas']['nombre']; ?> </label>
-                <input type="text" name="tablas[]" placeholder="Introduce el nombre"></input>
+                <input type="text" name="tablas[]" placeholder="Introduce el nombre" required></input>
                 <input type="hidden" name="semana_tabla[]" value="<?php echo $numeroSemana; ?>"></input>
                 <br>
                 <br>
@@ -207,7 +212,7 @@ foreach ($tareas as $index => $tarea) {
 ?>
     <input type="submit" name="guardar" value="<?php echo $palabras['preview_tablas']['guardar']?>">
 </form>
-<form action="create.table.php" method="POST">
+<form action="create.sche.php" method="POST">
     <input type="submit" name="Nueva_tabla" value="<?php echo $palabras['preview_tablas']['cambiar']?>">
 </form>
 <?php

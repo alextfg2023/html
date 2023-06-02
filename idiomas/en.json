@@ -16,6 +16,7 @@
         "verificacion_title": "Verified Account - TimerLab",
         "createtable_title": "Create Schedule - TimerLab",
         "preview_title": "Schedule Preview - TimerLab",
+        "view_title": "Schedules - TimerLab",
         "cerrar_sesion": "Log out",
         "idioma": "Language:"
     },
@@ -233,7 +234,8 @@
         "fecha": "Date:",
         "agregar_tarea": "Add Task",
         "generar_horario": "Generate Schedule",
-        "volver": "Back"
+        "volver": "Back",
+        "ver_horario": "See my schedules"
     },
     "preview_tablas":{
         "titulo": "Shedule Week: ",
@@ -246,6 +248,33 @@
         "viernes": "Friday",
         "guardar": "Save Schedules",
         "cambiar": "Modify Schedules"
+    },
+    "view_tablas":{
+        "siguiente": "Next Schedule",
+        "anterior": "Previous Schedule",
+        "borrar": "Delete Schedule",
+        "volver": "Back to homepage ",
+        "no_tablas": "Oh...",
+        "mensaje_no_tablas1": "Looks like you don't have any schedule yet...",
+        "mensaje_no_tablas2": "You can create your ",
+        "enlace_no_tablas1": "first schedule now! ",
+        "mensaje_no_tablas3": "or ",
+        "enlace_no_tablas2": "back to homepage ",
+        "borrar_tabla": {
+            "titulo": "Warning!",
+            "texto": "You are about to delete the schedule: ",
+            "aviso": "Once you delete it, the data cannot be recovered!",
+            "seguro": "Do you want to delete it anyway? ",
+            "borrar": "Yes, I want to delete it",
+            "retroceder": "No, Keep it",
+            "mensaje_aviso": "Delete confirmation",
+            "mensaje_confirmacion": "To delte the schedule please type: ",
+            "borrar_definitivo": "DELETE SCHEDULE",
+            "borrado_completo_titulo": "Delete Completed!",
+            "borrado_completo1": "The schedule ",
+            "borrado_completo2": " has been successfully removed!",
+            "volver": "Back to my Schedules"
+        }
     }
 }
 

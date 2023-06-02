@@ -41,7 +41,7 @@ if (mysqli_num_rows($query) > 0) {
             echo "<h1>".$palabras['crear_tablas']['titutloT']."</h1>";
         }
     ?>
-    <form method="post" action="../create.tables/preview.tables.php">
+    <form method="post" action="../create.sche/preview.sche.php">
         <label for="horario"><?php echo $palabras['crear_tablas']['horario']?></label>
         <input type="text" name="horario" id="horario" placeholder="<?php echo $palabras['crear_tablas']['ejemplo_horario']?>" required><br><br>
 

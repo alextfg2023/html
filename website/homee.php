@@ -46,38 +46,72 @@ if (mysqli_num_rows($calendario_escolar) > 0) {
 }
 
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../assets/css/home.css">
+    <link rel="stylesheet" href="../assets/css/homee.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
     <title><?php echo $palabras['config']['home_title'] ?></title>
 </head>
-
 <body>
-    <br>
-    <?php
-    if ($sexo == 'hombre') {
-        echo "<p>" . $palabras['home']['bienvenido'] . ' ' . $username . ' ' . "<img src= '$imagen' width='40'></p>";
-    } elseif ($sexo == 'mujer') {
-        echo "<p>" . $palabras['home']['bienvenida'] . ' ' . $username . "</p>";
-    }
-    ?>
-    <br>
-    <a href="overview.php?id=<?php echo $id; ?>"><?php echo $palabras['home']['perfil'] ?></a>
-    <br>
-    <br>
-    <a href="../create.sche/create.sche.php" class=""><?php echo $palabras['home']['tablas_c'] ?></a>
-    <br>
-    <br>
-    <a href="../create.sche/view.sche.php" class=""><?php echo $palabras['home']['tablas_v'] ?></a>
-    <br>
-    
-    <br>
-    <?php
+    <div class="hero">
+        <nav>
+            <h2 class="logo">TimerLab</h2>
+            <?php
+            if ($tipo == 'ambos') {
+            ?>
+            <ul>
+                <li><a href="#">Calendario Laboral</a></li>
+                <li><a href="#">Calendario Escolar</a></li>
+                <li><a href="../create.sche/create.sche.php">Crear Horario</a></li>
+            </ul>
+            <?php 
+            } elseif ($tipo == 'trabajador') {
+            ?>
+            <ul>
+                <li><a href="#">Calendario Laboral</a></li>
+                <li><a href="../create.sche/create.sche.php">Crear Horario</a></li>
+            </ul>
+            <?php 
+            } elseif ($tipo == 'estudiante') {
+            ?>
+            <ul>
+                <li><a href="#">Calendario Escolar</a></li>
+                <li><a href="../create.sche/create.sche.php">Crear Horario</a></li>
+            </ul>
+            <?php } ?>
+            <img src="<?php echo $imagen; ?>" class="user-pic" onclick="toggleMenu()">
+
+            <div class="sub-menu-wrap" id="subMenu">
+                <div class="sub-menu">
+                    <div class="user-info">
+                        <img src="<?php echo $imagen; ?>">
+                        <h3><?php echo $username; ?></h3>
+                    </div>
+                    <hr>
+                    <a href="overview.php?id=<?php echo $id; ?>" class="sub-menu-link">
+                        <i class="fas fa-user-alt"></i>
+                        <p><?php echo $palabras['home']['perfil'] ?></p>
+                        <span>></span>
+                    </a>
+                    <a href="../create.sche/view.sche.php" class="sub-menu-link">
+                        <i class="far fa-calendar-alt"></i>
+                        <p><?php echo $palabras['home']['tablas_v'] ?></p>
+                        <span>></span>
+                    </a>
+                    <a href="../complementosPHP/logout.php" class="sub-menu-link">
+                        <i class="fas fa-door-open"></i>
+                        <p><?php echo $palabras['config']['cerrar_sesion'] ?></p>
+                        <span>></span>
+                    </a>
+                </div>
+            </div>
+        </nav>
+        <?php
         if ($tipo == 'ambos') {
             // Calendario escolar
             $totalFechasE = count($calendario_diaE);
@@ -328,5 +362,13 @@ if (mysqli_num_rows($calendario_escolar) > 0) {
             }
         include '../idiomas/lista_idiomas.php';
     ?>
+    </div>
+    <script>
+        let subMenu = document.getElementById("subMenu");
+
+        function toggleMenu(){
+            subMenu.classList.toggle("open-menu");
+        }
+    </script>
 </body>
 </html>

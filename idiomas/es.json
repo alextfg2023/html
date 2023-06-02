@@ -16,6 +16,7 @@
         "verificacion_title": "Cuenta Verificada - TimerLab",
         "createtable_title": "Crear Horario - TimerLab",
         "preview_title": "Visualización de Horario - TimerLab",
+        "view_title": "Horarios - TimerLab",
         "cerrar_sesion": "Cerrar sesión",
         "idioma": "Idioma:"
     },
@@ -237,7 +238,8 @@
         "fecha": "Fecha:",
         "agregar_tarea": "Agregar Tarea",
         "generar_horario": "Generar Horario",
-        "volver": "Volver"
+        "volver": "Volver",
+        "ver_horario": "Ver mis horarios"
     },
     "preview_tablas":{
         "titulo": "Horario de la Semana: ",
@@ -250,5 +252,32 @@
         "viernes": "Viernes",
         "guardar": "Guardar Horarios",
         "cambiar": "Modificar Horarios"
+    },
+    "view_tablas":{
+        "siguiente": "Siguiente Horario",
+        "anterior": "Horario Anterior",
+        "borrar": "Borrar Horario",
+        "volver": "Volver al inicio",
+        "no_tablas": "VAYA...",
+        "mensaje_no_tablas1": "Parece que todavia no tienes ningún horario...",
+        "mensaje_no_tablas2": "Puedes crear tu ",
+        "enlace_no_tablas1": "primer horario ahora ",
+        "mensaje_no_tablas3": "o ",
+        "enlace_no_tablas2": "volver al inicio",
+        "borrar_tabla": {
+            "titulo": "Aviso!",
+            "texto": "Estás apunto de borrar el horario: ",
+            "aviso":  "Una vez lo elimines no se podrán recuperar los datos!",
+            "seguro": "Aún deseas borrar el horario?",
+            "borrar": "Si, quiero borrar el horario",
+            "retroceder": "No, mantener el horario",
+            "mensaje_aviso": "Confirmación de borrado",
+            "mensaje_confirmacion": "Para eliminar el horario por favor escribe: ",
+            "borrar_definitivo": "ELIMINAR HORARIO",
+            "borrado_completo_titulo": "Borrado Completado!",
+            "borrado_completo1": "El horario ",
+            "borrado_completo2": " se ha eliminado correctamente!",
+            "volver": "Volver a mis Horarios"
+        }
     }
 }

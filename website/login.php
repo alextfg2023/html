@@ -57,7 +57,7 @@
                 <input type="checkbox" name="recordar" id="recordar" <?php if(isset($_COOKIE['usuario_login'])){?> checked <?php }?>/>
                 <label for="recordar"><?php echo $palabras['login']['recordar'];?></label>
               </span>
-              <a href="../password.reset/pass_reset.php" class="forgot_pw"><?php echo $palabras['login']['pass_olvidada'];?></a>
+              <a href="../password.reset/pass.reset.php" class="forgot_pw"><?php echo $palabras['login']['pass_olvidada'];?></a>
             </div>
          </div>
          <div class="button">

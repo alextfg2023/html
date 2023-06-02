@@ -34,7 +34,7 @@ $mensaje = '
     <div style="text-align:center; background-color:#ccc">
         <p>'.$palabras['envio_mail']['reset_pass']['titulo'].'</p>
         <h3>'.$codigo.'</h3>
-        <p>'.$palabras['envio_mail']['reset_pass']['mensaje1'].' <a href="https://timerlab.es/password.reset/code.confirm.php?email='.$email.'&token='.$token.'">
+        <p>'.$palabras['envio_mail']['reset_pass']['mensaje1'].' <a href="timerlab.ddns.net/password.reset/code.confirm.php?email='.$email.'&token='.$token.'">
         '.$palabras['envio_mail']['reset_pass']['enlace'].'</a></p>
         <p>'.$palabras['envio_mail']['reset_pass']['mensaje_no_sol'].'</p>
     </div>
