@@ -45,6 +45,8 @@
         "bienvenido": "Welcome",
         "bienvenida": "Welcome",
         "perfil": "Go to my profile",
+        "calendarios": "View calendars",
+        "calendario": "View calendar",
         "tablas_c": "Create a schedule",
         "tablas_v": "View my schedules",
         "lunes": "Monday",
@@ -53,17 +55,35 @@
         "jueves": "Thursday",
         "viernes": "Friday",
         "sabado": "Saturday",
-        "domingo": "Sunday"
+        "domingo": "Sunday",
+        "L": "Mon",
+        "M": "Tues",
+        "X": "Wed",
+        "J": "Thurs",
+        "V": "Frid",
+        "S": "Sat",
+        "D": "Sun",
+        "calendario_escolar": "School Calendar ",
+        "calendario_laboral": "Work Calendar ",
+        "explicacion_laboral": "L = Working day, NL = Not Working day, F = Festive",
+        "explicacion_escolar": "L = School day, NL = Not School day, F = Festive"
     },
     "general": {
-        "saludo": "Hi",
+        "general": "Account Overview",
+        "bienvenido": "Welcome",
+        "bienvenida": "Welcome",
+        "bienvenid@": "Welcome",
         "correo": "Email",
+        "sexo": "Gender",
+        "name": "Name",
         "fecha_reg": "Sign up date",
         "tipo_cuenta": "Account type",
         "tipo_ambos": "Worker and Student",
         "tipo_trabajador": "Worker",
         "tipo_estudiante": "Student",
-        "edit_perf": "Edit profile"
+        "edit_perf": "Edit profile",
+        "cambiar_pass": "Change password",
+        "volver": "Home"
     },
     "perfil": {
         "saludo": "'s Profile",
@@ -253,7 +273,8 @@
         "siguiente": "Next Schedule",
         "anterior": "Previous Schedule",
         "borrar": "Delete Schedule",
-        "volver": "Back to homepage ",
+        "buscar": "Search Schedule",
+        "buscar_place": "Schedule name...",
         "no_tablas": "Oh...",
         "mensaje_no_tablas1": "Looks like you don't have any schedule yet...",
         "mensaje_no_tablas2": "You can create your ",
@@ -274,7 +295,19 @@
             "borrado_completo1": "The schedule ",
             "borrado_completo2": " has been successfully removed!",
             "volver": "Back to my Schedules"
-        }
+        },
+        "H": "Hours",
+        "L": "L",
+        "M": "M",
+        "X": "X",
+        "J": "J",
+        "V": "V",
+        "horas": "Hours",
+        "lunes": "Monday",
+        "martes": "Tuesday",
+        "miercoles": "Wednesday",
+        "jueves": "Thursday",
+        "viernes": "Friday"
     }
 }
 

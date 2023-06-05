@@ -34,7 +34,7 @@ if (isset($_POST['submit'])) {
         $_SESSION['id'] = $id;
         $_SESSION['SESSION_EMAIL'] = $identificador;
 
-        header("Location: ../website/homee.php");
+        header("Location: ../website/home.php");
     }
 
     echo '</div>';
