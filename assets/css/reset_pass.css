@@ -1,0 +1,319 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body{
+    display: flex;
+    min-height: 100vh;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    background-image: linear-gradient(
+        rgba(0, 0, 0, 0.7),
+        rgba(0, 0, 0, 0.7)),
+        url(../img/registro/fondo_error.jpg);
+    background-position: center bottom;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.contenedor{
+    height: auto;
+    width: 90%;
+    max-width: 400px;
+    background: rgba(230, 228, 228, 0.8);
+    padding: 25px 30px;
+    border-radius: 5px;
+}
+
+.contenedor .title{
+    font-size: 25px;
+    text-align: center;
+    font-weight: 500;
+    position: relative;
+}
+
+.contenedor form .password-change{
+    justify-content: space-between;
+    margin: 20px 0 12px 0;
+}
+
+form .password-change .input-box{
+    position: relative;
+    margin-bottom: 15px;
+    width: 100%;
+}
+
+
+.password-change .input-box input{
+
+    margin-top: 30px;
+    height: 45px;
+    width: 100%;
+    outline: none;
+    border: none;
+    border-radius: 6px;
+    border-bottom: 2px solid white;
+    font-size: 16px;
+    background: transparent;
+    transition: all 0.3s ease;
+    padding: 0 10px;
+    color: #333;
+}
+
+.password-change .input-box input:focus{
+    border-bottom: 2px solid #CE967B;
+}
+
+.password-change .input-box i{
+    position: absolute;
+    top: 68%;
+    transform: translateY(-50%);
+    color: #707070; 
+}
+
+.password-change .input-box i.password{
+    font-size: 19px;
+    transition: all 0.3s ease;
+    left: 6px;
+}
+
+.password-change .input-box input:focus ~ i.password{
+    color: #CE967B;
+}
+
+.password-change .input-box i.pw_hide{
+    cursor: pointer;
+    right: 6px;
+    font-size: 20px;
+}
+
+/* Formulario de cambio de password*/
+
+form .password-change .input-box-new{
+    position: relative;
+    margin-bottom: 15px;
+    width: 100%;
+}
+
+
+.password-change .input-box-new input{
+
+    margin-top: 30px;
+    height: 45px;
+    width: 100%;
+    outline: none;
+    border: none;
+    border-radius: 6px;
+    border-bottom: 2px solid white;
+    font-size: 16px;
+    background: transparent;
+    transition: all 0.3s ease;
+    padding: 0 30px;
+    color: #333;
+}
+
+.password-change .input-box-new input:focus{
+    border-bottom: 2px solid #CE967B;
+}
+
+.password-change .input-box-new i{
+    position: absolute;
+    top: 68%;
+    transform: translateY(-50%);
+    color: #707070; 
+}
+
+.password-change .input-box-new i.password{
+    font-size: 19px;
+    transition: all 0.3s ease;
+    left: 6px;
+}
+
+.password-change .input-box-new input:focus ~ i.password{
+    color: #CE967B;
+}
+
+.password-change .input-box-new i.pw_hide{
+    cursor: pointer;
+    right: 6px;
+    font-size: 20px;
+}
+
+form .button{
+    height: 45px;
+    margin: 45px 0;
+}
+
+form .button input{
+    height: 100%;
+    width: 100%;
+    outline: none;
+    color: #fff;
+    border: none;
+    font-size: 18px;
+    font-weight: 500;
+    border-radius: 5px;
+    letter-spacing: 1px;
+    background: #CE967B;
+}
+
+form .button input:hover{
+    background: #EBAD8D;
+    cursor: pointer;
+}
+
+.error-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.error-message {
+    background-color: rgba(255, 0, 0, 0.7);
+    padding: 20px;
+    border-radius: 5px;
+    text-align: center;
+    max-width: 80%;
+    color: white;
+}
+
+.error-message h1 {
+    font-size: 2rem;
+    margin-bottom: 10px;
+}
+  
+.error-message p {
+    font-size: 1.2rem;
+}
+
+form .error-button{
+    height: 45px;
+}
+
+form .error-button input{
+    height: 100%;
+    width: 100%;
+    outline: none;
+    color: #fff;
+    border: none;
+    font-size: 18px;
+    font-weight: 500;
+    border-radius: 5px;
+    letter-spacing: 1px;
+    background-color: rgba(168, 51, 51, 0.9);
+}
+
+form .error-button input:hover{
+    background-color: rgba(252, 59, 59, 0.9);
+    cursor: pointer;
+}
+
+.error-message .a{
+    text-decoration: none;
+    color: white;
+}
+
+.error-message .a:hover{
+    text-decoration: underline;
+}
+
+.correct-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.correct-message {
+    background-color: rgba(178, 226, 156, 0.9);
+    padding: 20px;
+    border-radius: 5px;
+    text-align: center;
+    max-width: 80%;
+    color: white;
+}
+
+.correct-message h1 {
+    font-size: 2rem;
+    margin-bottom: 10px;
+}
+  
+.correct-message p {
+    font-size: 1.2rem;
+}
+
+.correct-message .a{
+    text-decoration: none;
+    color: white;
+}
+
+.correct-message .a:hover{
+    text-decoration: underline;
+}
+
+select{
+    font-family: 'Poppins', sans-serif;
+    background: transparent;
+    border: solid 1px white;
+    padding: 3px 3px;
+    border-radius: 5px;
+}
+
+select:focus,
+select:valid{
+    border: solid 2px #a1725a;
+}
+
+option{
+    background-color: #ccc;
+}
+
+
+ @media(max-width: 399px){
+    .contenedor{
+        max-width: 90%;
+    }
+    form .password-change .input-box{
+        margin-bottom: 15px;
+        width: 100%;
+    }
+
+    form .sexo-details .category{
+        width: 88%;
+    }
+
+    form .tipo-details .category{
+        width: 100%;
+    }
+
+    .contenedor form .user-details{
+        max-height: 275px;
+        overflow-y: scroll;
+    }
+    .user-details::-webkit-scrollbar{
+        width: 5px;
+    }
+    
+    @media(max-width: 459px){
+        .container .content .category{
+            flex-direction: column;
+        }
+    }
+}

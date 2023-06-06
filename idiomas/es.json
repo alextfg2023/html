@@ -1,0 +1,342 @@
+{
+    "lang": "es",
+    "idioma": "Español",
+    "idiomas": {
+        "idioma1": "Español",
+        "idioma2": "Inglés"
+    },
+    "config": {
+        "reset_title": "Recuperar contraseña - TimerLab",
+        "index_title": "TimerLab",
+        "confirm_title": "Verifiación de cuenta - TimerLab",
+        "home_title": "Home - TimerLab",
+        "login_title": "Login - TimerLab",
+        "overview_title": "General - TimerLab",
+        "perfil_title": "Mi Perfil - TimerLab",
+        "signup_title": "Registro - TimerLab",
+        "verificacion_title": "Cuenta Verificada - TimerLab",
+        "createtable_title": "Crear Horario - TimerLab",
+        "preview_title": "Visualización de Horario - TimerLab",
+        "view_title": "Horarios - TimerLab",
+        "cerrar_sesion": "Cerrar sesión",
+        "idioma": "Idioma:"
+    },
+    "index":{
+        "logo": "TimerLab",
+        "logo_inicial": "TimerLab",
+        "nav_bar_1": "Inicio",
+        "nav_bar_2": "¿Como funciona?",
+        "boton_reg": "Registrate",
+        "boton_o": "O",
+        "boton_log": "Inicia sesión",
+        "texto_inicio_p1": "Trabajas, estudias, o ambos y quieres organizarte?",
+        "texto_inicio_p2": "TimerLab te permite crear tu horario totalmente personalizado en tus horas de estudio/trabajo para que puedas organizarte las tareas más complicadas.",
+        "texto_inicio_p3": "Registrate ahora y crea tu primer horario!",
+        "funcionamiento": "¿Como funciona TimerLab?",
+        "explicacion_funcionamiento": "TimerLab te permite crear un horario en base a tus necesidades. Para crearlo, sigue los siguientes pasos",
+        "paso_1": "Registro",
+        "paso_1_descrip": "Primero debes registrate en TimerLab y allí seleccionar si eres Estudiante, Trabajador o Ambos.",
+        "paso_2": "Crear Horaios",
+        "paso_2_descrip": "Una vez estes registrado puedes ir a la seccion de 'Horarios' y allí podrás crear tu primer horario personalizado!",
+        "paso_3": "Visualizar Horarios",
+        "paso_3_descrip": "Tras crear tu primer horario, podrás visualizarlo las veces que quieras desde la sección 'Mis horarios'",
+        "primer_horario": "Crea tu primer horario"
+    },
+    "home":{
+        "perfil": "Ir a mi perfil",
+        "calendarios": "Ver calendarios",
+        "calendario": "Ver calendario",
+        "tablas_c": "Crear un horario",
+        "tablas_v": "Ver mis horarios",
+        "lunes": "Lunes",
+        "martes": "Martes",
+        "miercoles": "Miércoles",
+        "jueves": "Jueves",
+        "viernes": "Viernes",
+        "sabado": "Sábado",
+        "domingo": "Domingo",
+        "L": "L",
+        "M": "M",
+        "X": "X",
+        "J": "J",
+        "V": "V",
+        "S": "S",
+        "D": "D",
+        "calendario_escolar": "Calendario Escolar ",
+        "calendario_laboral": "Calendario Laboral ",
+        "explicacion_laboral": "L = Laborable, NL = No Laborable, F = Festivo",
+        "explicacion_escolar": "L = Lectivo, NL = No Lectivo, F = Festivo"
+        
+    },
+    "general": {
+        "saludo": "Tu perfil ",
+        "general": "General",
+        "bienvenido": "Bienvenido",
+        "bienvenida": "Bienvenida",
+        "bienvenid@": "Bienvenid@",
+        "username": "Usuario: ",
+        "name": "Nombre: ",
+        "sexo": "Sexo: ",
+        "correo": "Correo electronico: ",
+        "fecha_reg": "Fecha de registro: ",
+        "tipo_cuenta": "Tipo de cuenta: ",
+        "tipo_ambos": "Trabajador y Estudiante",
+        "tipo_trabajador": "Trabajador",
+        "tipo_estudiante": "Estudiante",
+        "edit_perf": "Editar perfil",
+        "cambiar_pass": "Cambiar Contraseña",
+        "volver": "Home"
+    },
+    "perfil": {
+        "edicion": "Editando el perfil de ",
+        "foto_perfil": "Foto de perfil:",
+        "añadir_foto": "Añadir foto de perfil",
+        "actualizar_foto": "Actualizar foto de perfil",
+        "nombre": "Nombre: ",
+        "username": "Usuario: ",
+        "email": "Correo: ",
+        "tipo_user": "Tipo de usuario: ",
+        "tipo_user_ambos": "Ambos",
+        "tipo_user_trabajador": "Trabajador",
+        "tipo_user_estudiante": "Estudiante",
+        "actualizar_datos": "Actualizar datos",
+        "volver_overview": "Voler a general",
+        "alerta": "Datos actualizados correctamente!",
+        "sexo": "Sexo: ",
+        "sexo_h": "Hombre",
+        "sexo_m": "Mujer",
+        "sexo_o": "Otros"
+    },
+    "registro":{
+        "title": "Registrate",
+        "crear_user": "¿Que apodo te ponemos?",
+        "place_crear_user": "Ej: Prueba1234",
+        "crear_correo": "¿Cual es tu correo electrónico?",
+        "place_crear_correo": "Dirección de correo",
+        "place_conf_correo": "Confirme su dirección de correo",
+        "conf_correo": "Confirma tu correo electrónico",
+        "crear_nombre": "¿Cual es tu nombre?",
+        "place_crear_nombre": "Nombre",
+        "crear_pass": "Crea una contraseña",
+        "place_crear_pass": "Contraseña",
+        "conf_pass": "Confirma tu contraseña",
+        "place_conf_pass": "Confirme su contraseña",
+        "tipo": "¿A que te dedicas?",
+        "tipo_estudiante": "Estudio",
+        "tipo_trabajador": "Trabajo",
+        "tipo_ambos": "Ambos",
+        "sexo": "Introduce tu sexo:",
+        "sexo_m": "Hombre",
+        "sexo_f": "Mujer",
+        "sexo_o": "Otros",
+        "boton_reg": "Registrarse",
+        "cuenta_si": "¿Ya tienes una cuenta?",
+        "log_in": "Inicia sesión",
+        "errores": {
+            "titulo_error": "Error al registrarse!",
+            "username_en_uso": "El nombre de usuario ya está en uso!",
+            "username_vacio_invalido": "El usuario no puede estar vacio!",
+            "username_invalido": "El usuario no puede contener caracteres especiales!",
+            "nom_vacio": "El nombre no puede estar vacio!",
+            "pass_vacia_corta": "La contraseña no puede estar vacia ni tener menos de 8 caracteres!",
+            "pass_distintas": "Las contraseñas no coinciden!",
+            "correo_en_uso": "El correo ya está en uso!",
+            "correo_invalido": "Introduce un correo valido!",
+            "correos_distintos": "Los correos introducidos no coinciden!",
+            "elegir_tipo": "Debes elegir un tipo de cuenta. Ej: Estudiante, Trabajador o Ambos",
+            "elegir_sexo": "Por favor indica tu sexo.",
+            "reintentar_registro": "Reintentar registro"
+        },
+        "correcto": {
+            "titulo": "Te has registrado correctamente!",
+            "registro_correcto": "Por favor revisa tu bandeja de correo y verifica tu cuenta antes de ",
+            "enlace": "iniciar sesión"
+        }
+    },
+    "login":{
+        "title": "Inicia Sesión",
+        "identificador": "Introduce tu correo o usuario",
+        "place_identificador": "Dirección de correo o usuario",
+        "place_pass": "Contraseña",
+        "boton_log": "Iniciar sesión",
+        "cuenta_no": "¿No tienes cuenta?",
+        "sign_up": "Registrate",
+        "pass_olvidada": "¿Contraseña olvidada?",
+        "recordar": "Recuérdame",
+        "errores": {
+            "titulo_error": "Error al Iniciar Sesión!",
+            "usuario_no_regis": "El usuario solicitado no está registrado, por favor registrate primero para iniciar sesión",
+            "usuario_valido": "El campo correo/usuario no puede estar vacio!",
+            "pass_incorrecta": "Contraseña incorrecta, por favor intentalo de nuevo",
+            "cuenta_no_verif": "La cuenta no está verificada. Por favor revisa el correo y verificala antes de iniciar sesión"
+        }
+    },
+    "envio_mail":{
+        "registro":{
+            "saludo": "Hola",
+            "subject": "Verfica tu cuenta en TimerLab!",
+            "codigo_verif": "tu codigo de verificación es:",
+            "enlace": "Ve al siguiente enlace para verificar tu cuenta:"
+        },
+        "reset_pass": {
+            "titulo": "Verificar Identidad",
+            "subject": "Restablecer contraseña en TimerLab",
+            "cod_restablecer": "Tu codigo para restablecer tu contraseña es:",
+            "mensaje1": "Para restablecer tu contraseña haz",
+            "enlace": "click aquí",
+            "mensaje_no_sol": "Si no solicitó este codigo por favor omita el mensaje"
+        }
+
+    },
+    "verificacion":{
+        "verify_ok": "Cuenta verificada correctamente!",
+        "mensaje": "Ya puedes",
+        "log_in": "Iniciar sesión!",
+        "no_verify": "Error!",
+        "verify_error": "Hubo un error al verificar la cuenta, por favor intentalo de nuevo",
+        "reintentar": "Reintentar"
+    },
+    "confirmacion":{
+        "verify_acc": "Verificar cuenta",
+        "cod_verify": "Introduce tu codigo de verificación",
+        "cod_verify_ej": "Ej: 7654321",
+        "boton_verify": "Verificar"
+    },
+    "recuperar_pass": {
+        "conf_correo":{
+            "titulo": "Verificar Identidad",
+            "place_correo": "Introduce tu correo electronico",
+            "boton": "Enviar",
+            "error":{
+                "titulo": "Error!",
+                "mensaje": "El correo no está registrado",
+                "registrar": "Puedes registrarte ",
+                "enlace": "aquí"
+            },
+            "correcto":{
+                "titulo": "Correo enviado correctamente!",
+                "mensaje": "Revisa tu bandeja de correo y verifica tu cuenta para poder restablecer la contraseña"
+            }
+        },
+        "correo_verif":{
+            "titulo": "Codigo de restablecimiento",
+            "codigo": "Introduce tu codigo de reseteo",
+            "boton": "Enviar",
+            "error": {
+                "titulo": "Error!",
+                "mensaje1": "El código introducido es incorrecto o está caducado!",
+                "mensaje2": "Solicita uno nuevo ",
+                "enlace": "ahora"
+
+            }
+        },
+        "cambiar_pass":{
+            "titulo": "Restablecer Contraseña",
+            "boton": "Restablecer",
+            "new_pass": "Introducir nueva contraseña",
+            "cnew_pass":  "Confirmar nueva contraseña",
+            "correcto":{
+                "titulo": "Contraseña cambiada correctamente!",
+                "mensaje1": "Ahora puedes ",
+                "enlace": "iniciar sesión!"
+            },
+            "error":{
+                "titulo": "Error!",
+                "mensaje1": "Las contraseñas no coinciden!",
+                "mensaje2": "La contraseña debe ser distinta a la anterior!",
+                "boton": "Reintentar"
+            }
+        }
+
+
+    },
+    "crear_tablas": {
+        "titutloT": "Crear un horario de trabajo",
+        "titutloE": "Crear un horario de estudio",
+        "titutloA": "Crear un horario de estudio/trabajo",
+        "horario": "Horario:",
+        "ejemplo_horario": "Ej: 9:00-18:00",
+        "tareas": "Tarea:",
+        "ejemplo_tarea": "Ej: Estudiar", 
+        "importancia": "Importancia:",
+        "ejemplo_imp": "1 - 10",
+        "fecha": "Fecha:",
+        "agregar_tarea": "Agregar Tarea",
+        "generar_horario": "Generar Horario",
+        "volver": "Volver",
+        "ver_horario": "Ver mis horarios"
+    },
+    "preview_tablas":{
+        "titulo": "Horario de la Semana: ",
+        "nombre": "Nombre del Horario: ",
+        "horas": "Horas",
+        "lunes": "Lunes",
+        "martes": "Martes",
+        "miercoles": "Miércoles",
+        "jueves": "Jueves",
+        "viernes": "Viernes",
+        "guardar": "Guardar Horarios",
+        "cambiar": "Modificar Horarios"
+    },
+    "view_tablas":{
+        "siguiente": "Siguiente Horario",
+        "anterior": "Horario Anterior",
+        "borrar": "Borrar Horario",
+        "buscar": "Buscar Horario",
+        "buscar_place": "Nombre del horario...",
+        "no_tablas": "VAYA...",
+        "mensaje_no_tablas1": "Parece que todavia no tienes ningún horario...",
+        "mensaje_no_tablas2": "Puedes crear tu ",
+        "enlace_no_tablas1": "primer horario ahora ",
+        "mensaje_no_tablas3": "o ",
+        "enlace_no_tablas2": "volver al inicio",
+        "borrar_tabla": {
+            "titulo": "Aviso!",
+            "texto": "Estás apunto de borrar el horario: ",
+            "aviso":  "Una vez lo elimines no se podrán recuperar los datos!",
+            "seguro": "Aún deseas borrar el horario?",
+            "borrar": "Si, quiero borrar el horario",
+            "retroceder": "No, mantener el horario",
+            "mensaje_aviso": "Confirmación de borrado",
+            "mensaje_confirmacion": "Para eliminar el horario por favor escribe: ",
+            "borrar_definitivo": "ELIMINAR HORARIO",
+            "borrado_completo_titulo": "Borrado Completado!",
+            "borrado_completo1": "El horario ",
+            "borrado_completo2": " se ha eliminado correctamente!",
+            "volver": "Volver a mis Horarios"
+        },
+        "H": "Horas",
+        "L": "L",
+        "M": "M",
+        "X": "X",
+        "J": "J",
+        "V": "V",
+        "horas": "Horas",
+        "lunes": "Lunes",
+        "martes": "Martes",
+        "miercoles": "Miércoles",
+        "jueves": "Jueves",
+        "viernes": "Viernes"
+    },
+    "contraseña": {
+        "titulo": "Cambiar contraseña",
+        "antigua": "Contraseña antigua: ",
+        "nueva": "Nueva contraseña: ",
+        "nueva_conf": "Confirmar nueva contraseña: ",
+        "place_antigua": "Introduce tu antigua contraseña...",
+        "place_new": "Introduce una nueva contraseña...",
+        "place_conf": "Confirma la nueva contraseña...",
+        "cambiar": "Cambiar contraseña",
+        "error":{
+            "titulo": "Error!",
+            "mensaje1": "Las contraseñas nuevas no coinciden!",
+            "mensaje2": "La contraseña debe ser distinta a la contraseña anterior!",
+            "mensaje3": "La contraseña antigua no coincide con la contraseña actual!",
+            "boton": "Reintentar"
+        },
+        "correcto":{
+            "titulo": "Contraseña cambiada correctamente!",
+            "boton": "Hecho"
+        }
+    }
+}
