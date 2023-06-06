@@ -170,7 +170,7 @@ if (isset($_GET['id'])) {
                                     } 
                                 ?>
                             </label>
-                            <input id="file-input" name="imagen" accept="image/jpg, image/jpeg, image/png" type="file" class="img">
+                            <input id="file-input" name="imagen" type="file" class="img">
                             <br>
                             <div class="flex">
                                 <div class="inputBox">

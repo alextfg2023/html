@@ -161,301 +161,436 @@ if (mysqli_num_rows($calendario_escolar) > 0) {
                 if ($tipo == 'ambos') {
             ?>
                 <div class="item">
-            <?php
-                // Calendario escolar
-                $totalFechasE = count($calendario_diaE);
-                echo "<h2>".$palabras['home']['calendario_escolar']."".$año_actual."</h2><br>";
-                echo "<h3>".$palabras['home']['explicacion_escolar']."</h3>";
+                    <?php
+                        // Obtener el mes y año actual
+                        $mes_actual = date('m');
+                        $año_actual = date('Y');
 
-                $diasSemanaE = array($palabras['home']['lunes'], $palabras['home']['martes'], $palabras['home']['miercoles'], $palabras['home']['jueves'], $palabras['home']['viernes'], $palabras['home']['sabado'], $palabras['home']['domingo']);
+                        // Obtener el nombre del mes actual en español
+                        $nombres_meses = array(
+                            '01' => $palabras['home']['1'],
+                            '02' => $palabras['home']['2'],
+                            '03' => $palabras['home']['3'],
+                            '04' => $palabras['home']['4'],
+                            '05' => $palabras['home']['5'],
+                            '06' => $palabras['home']['6'],
+                            '07' => $palabras['home']['7'],
+                            '08' => $palabras['home']['8'],
+                            '09' => $palabras['home']['9'],
+                            '10' => $palabras['home']['10'],
+                            '11' => $palabras['home']['11'],
+                            '12' => $palabras['home']['12']
+                        );
 
-                echo '<table>';
+                        $nombre_mes_actual = $nombres_meses[$mes_actual];
 
-                $numColumnasE = count($diasSemanaE);
-                $filaActualE = 0;
+                        // Calendario escolar
+                        $totalFechasE = count($calendario_diaE);
+                        echo "<h2>".$palabras['home']['calendario_escolar']." ".$nombre_mes_actual." ".$año_actual."</h2><br>";
+                        echo "<h3>".$palabras['home']['explicacion_escolar']."</h3>";
 
-                // Mostrar encabezado de columnas
-                echo '<tr>';
-                foreach ($diasSemanaE as $diaE) {
-                  echo '<th class="grande">' . $diaE . '</th>';
-                }
-                echo '</tr>';
-                
-                $diasSemanaEP = array($palabras['home']['L'], $palabras['home']['M'], $palabras['home']['X'], $palabras['home']['J'], $palabras['home']['V'], $palabras['home']['S'], $palabras['home']['D']);
+                        // El resto del código sigue igual...
 
-                echo '<tr>';
-                foreach ($diasSemanaEP as $diaEP) {
-                  echo '<th class="pequeño">' . $diaEP . '</th>';
-                }
-                echo '</tr>';
 
-                // Obtener el índice del día de la semana para ubicar correctamente la fecha de la primera fila
-                $primerFechaE = array_key_first($calendario_diaE);
-                $dia_semana_primer_fechaE = date('N', strtotime($primerFechaE));
-                $columna_vaciaE = true;
+                        $diasSemanaE = array($palabras['home']['lunes'], $palabras['home']['martes'], $palabras['home']['miercoles'], $palabras['home']['jueves'], $palabras['home']['viernes'], $palabras['home']['sabado'], $palabras['home']['domingo']);
 
-                // Rellenar las columnas vacías antes del primer día de la semana
-                while ($dia_semana_primer_fechaE > 1) {
-                    echo '<td></td>';
-                    $dia_semana_primer_fechaE--;
-                    $filaActualE++;
-                }
+                        echo '<table>';
 
-                foreach ($calendario_diaE as $fechaE => $datosE) {
-                    // Si es una nueva fila, abrir una nueva fila en la tabla
-                    if ($filaActualE % $numColumnasE === 0) {
+                        $numColumnasE = count($diasSemanaE);
+                        $filaActualE = 0;
+
+                        // Mostrar encabezado de columnas
                         echo '<tr>';
-                    }
-
-                    // Mostrar el día en la celda correspondiente
-                    $diaE = date('d', strtotime($fechaE));
-                    echo '<td>' . $diaE . '<br>';
-
-                    // Recorrer los datos del día y mostrar el tipo
-                    foreach ($datosE as $datoE) {
-                        echo $datoE['tipo'] . '<br>';
-                    }
-
-                    echo '</td>';
-                    $filaActualE++;
-
-                    // Si alcanza el final de la fila, cerrar la fila
-                    if ($filaActualE % $numColumnasE === 0) {
+                        foreach ($diasSemanaE as $diaE) {
+                            echo '<th class="grande">' . $diaE . '</th>';
+                        }
                         echo '</tr>';
-                    }
-                }
 
-                // Si no se cerró la última fila, cerrarla ahora
-                if ($filaActualE % $numColumnasE !== 0) {
-                    echo '</tr>';
-                }
+                        $diasSemanaEP = array($palabras['home']['L'], $palabras['home']['M'], $palabras['home']['X'], $palabras['home']['J'], $palabras['home']['V'], $palabras['home']['S'], $palabras['home']['D']);
 
-                echo '</table>';
-            ?>
+                        echo '<tr>';
+                        foreach ($diasSemanaEP as $diaEP) {
+                            echo '<th class="pequeño">' . $diaEP . '</th>';
+                        }
+                        echo '</tr>';
+
+                        // Obtener el número de días en el mes actual
+                        $numero_dias_mes_actual = date('t');
+
+                        // Obtener el día de la semana del primer día del mes actual
+                        $primer_dia_semana = date('N', strtotime("$año_actual-$mes_actual-01"));
+
+                        // Calcular el número de días en la fila inicial antes del primer día del mes
+                        $numDiasPrevios = $primer_dia_semana - 1;
+
+                        // Mostrar celdas vacías para los días previos al primer día del mes
+                        for ($i = 0; $i < $numDiasPrevios; $i++) {
+                            echo '<td></td>';
+                            $filaActualE++;
+
+                            // Si alcanza el final de la fila, cerrar la fila
+                            if ($filaActualE % $numColumnasE === 0) {
+                                echo '</tr>';
+                            }
+                        }
+
+                        // Iterar sobre cada día del mes actual
+                        for ($dia = 1; $dia <= $numero_dias_mes_actual; $dia++) {
+                            // Obtener la fecha en formato 'Y-m-d' para cada día del mes actual
+                            $fecha_actual = date('Y-m-d', strtotime("$año_actual-$mes_actual-$dia"));
+
+                            // Obtener el tipo de día escolar
+                            $tipo_dia_escolar = "";
+                            if (isset($calendario_diaE[$fecha_actual])) {
+                                foreach ($calendario_diaE[$fecha_actual] as $dia_escolar) {
+                                    $tipo_dia_escolar = $dia_escolar['tipo'];
+                                }
+                            }
+
+                            // Si es una nueva fila, abrir una nueva fila en la tabla
+                            if ($filaActualE % $numColumnasE === 0) {
+                                echo '<tr>';
+                            }
+
+                            // Mostrar el día en la celda correspondiente
+                            echo '<td>' . $dia . '<br>' . $tipo_dia_escolar . '</td>';
+                            $filaActualE++;
+
+                            // Si alcanza el final de la fila, cerrar la fila
+                            if ($filaActualE % $numColumnasE === 0) {
+                                echo '</tr>';
+                            }
+                        }
+
+                        // Si no se cerró la última fila, cerrarla ahora
+                        if ($filaActualE % $numColumnasE !== 0) {
+                            echo '</tr>';
+                        }
+
+                        echo '</table>';
+                    ?>
                 </div>
                 <div class="item">
-            <?php
-                // Calendario laboral
-                $totalFechasT = count($calendario_diaT);
-                echo "<h2>".$palabras['home']['calendario_laboral']."".$año_actual."</h2><br>";
-                echo "<h3>".$palabras['home']['explicacion_laboral']."</h3>";
+                    <?php
+                        // Obtener el mes y año actual
+                        $mes_actual = date('m');
+                        $año_actual = date('Y');
 
-                $diasSemanaT = array($palabras['home']['lunes'], $palabras['home']['martes'], $palabras['home']['miercoles'], $palabras['home']['jueves'], $palabras['home']['viernes'], $palabras['home']['sabado'], $palabras['home']['domingo']);
+                        // Obtener el nombre del mes actual en español
+                        $nombres_meses = array(
+                            '01' => $palabras['home']['1'],
+                            '02' => $palabras['home']['2'],
+                            '03' => $palabras['home']['3'],
+                            '04' => $palabras['home']['4'],
+                            '05' => $palabras['home']['5'],
+                            '06' => $palabras['home']['6'],
+                            '07' => $palabras['home']['7'],
+                            '08' => $palabras['home']['8'],
+                            '09' => $palabras['home']['9'],
+                            '10' => $palabras['home']['10'],
+                            '11' => $palabras['home']['11'],
+                            '12' => $palabras['home']['12']
+                        );
+                        
+                        $nombre_mes_actual = $nombres_meses[$mes_actual];
 
-                echo '<table>';
+                        // Obtener el día de la semana del primer día del mes actual
+                        $primer_dia_semana = date('N', strtotime("$año_actual-$mes_actual-01"));
 
-                $numColumnasT = count($diasSemanaT);
-                $filaActualT = 0;
+                        // Calendario laboral
+                        $totalFechasT = count($calendario_diaT);
+                        echo "<h2>".$palabras['home']['calendario_laboral']." ".$nombre_mes_actual." ".$año_actual."</h2><br>";
+                        echo "<h3>".$palabras['home']['explicacion_laboral']."</h3>";
 
-                // Mostrar encabezado de columnas
-                echo '<tr>';
-                foreach ($diasSemanaT as $diaT) {
-                    echo '<th class="grande">' . $diaT . '</th>';
-                }
-                echo '</tr>';
+                        $diasSemanaT = array($palabras['home']['lunes'], $palabras['home']['martes'], $palabras['home']['miercoles'], $palabras['home']['jueves'], $palabras['home']['viernes'], $palabras['home']['sabado'], $palabras['home']['domingo']);
 
-                $diasSemanaTP = array($palabras['home']['L'], $palabras['home']['M'], $palabras['home']['X'], $palabras['home']['J'], $palabras['home']['V'], $palabras['home']['S'], $palabras['home']['D']);
+                        echo '<table>';
 
-                echo '<tr>';
-                foreach ($diasSemanaTP as $diaTP) {
-                  echo '<th class="pequeño">' . $diaTP . '</th>';
-                }
-                echo '</tr>';
+                        $numColumnasT = count($diasSemanaT);
+                        $filaActualT = 0;
 
-                // Obtener el índice del día de la semana para ubicar correctamente la fecha de la primera fila
-                $primerFechaT = array_key_first($calendario_diaT);
-                $dia_semana_primer_fechaT = date('N', strtotime($primerFechaT));
-                $columna_vaciaT = true;
-
-                // Rellenar las columnas vacías antes del primer día de la semana
-                while ($dia_semana_primer_fechaT > 1) {
-                    echo '<td></td>';
-                    $dia_semana_primer_fechaT--;
-                    $filaActualT++;
-                }
-
-                foreach ($calendario_diaT as $fechaT => $datosT) {
-                    // Si es una nueva fila, abrir una nueva fila en la tabla
-                    if ($filaActualT % $numColumnasT === 0) {
+                        // Mostrar encabezado de columnas
                         echo '<tr>';
-                    }
-
-                    // Mostrar el día en la celda correspondiente
-                    $diaT = date('d', strtotime($fechaT));;
-                    echo '<td>' . $diaT . '<br>';
-
-                    // Recorrer los datos del día y mostrar el tipo
-                    foreach ($datosT as $datoT) {
-                        echo $datoT['tipo'] . '<br>';
-                    }
-
-                    echo '</td>';
-                    $filaActualT++;
-
-                    // Si alcanza el final de la fila, cerrar la fila
-                    if ($filaActualT % $numColumnasT === 0) {
+                        foreach ($diasSemanaT as $diaT) {
+                            echo '<th class="grande">' . $diaT . '</th>';
+                        }
                         echo '</tr>';
-                    }
-                }
 
-                // Si no se cerró la última fila, cerrarla ahora
-                if ($filaActualT % $numColumnasT !== 0) {
-                    echo '</tr>';
-                }
+                        $diasSemanaTP = array($palabras['home']['L'], $palabras['home']['M'], $palabras['home']['X'], $palabras['home']['J'], $palabras['home']['V'], $palabras['home']['S'], $palabras['home']['D']);
 
-                echo '</table>';
-            ?>
+                        echo '<tr>';
+                        foreach ($diasSemanaTP as $diaTP) {
+                            echo '<th class="pequeño">' . $diaTP . '</th>';
+                        }
+                        echo '</tr>';
+
+                        // Calcular el número de días en la fila inicial antes del primer día del mes
+                        $numDiasPrevios = $primer_dia_semana - 1;
+
+                        // Mostrar celdas vacías para los días previos al primer día del mes
+                        for ($i = 0; $i < $numDiasPrevios; $i++) {
+                            echo '<td></td>';
+                            $filaActualT++;
+
+                            // Si alcanza el final de la fila, cerrar la fila
+                            if ($filaActualT % $numColumnasT === 0) {
+                                echo '</tr>';
+                            }
+                        }
+
+                        // Iterar sobre cada día del mes actual
+                        for ($dia = 1; $dia <= $numero_dias_mes_actual; $dia++) {
+                            // Obtener la fecha en formato 'Y-m-d' para cada día del mes actual
+                            $fecha_actual = date('Y-m-d', strtotime("$año_actual-$mes_actual-$dia"));
+
+                            // Obtener el tipo de día laboral
+                            $tipo_dia_laboral = "";
+                            if (isset($calendario_diaT[$fecha_actual])) {
+                                foreach ($calendario_diaT[$fecha_actual] as $dia_laboral) {
+                                    $tipo_dia_laboral = $dia_laboral['tipo'];
+                                }
+                            }
+
+                            // Si es una nueva fila, abrir una nueva fila en la tabla
+                            if ($filaActualT % $numColumnasT === 0) {
+                                echo '<tr>';
+                            }
+
+                            // Mostrar el día en la celda correspondiente
+                            echo '<td>' . $dia . '<br>' . $tipo_dia_laboral . '</td>';
+                            $filaActualT++;
+
+                            // Si alcanza el final de la fila, cerrar la fila
+                            if ($filaActualT % $numColumnasT === 0) {
+                                echo '</tr>';
+                            }
+                        }
+
+                        // Si no se cerró la última fila, cerrarla ahora
+                        if ($filaActualT % $numColumnasT !== 0) {
+                            echo '</tr>';
+                        }
+
+                        echo '</table>';                    
+
+                    ?>
                 </div>
-            <?php
-                }elseif ($tipo == 'trabajador') {
-            ?>
+                <?php
+                    }elseif ($tipo == 'trabajador') {
+                ?>
                 <div class="item">
-            <?php
-                $totalFechasT = count($calendario_diaT);
-                echo "<h2>".$palabras['home']['calendario_laboral']."".$año_actual."</h2><br>";
-                echo "<h3>".$palabras['home']['explicacion_laboral']."</h3>";
-            
-                $diasSemanaT = array($palabras['home']['lunes'], $palabras['home']['martes'], $palabras['home']['miercoles'], $palabras['home']['jueves'], $palabras['home']['viernes'], $palabras['home']['sabado'], $palabras['home']['domingo']);
-            
-                echo '<table>';
-            
-                $numColumnasT = count($diasSemanaT);
-                $filaActualT = 0;
-            
-                // Mostrar encabezado de columnas
-                echo '<tr>';
-                foreach ($diasSemanaT as $diaT) {
-                    echo '<th class="grande">' . $diaT . '</th>';
-                }
-                echo '</tr>';
+                    <?php
+                        // Obtener el mes y año actual
+                        $mes_actual = date('m');
+                        $año_actual = date('Y');
 
-                $diasSemanaTP = array($palabras['home']['L'], $palabras['home']['M'], $palabras['home']['X'], $palabras['home']['J'], $palabras['home']['V'], $palabras['home']['S'], $palabras['home']['D']);
+                        // Obtener el nombre del mes actual en español
+                        $nombres_meses = array(
+                            '01' => $palabras['home']['1'],
+                            '02' => $palabras['home']['2'],
+                            '03' => $palabras['home']['3'],
+                            '04' => $palabras['home']['4'],
+                            '05' => $palabras['home']['5'],
+                            '06' => $palabras['home']['6'],
+                            '07' => $palabras['home']['7'],
+                            '08' => $palabras['home']['8'],
+                            '09' => $palabras['home']['9'],
+                            '10' => $palabras['home']['10'],
+                            '11' => $palabras['home']['11'],
+                            '12' => $palabras['home']['12']
+                        );
+                        
+                        $nombre_mes_actual = $nombres_meses[$mes_actual];
 
-                echo '<tr>';
-                foreach ($diasSemanaTP as $diaTP) {
-                  echo '<th class="pequeño">' . $diaTP . '</th>';
-                }
-                echo '</tr>';
-            
-                // Obtener el índice del día de la semana para ubicar correctamente la fecha de la primera fila
-                $primerFechaT = array_key_first($calendario_diaT);
-                $dia_semana_primer_fechaT = date('N', strtotime($primerFechaT));
-                $columna_vaciaT = true;
-            
-                // Rellenar las columnas vacías antes del primer día de la semana
-                while ($dia_semana_primer_fechaT > 1) {
-                    echo '<td></td>';
-                    $dia_semana_primer_fechaT--;
-                    $filaActualT++;
-                }
-            
-                foreach ($calendario_diaT as $fechaT => $datosT) {
-                    // Si es una nueva fila, abrir una nueva fila en la tabla
-                    if ($filaActualT % $numColumnasT === 0) {
+                        // Obtener el día de la semana del primer día del mes actual
+                        $primer_dia_semana = date('N', strtotime("$año_actual-$mes_actual-01"));
+
+                        // Calendario laboral
+                        $totalFechasT = count($calendario_diaT);
+                        echo "<h2>".$palabras['home']['calendario_laboral']." ".$nombre_mes_actual." ".$año_actual."</h2><br>";
+                        echo "<h3>".$palabras['home']['explicacion_laboral']."</h3>";
+
+                        $diasSemanaT = array($palabras['home']['lunes'], $palabras['home']['martes'], $palabras['home']['miercoles'], $palabras['home']['jueves'], $palabras['home']['viernes'], $palabras['home']['sabado'], $palabras['home']['domingo']);
+
+                        echo '<table>';
+
+                        $numColumnasT = count($diasSemanaT);
+                        $filaActualT = 0;
+
+                        // Mostrar encabezado de columnas
                         echo '<tr>';
-                    }
-            
-                    // Mostrar el día en la celda correspondiente
-                    $diaT = date('d', strtotime($fechaT));
-                    echo '<td>' . $diaT . '<br>';
-            
-                    // Recorrer los datos del día y mostrar el tipo
-                    foreach ($datosT as $datoT) {
-                        echo $datoT['tipo'] . '<br>';
-                    }
-            
-                    echo '</td>';
-                    
-                    $filaActualT++;
-            
-                    // Si alcanza el final de la fila, cerrar la fila
-                    if ($filaActualT % $numColumnasT === 0) {
+                        foreach ($diasSemanaT as $diaT) {
+                            echo '<th class="grande">' . $diaT . '</th>';
+                        }
                         echo '</tr>';
-                    }
-                }
-            
-                // Si no se cerró la última fila, cerrarla ahora
-                if ($filaActualT % $numColumnasT !== 0) {
-                    echo '</tr>';
-                }
-            
-                echo '</table>';
-            ?>
+
+                        $diasSemanaTP = array($palabras['home']['L'], $palabras['home']['M'], $palabras['home']['X'], $palabras['home']['J'], $palabras['home']['V'], $palabras['home']['S'], $palabras['home']['D']);
+
+                        echo '<tr>';
+                        foreach ($diasSemanaTP as $diaTP) {
+                            echo '<th class="pequeño">' . $diaTP . '</th>';
+                        }
+                        echo '</tr>';
+
+                        // Calcular el número de días en la fila inicial antes del primer día del mes
+                        $numDiasPrevios = $primer_dia_semana - 1;
+
+                        // Mostrar celdas vacías para los días previos al primer día del mes
+                        for ($i = 0; $i < $numDiasPrevios; $i++) {
+                            echo '<td></td>';
+                            $filaActualT++;
+
+                            // Si alcanza el final de la fila, cerrar la fila
+                            if ($filaActualT % $numColumnasT === 0) {
+                                echo '</tr>';
+                            }
+                        }
+
+                        // Iterar sobre cada día del mes actual
+                        for ($dia = 1; $dia <= $numero_dias_mes_actual; $dia++) {
+                            // Obtener la fecha en formato 'Y-m-d' para cada día del mes actual
+                            $fecha_actual = date('Y-m-d', strtotime("$año_actual-$mes_actual-$dia"));
+
+                            // Obtener el tipo de día laboral
+                            $tipo_dia_laboral = "";
+                            if (isset($calendario_diaT[$fecha_actual])) {
+                                foreach ($calendario_diaT[$fecha_actual] as $dia_laboral) {
+                                    $tipo_dia_laboral = $dia_laboral['tipo'];
+                                }
+                            }
+
+                            // Si es una nueva fila, abrir una nueva fila en la tabla
+                            if ($filaActualT % $numColumnasT === 0) {
+                                echo '<tr>';
+                            }
+
+                            // Mostrar el día en la celda correspondiente
+                            echo '<td>' . $dia . '<br>' . $tipo_dia_laboral . '</td>';
+                            $filaActualT++;
+
+                            // Si alcanza el final de la fila, cerrar la fila
+                            if ($filaActualT % $numColumnasT === 0) {
+                                echo '</tr>';
+                            }
+                        }
+
+                        // Si no se cerró la última fila, cerrarla ahora
+                        if ($filaActualT % $numColumnasT !== 0) {
+                            echo '</tr>';
+                        }
+
+                        echo '</table>';                    
+                    ?>
                 </div>
             <?php     
                 }elseif ($tipo == 'estudiante') {
             ?>
                 <div class="item">
-            <?php
-                $totalFechasE = count($calendario_diaE);
-                echo "<h2>".$palabras['home']['calendario_escolar']."".$año_actual."</h2><br>";
-                echo "<h3>".$palabras['home']['explicacion_escolar']."</h3>";
+                    <?php
+                        // Obtener el mes y año actual
+                        $mes_actual = date('m');
+                        $año_actual = date('Y');
 
-                $diasSemanaE = array($palabras['home']['lunes'], $palabras['home']['martes'], $palabras['home']['miercoles'], $palabras['home']['jueves'], $palabras['home']['viernes'], $palabras['home']['sabado'], $palabras['home']['domingo']);
+                        // Obtener el nombre del mes actual en español
+                        $nombres_meses = array(
+                            '01' => $palabras['home']['1'],
+                            '02' => $palabras['home']['2'],
+                            '03' => $palabras['home']['3'],
+                            '04' => $palabras['home']['4'],
+                            '05' => $palabras['home']['5'],
+                            '06' => $palabras['home']['6'],
+                            '07' => $palabras['home']['7'],
+                            '08' => $palabras['home']['8'],
+                            '09' => $palabras['home']['9'],
+                            '10' => $palabras['home']['10'],
+                            '11' => $palabras['home']['11'],
+                            '12' => $palabras['home']['12']
+                        );
+                        
+                        $nombre_mes_actual = $nombres_meses[$mes_actual];
 
-                echo '<table>';
+                        // Calendario escolar
+                        $totalFechasE = count($calendario_diaE);
+                        echo "<h2>".$palabras['home']['calendario_escolar']." ".$nombre_mes_actual." ".$año_actual."</h2><br>";
+                        echo "<h3>".$palabras['home']['explicacion_escolar']."</h3>";
 
-                $numColumnasE = count($diasSemanaE);
-                $filaActualE = 0;
+                        $diasSemanaE = array($palabras['home']['lunes'], $palabras['home']['martes'], $palabras['home']['miercoles'], $palabras['home']['jueves'], $palabras['home']['viernes'], $palabras['home']['sabado'], $palabras['home']['domingo']);
 
-                // Mostrar encabezado de columnas
-                echo '<tr>';
-                foreach ($diasSemanaE as $diaE) {
-                    echo '<th class="grande">' . $diaE . '</th>';
-                }
-                echo '</tr>';
+                        echo '<table>';
 
-                $diasSemanaEP = array($palabras['home']['L'], $palabras['home']['M'], $palabras['home']['X'], $palabras['home']['J'], $palabras['home']['V'], $palabras['home']['S'], $palabras['home']['D']);
+                        $numColumnasE = count($diasSemanaE);
+                        $filaActualE = 0;
 
-                echo '<tr>';
-                foreach ($diasSemanaEP as $diaEP) {
-                  echo '<th class="pequeño">' . $diaEP . '</th>';
-                }
-                echo '</tr>';
-
-                // Obtener el índice del día de la semana para ubicar correctamente la fecha de la primera fila
-                $primerFechaE = array_key_first($calendario_diaE);
-                $dia_semana_primer_fechaE = date('N', strtotime($primerFechaE));
-                $columna_vaciaE = true;
-
-                // Rellenar las columnas vacías antes del primer día de la semana
-                while ($dia_semana_primer_fechaE > 1) {
-                    echo '<td></td>';
-                    $dia_semana_primer_fechaE--;
-                    $filaActualE++;
-                }
-
-                foreach ($calendario_diaE as $fechaE => $datosE) {
-                    // Si es una nueva fila, abrir una nueva fila en la tabla
-                    if ($filaActualE % $numColumnasE === 0) {
+                        // Mostrar encabezado de columnas
                         echo '<tr>';
-                    }
-
-                    // Mostrar el día en la celda correspondiente
-                    $diaE = date('d', strtotime($fechaE));
-                    echo '<td>' . $diaE . '<br>';
-
-                    // Recorrer los datos del día y mostrar el tipo
-                    foreach ($datosE as $datoE) {
-                        echo $datoE['tipo'] . '<br>';
-                    }
-
-                    echo '</td>';
-                    $filaActualE++;
-
-                    // Si alcanza el final de la fila, cerrar la fila
-                    if ($filaActualE % $numColumnasE === 0) {
+                        foreach ($diasSemanaE as $diaE) {
+                            echo '<th class="grande">' . $diaE . '</th>';
+                        }
                         echo '</tr>';
-                    }
-                }
 
-                // Si no se cerró la última fila, cerrarla ahora
-                if ($filaActualE % $numColumnasE !== 0) {
-                    echo '</tr>';
-                }
+                        $diasSemanaEP = array($palabras['home']['L'], $palabras['home']['M'], $palabras['home']['X'], $palabras['home']['J'], $palabras['home']['V'], $palabras['home']['S'], $palabras['home']['D']);
 
-                echo '</table>';
-            ?>
+                        echo '<tr>';
+                        foreach ($diasSemanaEP as $diaEP) {
+                            echo '<th class="pequeño">' . $diaEP . '</th>';
+                        }
+                        echo '</tr>';
+
+                        // Obtener el número de días en el mes actual
+                        $numero_dias_mes_actual = date('t');
+
+                        // Obtener el día de la semana del primer día del mes actual
+                        $primer_dia_semana = date('N', strtotime("$año_actual-$mes_actual-01"));
+
+                        // Calcular el número de días en la fila inicial antes del primer día del mes
+                        $numDiasPrevios = $primer_dia_semana - 1;
+
+                        // Mostrar celdas vacías para los días previos al primer día del mes
+                        for ($i = 0; $i < $numDiasPrevios; $i++) {
+                            echo '<td></td>';
+                            $filaActualE++;
+
+                            // Si alcanza el final de la fila, cerrar la fila
+                            if ($filaActualE % $numColumnasE === 0) {
+                                echo '</tr>';
+                            }
+                        }
+
+                        // Iterar sobre cada día del mes actual
+                        for ($dia = 1; $dia <= $numero_dias_mes_actual; $dia++) {
+                            // Obtener la fecha en formato 'Y-m-d' para cada día del mes actual
+                            $fecha_actual = date('Y-m-d', strtotime("$año_actual-$mes_actual-$dia"));
+
+                            // Obtener el tipo de día escolar
+                            $tipo_dia_escolar = "";
+                            if (isset($calendario_diaE[$fecha_actual])) {
+                                foreach ($calendario_diaE[$fecha_actual] as $dia_escolar) {
+                                    $tipo_dia_escolar = $dia_escolar['tipo'];
+                                }
+                            }
+
+                            // Si es una nueva fila, abrir una nueva fila en la tabla
+                            if ($filaActualE % $numColumnasE === 0) {
+                                echo '<tr>';
+                            }
+
+                            // Mostrar el día en la celda correspondiente
+                            echo '<td>' . $dia . '<br>' . $tipo_dia_escolar . '</td>';
+                            $filaActualE++;
+
+                            // Si alcanza el final de la fila, cerrar la fila
+                            if ($filaActualE % $numColumnasE === 0) {
+                                echo '</tr>';
+                            }
+                        }
+
+                        // Si no se cerró la última fila, cerrarla ahora
+                        if ($filaActualE % $numColumnasE !== 0) {
+                            echo '</tr>';
+                        }
+
+                        echo '</table>';
+                    ?>
                 </div>
             <?php
                 }
