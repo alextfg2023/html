@@ -20,7 +20,7 @@ body{
 }
 
 .top_navbar{
-    background: rgb(51, 51, 51);
+    background: #333333;
     height: 60px;
     display: flex;
     position: fixed;
@@ -268,13 +268,52 @@ option{
 }
 
 table {
-    border-collapse: collapse;
-    width: 100%;
+    border-radius: 10px;
+    background: #fff9f3;
+	max-width: 800px;
+	border-collapse: collapse;
+	overflow: hidden;
+	box-shadow: 0 0 20px rgba(0,0,0,0.1);
 }
 
-th, td {
-    border: 1px solid #ccc;
-    padding: 8px;
+th{
+    padding: 15px;
+	color: #ffffff;
+}
+td {
+	padding: 15px;
+    text-align: center;
+	background-color: rgba(255, 249, 243, 0.9);
+	color: #9b9b9b;
+}
+
+th {
+	text-align: left;
+}
+
+th {
+	background-color: #FEBFA0
+}
+
+tr {
+	&:hover {
+		background-color: rgba(255, 249, 243, 0.9);
+	}
+}
+
+.main_container .container .item table .hoy {
+    border-radius: 10px;
+    background-color: #464646;
+}
+
+/*Selectores*/
+
+th:hover {
+  background-color: rgba(20, 20, 20, 90);
+}
+
+tr:hover {
+  background-color: rgba(15, 25, 25, 90);
 }
 
 .pequeño{
@@ -303,12 +342,36 @@ th, td {
     }
 
     table {
+        border-radius: 10px;
+        background: #fff9f3;
         width: 100%;
+        border-collapse: collapse;
+        overflow: hidden;
+        box-shadow: 0 0 20px rgba(0,0,0,0.1);
     }
     
-    th,td{
-        font-size: 10px;
-        padding: 2px;
+    th{
+        padding: 9.5px;
+        color: #ffffff;
+    }
+    td {
+        padding: 6px;
+        background-color: rgba(255, 249, 243, 0.9);
+        color: #9b9b9b;
+    }
+    
+    th {
+        text-align: left;
+    }
+    
+    th {
+        background-color: #FEBFA0
+    }
+    
+    tr {
+        &:hover {
+            background-color: #9497a3;
+        }
     }
 
     .grande{
@@ -369,7 +432,7 @@ th, td {
         border-radius: 15px;
         border: 2px solid #FEE7DE;
         width: 100%;
-        padding-left: 10px;
+        padding-left: 15px;
     }
 
     .main_container .container .item h2{

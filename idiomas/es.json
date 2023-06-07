@@ -288,7 +288,14 @@
         "jueves": "Jueves",
         "viernes": "Viernes",
         "guardar": "Guardar Horarios",
-        "cambiar": "Modificar Horarios"
+        "cambiar": "Modificar Horarios",
+        "tablas_prev": "Visualización",
+        "place": "Nombre del Horario...",
+        "correcto":{
+            "titulo": "Horarios añadidos correctamente!",
+            "semana": "Semana: ",
+            "texto": " --> Nombre del Horario: "
+        }
     },
     "view_tablas":{
         "siguiente": "Siguiente Horario",

@@ -52,7 +52,7 @@ if (mysqli_num_rows($calendario_escolar) > 0) {
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../assets/css/homestyle.css">
+    <link rel="stylesheet" href="../assets/css/inicio.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome5.12.1/css/all.min.css"/>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
@@ -186,11 +186,8 @@ if (mysqli_num_rows($calendario_escolar) > 0) {
 
                         // Calendario escolar
                         $totalFechasE = count($calendario_diaE);
-                        echo "<h2>".$palabras['home']['calendario_escolar']." ".$nombre_mes_actual." ".$año_actual."</h2><br>";
-                        echo "<h3>".$palabras['home']['explicacion_escolar']."</h3>";
-
-                        // El resto del código sigue igual...
-
+                        echo "<center><h2>" . $palabras['home']['calendario_escolar'] . " " . $nombre_mes_actual . " " . $año_actual . "</h2><br>";
+                        echo "<h3>" . $palabras['home']['explicacion_escolar'] . "</h3><br>";
 
                         $diasSemanaE = array($palabras['home']['lunes'], $palabras['home']['martes'], $palabras['home']['miercoles'], $palabras['home']['jueves'], $palabras['home']['viernes'], $palabras['home']['sabado'], $palabras['home']['domingo']);
 
@@ -252,8 +249,16 @@ if (mysqli_num_rows($calendario_escolar) > 0) {
                                 echo '<tr>';
                             }
 
+                            // Verificar si el día actual es igual al día que se está generando
+                            if ($fecha_actual === date('Y-m-d')) {
+                                // Agregar una clase CSS para resaltar el día actual
+                                echo '<td class="hoy">';
+                            } else {
+                                echo '<td>';
+                            }
+
                             // Mostrar el día en la celda correspondiente
-                            echo '<td>' . $dia . '<br>' . $tipo_dia_escolar . '</td>';
+                            echo $dia . '<br>' . $tipo_dia_escolar . '</td>';
                             $filaActualE++;
 
                             // Si alcanza el final de la fila, cerrar la fila
@@ -267,7 +272,7 @@ if (mysqli_num_rows($calendario_escolar) > 0) {
                             echo '</tr>';
                         }
 
-                        echo '</table>';
+                        echo '</table></center>';
                     ?>
                 </div>
                 <div class="item">
@@ -291,7 +296,7 @@ if (mysqli_num_rows($calendario_escolar) > 0) {
                             '11' => $palabras['home']['11'],
                             '12' => $palabras['home']['12']
                         );
-                        
+
                         $nombre_mes_actual = $nombres_meses[$mes_actual];
 
                         // Obtener el día de la semana del primer día del mes actual
@@ -299,8 +304,8 @@ if (mysqli_num_rows($calendario_escolar) > 0) {
 
                         // Calendario laboral
                         $totalFechasT = count($calendario_diaT);
-                        echo "<h2>".$palabras['home']['calendario_laboral']." ".$nombre_mes_actual." ".$año_actual."</h2><br>";
-                        echo "<h3>".$palabras['home']['explicacion_laboral']."</h3>";
+                        echo "<center><h2>".$palabras['home']['calendario_laboral']." ".$nombre_mes_actual." ".$año_actual."</h2><br>";
+                        echo "<h3>".$palabras['home']['explicacion_laboral']."</h3><br>";
 
                         $diasSemanaT = array($palabras['home']['lunes'], $palabras['home']['martes'], $palabras['home']['miercoles'], $palabras['home']['jueves'], $palabras['home']['viernes'], $palabras['home']['sabado'], $palabras['home']['domingo']);
 
@@ -356,8 +361,16 @@ if (mysqli_num_rows($calendario_escolar) > 0) {
                                 echo '<tr>';
                             }
 
+                            // Verificar si el día actual es igual al día que se está generando
+                            if ($fecha_actual === date('Y-m-d')) {
+                                // Agregar una clase CSS para resaltar el día actual
+                                echo '<td class="hoy">';
+                            } else {
+                                echo '<td>';
+                            }
+
                             // Mostrar el día en la celda correspondiente
-                            echo '<td>' . $dia . '<br>' . $tipo_dia_laboral . '</td>';
+                            echo $dia . '<br>' . $tipo_dia_laboral . '</td>';
                             $filaActualT++;
 
                             // Si alcanza el final de la fila, cerrar la fila
@@ -371,8 +384,7 @@ if (mysqli_num_rows($calendario_escolar) > 0) {
                             echo '</tr>';
                         }
 
-                        echo '</table>';                    
-
+                        echo '</table></center>';
                     ?>
                 </div>
                 <?php
@@ -399,7 +411,7 @@ if (mysqli_num_rows($calendario_escolar) > 0) {
                             '11' => $palabras['home']['11'],
                             '12' => $palabras['home']['12']
                         );
-                        
+
                         $nombre_mes_actual = $nombres_meses[$mes_actual];
 
                         // Obtener el día de la semana del primer día del mes actual
@@ -407,8 +419,8 @@ if (mysqli_num_rows($calendario_escolar) > 0) {
 
                         // Calendario laboral
                         $totalFechasT = count($calendario_diaT);
-                        echo "<h2>".$palabras['home']['calendario_laboral']." ".$nombre_mes_actual." ".$año_actual."</h2><br>";
-                        echo "<h3>".$palabras['home']['explicacion_laboral']."</h3>";
+                        echo "<center><h2>".$palabras['home']['calendario_laboral']." ".$nombre_mes_actual." ".$año_actual."</h2><br>";
+                        echo "<h3>".$palabras['home']['explicacion_laboral']."</h3><br>";
 
                         $diasSemanaT = array($palabras['home']['lunes'], $palabras['home']['martes'], $palabras['home']['miercoles'], $palabras['home']['jueves'], $palabras['home']['viernes'], $palabras['home']['sabado'], $palabras['home']['domingo']);
 
@@ -464,8 +476,16 @@ if (mysqli_num_rows($calendario_escolar) > 0) {
                                 echo '<tr>';
                             }
 
+                            // Verificar si el día actual es igual al día que se está generando
+                            if ($fecha_actual === date('Y-m-d')) {
+                                // Agregar una clase CSS para resaltar el día actual
+                                echo '<td class="hoy">';
+                            } else {
+                                echo '<td>';
+                            }
+
                             // Mostrar el día en la celda correspondiente
-                            echo '<td>' . $dia . '<br>' . $tipo_dia_laboral . '</td>';
+                            echo $dia . '<br>' . $tipo_dia_laboral . '</td>';
                             $filaActualT++;
 
                             // Si alcanza el final de la fila, cerrar la fila
@@ -479,7 +499,7 @@ if (mysqli_num_rows($calendario_escolar) > 0) {
                             echo '</tr>';
                         }
 
-                        echo '</table>';                    
+                        echo '</table></center>';
                     ?>
                 </div>
             <?php     
@@ -506,13 +526,13 @@ if (mysqli_num_rows($calendario_escolar) > 0) {
                             '11' => $palabras['home']['11'],
                             '12' => $palabras['home']['12']
                         );
-                        
+
                         $nombre_mes_actual = $nombres_meses[$mes_actual];
 
                         // Calendario escolar
                         $totalFechasE = count($calendario_diaE);
-                        echo "<h2>".$palabras['home']['calendario_escolar']." ".$nombre_mes_actual." ".$año_actual."</h2><br>";
-                        echo "<h3>".$palabras['home']['explicacion_escolar']."</h3>";
+                        echo "<center><h2>" . $palabras['home']['calendario_escolar'] . " " . $nombre_mes_actual . " " . $año_actual . "</h2><br>";
+                        echo "<h3>" . $palabras['home']['explicacion_escolar'] . "</h3><br>";
 
                         $diasSemanaE = array($palabras['home']['lunes'], $palabras['home']['martes'], $palabras['home']['miercoles'], $palabras['home']['jueves'], $palabras['home']['viernes'], $palabras['home']['sabado'], $palabras['home']['domingo']);
 
@@ -574,8 +594,16 @@ if (mysqli_num_rows($calendario_escolar) > 0) {
                                 echo '<tr>';
                             }
 
+                            // Verificar si el día actual es igual al día que se está generando
+                            if ($fecha_actual === date('Y-m-d')) {
+                                // Agregar una clase CSS para resaltar el día actual
+                                echo '<td class="hoy">';
+                            } else {
+                                echo '<td>';
+                            }
+
                             // Mostrar el día en la celda correspondiente
-                            echo '<td>' . $dia . '<br>' . $tipo_dia_escolar . '</td>';
+                            echo $dia . '<br>' . $tipo_dia_escolar . '</td>';
                             $filaActualE++;
 
                             // Si alcanza el final de la fila, cerrar la fila
@@ -589,7 +617,7 @@ if (mysqli_num_rows($calendario_escolar) > 0) {
                             echo '</tr>';
                         }
 
-                        echo '</table>';
+                        echo '</table></center>';
                     ?>
                 </div>
             <?php

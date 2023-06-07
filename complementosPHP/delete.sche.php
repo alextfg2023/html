@@ -9,7 +9,6 @@
 
     if(isset($_POST['borrar_def'])){
         $id_usuario = $_POST['id_usuario'];
-        $id_tabla = $_POST['id_tabla_borrar'];
         $nombre_tabla = $_POST['nombre_tabla_borrar'];
         $nombre_tabla_confirm = strtoupper($nombre_tabla);
     }
@@ -26,7 +25,6 @@
 <body>
     <?php
     if(isset($_POST['confirmado'])){
-        $id_tabla_confirmada = $_POST['id_confirm'];
         $id_usuario_confirmado = $_POST['user_confirm'];
         $nombre_tabla_confirmada = $_POST['name_confirm'];
 
@@ -38,7 +36,7 @@
 
         if($nombre_tabla_confirmada == $nombre_tabla ){
 
-            $borrado = mysqli_query($conn, "DELETE FROM tablas WHERE id = '$id_tabla_confirmada'");
+            $borrado = mysqli_query($conn, "DELETE FROM tablas WHERE nombre = '$nombre_tabla'");
 
             if($borrado){
                 ?>

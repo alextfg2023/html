@@ -118,12 +118,11 @@ if (mysqli_num_rows($querytablas) > 0) {
         }
     }
     ?>
-
     <!DOCTYPE html>
     <html>
     <head>
         <title><?php echo $palabras['config']['view_title']; ?></title>
-        <link rel="stylesheet" href="../assets/css/view.sches.css">
+        <link rel="stylesheet" href="../assets/css/view.sche.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome5.12.1/css/all.min.css"/>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -240,6 +239,7 @@ if (mysqli_num_rows($querytablas) > 0) {
                                 <p><?php echo $palabras['view_tablas']['borrar_tabla']['texto']; echo $nombre_borr; ?></p>
                                 <p><?php echo $palabras['view_tablas']['borrar_tabla']['aviso']?></p>
                                 <p><?php echo $palabras['view_tablas']['borrar_tabla']['seguro']?></p>
+                                <br>
                                 <form method="post" action="../complementosPHP/delete.sche.php">
                                 <div class="error-button">
                                         <input type="submit" name="borrar_def" value="<?php echo $palabras['view_tablas']['borrar_tabla']['borrar']; ?>">
@@ -266,7 +266,9 @@ if (mysqli_num_rows($querytablas) > 0) {
                         <h1>
                             <?php 
                                 if (isset($_POST['buscarTabla'])) {
+
                                     $nombre_tabla = $_POST['buscarTabla'];
+                                    
                                     echo $nombre_tabla;
                                 } else {
                                     echo $nombre_tabla;
@@ -365,10 +367,12 @@ if (mysqli_num_rows($querytablas) > 0) {
                         } 
                     }else {
                     ?>
-                    <div class="no-contenedor">
-                        <div class="no-message">
+                    <div class="error-container">
+                        <div class="error-message">
                             <h1><?php echo $palabras['view_tablas']['no_tablas'] ?></h1>
+                            <br>
                             <p><?php echo $palabras['view_tablas']['mensaje_no_tablas1']?></p>
+                            <br>
                             <p>
                                 <?php echo $palabras['view_tablas']['mensaje_no_tablas2']?>
                                 <b>
