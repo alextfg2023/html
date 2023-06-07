@@ -380,7 +380,35 @@ option{
         overflow-y: scroll;
     }
     .user-details::-webkit-scrollbar{
-        width: 5px;
+        width: 10px;
     }
+
+    .contenedor {
+        max-width: 90%;
+        overflow: hidden; /* Asegúrate de que el contenido desbordante se oculte */
+    }
+    
+    .contenedor form .user-details {
+        max-height: 275px;
+        overflow-y: scroll;
+        /* Agrega un ancho explícito para la barra de desplazamiento */
+        scrollbar-width: thin;
+        scrollbar-color: #888888 #f0f0f0;
+    }
+    
+    /* Estilos personalizados para la barra de desplazamiento en WebKit (Chrome, Safari) */
+    .contenedor form .user-details::-webkit-scrollbar {
+        width: 7px;
+    }
+    
+    .contenedor form .user-details::-webkit-scrollbar-thumb {
+        background-color: #949494;
+        border-radius: 5px;
+    }
+    
+    .contenedor form .user-details::-webkit-scrollbar-thumb:hover {
+        background-color: #555555;
+    }
+    
 
 }
