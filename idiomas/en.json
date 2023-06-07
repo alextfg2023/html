@@ -187,19 +187,22 @@
         }
     },
     "envio_mail":{
+        "logo": "TimerLab",
         "registro":{
             "saludo": "Hey",
             "subject": "Verify your account in TimerLab!",
-            "codigo_verif": "your verification code is:",
-            "enlace": "Go to the following link to verify your account:"
+            "codigo_verif": "This is your verification code!",
+            "enlace": "Please clic on the button to verify your account or clic to the following link: ",
+            "boton": "Verify Account"
         },
         "reset_pass": {
             "titulo": "Reset password",
             "subject": "Reset password in TimerLab",
-            "cod_reset": "Your code to reset your password is:",
-            "mensaje1": "To reset your password please",
+            "cod_reset": "This is your reset password code!",
+            "mensaje1": "Please clic on the button to reset your password or clic to the following link: ",
             "enlace": "click here",
-            "mensaje_no_sol": "If you did not request this code please skip the message"
+            "mensaje_no_sol": "If you did not request this code please skip this message",
+            "boton": "Reset Password"
         }
     },
     "verificacion":{

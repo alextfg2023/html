@@ -306,8 +306,6 @@ tr {
     background-color: #464646;
 }
 
-/*Selectores*/
-
 th:hover {
   background-color: rgba(20, 20, 20, 90);
 }

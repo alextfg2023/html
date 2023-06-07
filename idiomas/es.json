@@ -184,19 +184,21 @@
         }
     },
     "envio_mail":{
+        "logo": "TimerLab",
         "registro":{
             "saludo": "Hola",
             "subject": "Verfica tu cuenta en TimerLab!",
-            "codigo_verif": "tu codigo de verificación es:",
-            "enlace": "Ve al siguiente enlace para verificar tu cuenta:"
+            "codigo_verif": "Este es tu código de verificación!",
+            "enlace": "Haz clic en el botón para verificar tu cuenta o ve al siguiente enlace: ",
+            "boton": "Verificar Cuenta"
         },
         "reset_pass": {
             "titulo": "Verificar Identidad",
             "subject": "Restablecer contraseña en TimerLab",
-            "cod_restablecer": "Tu codigo para restablecer tu contraseña es:",
-            "mensaje1": "Para restablecer tu contraseña haz",
-            "enlace": "click aquí",
-            "mensaje_no_sol": "Si no solicitó este codigo por favor omita el mensaje"
+            "cod_restablecer": "Este es tu codigo para restablecer tu contraseña",
+            "mensaje1": "Haz clic en el botón para restablecer la contraseña o ve al siguiente enlace: ",
+            "mensaje_no_sol": "Si no has solicitado este codigo por favor omita este mensaje",
+            "boton": "Restablecer Contraseña"
         }
 
     },

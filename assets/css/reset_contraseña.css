@@ -28,7 +28,8 @@ body{
     max-width: 400px;
     background: rgba(230, 228, 228, 0.8);
     padding: 25px 30px;
-    border-radius: 5px;
+    border-radius: 15px;
+    border: 2px solid #CE967B;
 }
 
 .contenedor .title{
@@ -38,19 +39,19 @@ body{
     position: relative;
 }
 
-.contenedor form .confirm{
+.contenedor form .password-change{
     justify-content: space-between;
     margin: 20px 0 12px 0;
 }
 
-form .confirm .input-box{
+form .password-change .input-box{
     position: relative;
     margin-bottom: 15px;
     width: 100%;
 }
 
 
-.confirm .input-box input{
+.password-change .input-box input{
 
     margin-top: 30px;
     height: 45px;
@@ -66,20 +67,44 @@ form .confirm .input-box{
     color: #333;
 }
 
-.confirm .input-box input:focus{
+.password-change .input-box input:focus{
     border-bottom: 2px solid #CE967B;
 }
 
-/* Formulario de cambio de confirmacion*/
+.password-change .input-box i{
+    position: absolute;
+    top: 68%;
+    transform: translateY(-50%);
+    color: #707070; 
+}
 
-form .confirm .input-box-new{
+.password-change .input-box i.password{
+    font-size: 19px;
+    transition: all 0.3s ease;
+    left: 6px;
+}
+
+.password-change .input-box input:focus ~ i.password{
+    color: #CE967B;
+}
+
+.password-change .input-box i.pw_hide{
+    cursor: pointer;
+    right: 6px;
+    font-size: 20px;
+}
+
+/* Formulario de cambio de password*/
+
+form .password-change .input-box-new{
     position: relative;
     margin-bottom: 15px;
     width: 100%;
 }
 
 
-.confirm .input-box-new input{
+.password-change .input-box-new input{
+
     margin-top: 30px;
     height: 45px;
     width: 100%;
@@ -94,14 +119,31 @@ form .confirm .input-box-new{
     color: #333;
 }
 
-.confirm .input-box-new input:focus{
+.password-change .input-box-new input:focus{
     border-bottom: 2px solid #CE967B;
 }
 
-.confirm .input-box-new i.password{
+.password-change .input-box-new i{
+    position: absolute;
+    top: 68%;
+    transform: translateY(-50%);
+    color: #707070; 
+}
+
+.password-change .input-box-new i.password{
     font-size: 19px;
     transition: all 0.3s ease;
     left: 6px;
+}
+
+.password-change .input-box-new input:focus ~ i.password{
+    color: #CE967B;
+}
+
+.password-change .input-box-new i.pw_hide{
+    cursor: pointer;
+    right: 6px;
+    font-size: 20px;
 }
 
 form .button{
@@ -179,6 +221,15 @@ form .error-button input:hover{
     cursor: pointer;
 }
 
+.error-message .a{
+    text-decoration: none;
+    color: white;
+}
+
+.error-message .a:hover{
+    text-decoration: underline;
+}
+
 .correct-container {
     position: fixed;
     top: 0;
@@ -209,6 +260,15 @@ form .error-button input:hover{
     font-size: 1.2rem;
 }
 
+.correct-message .a{
+    text-decoration: none;
+    color: white;
+}
+
+.correct-message .a:hover{
+    text-decoration: underline;
+}
+
 select{
     font-family: 'Poppins', sans-serif;
     background: transparent;
@@ -226,27 +286,6 @@ option{
     background-color: #ccc;
 }
 
-.correct-button{
-    height: 45px;
-}
-
-.correct-button input{
-    height: 100%;
-    width: 100%;
-    outline: none;
-    color: #fff;
-    border: none;
-    font-size: 18px;
-    font-weight: 500;
-    border-radius: 5px;
-    letter-spacing: 1px;
-    background-color: rgba(104, 216, 52, 0.9);
-}
-
-.correct-button input:hover{
-    background-color: rgba(152, 250, 107, 0.9);
-    cursor: pointer;
-}
 
  @media(max-width: 399px){
     .contenedor{
