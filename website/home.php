@@ -52,7 +52,7 @@ if (mysqli_num_rows($calendario_escolar) > 0) {
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../assets/css/inicio.css">
+    <link rel="stylesheet" href="../assets/css/home.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome5.12.1/css/all.min.css"/>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
@@ -443,6 +443,12 @@ if (mysqli_num_rows($calendario_escolar) > 0) {
                             echo '<th class="pequeño">' . $diaTP . '</th>';
                         }
                         echo '</tr>';
+
+                        // Obtener el número de días en el mes actual
+                        $numero_dias_mes_actual = date('t');
+
+                        // Obtener el día de la semana del primer día del mes actual
+                        $primer_dia_semana = date('N', strtotime("$año_actual-$mes_actual-01"));
 
                         // Calcular el número de días en la fila inicial antes del primer día del mes
                         $numDiasPrevios = $primer_dia_semana - 1;

@@ -37,7 +37,7 @@ if (isset($_POST['generar_tabla'])) {
         'Thursday' => array(),
         'Friday' => array()
     );
-}
+
 
 // Recorrer las tareas y agregarlas al calendario
 foreach ($tareas as $index => $tarea) {
@@ -86,7 +86,8 @@ foreach ($tareas as $index => $tarea) {
 
     $tablaGenerada = false;
     $semanaGenerada = null;
-                // Imprimir la tabla del calendario
+}
+    // Imprimir la tabla del calendario
     ?>
     <!DOCTYPE html>
     <html>

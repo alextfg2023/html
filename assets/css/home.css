@@ -278,7 +278,7 @@ table {
 
 th{
     padding: 15px;
-	color: #ffffff;
+	color: #fff;
 }
 td {
 	padding: 15px;
@@ -296,18 +296,19 @@ th {
 }
 
 tr {
-	&:hover {
-		background-color: rgba(255, 249, 243, 0.9);
-	}
+	background-color: rgba(255, 249, 243, 0.9);
+
 }
 
 .main_container .container .item table .hoy {
     border-radius: 10px;
     background-color: #464646;
+    color: #ccc;
+    box-shadow: 0 0 20px rgba(0,0,0,0.1);
 }
 
 th:hover {
-  background-color: rgba(20, 20, 20, 90);
+    background-color: #7B523E;
 }
 
 tr:hover {

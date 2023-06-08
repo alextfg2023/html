@@ -326,6 +326,8 @@
             "borrado_completo2": " se ha eliminado correctamente!",
             "volver": "Volver a mis Horarios"
         },
+        "tabla": "Horario: ",
+        "semana": "Semana: ",
         "H": "Horas",
         "L": "L",
         "M": "M",

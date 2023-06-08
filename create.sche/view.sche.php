@@ -48,21 +48,22 @@ if (mysqli_num_rows($querytablas) > 0) {
             $nombreTarea = $rowTarea['tarea'];
             $importancia = $rowTarea['importancia'];
             $fecha_tarea = $rowTarea['fecha_tarea'];
-
+        
             // Obtener el día de la semana a partir de la fecha
             $diaSemana = date('l', strtotime($fecha_tarea));
-
+        
             // Obtener el numero de la semana a partir de la fecha
-            $numeroSemana = date('W', strtotime($fecha_tarea));
-
+            $numeroSemanaTarea = date('W', strtotime($fecha_tarea));
+        
             // Calcular el número de celdas que ocupará la tarea según la importancia (máximo 6 celdas)
             $numCeldas = min(6, ceil($importancia / 2));
-
+        
             // Agregar la tarea al día correspondiente en el calendario
             for ($i = 0; $i < $numCeldas; $i++) {
-                $calendario[$diaSemana][$numeroSemana][] = array('tarea' => $nombreTarea);
+                $calendario[$diaSemana][$numeroSemanaTarea][] = array('tarea' => $nombreTarea);
             }
         }
+        
 
         $calendarios[] = array(
             'nombre_tabla' => $nombre_tabla,
@@ -113,6 +114,16 @@ if (mysqli_num_rows($querytablas) > 0) {
                 $indiceCalendario = $indice;
                 $tablaGenerada = true;
                 $semanaGenerada = null;
+
+                // Actualizar variables relacionadas con el horario personalizado
+                $horarioPersonalizado = $calendario['horarioPersonalizado'];
+                $calendario_dias = $calendario['calendario'];
+
+                // Obtener la hora de inicio y la hora de fin del horario personalizado
+                list($horaInicio, $horaFin) = explode('-', $horarioPersonalizado);
+                list($inicioHora, $inicioMinuto) = explode(':', $horaInicio);
+                list($finHora, $finMinuto) = explode(':', $horaFin);
+
                 break;
             }
         }
@@ -263,18 +274,31 @@ if (mysqli_num_rows($querytablas) > 0) {
                     <?php 
                         if ($tablaGenerada || empty($_POST['buscarTabla'])) { ?> 
                         <br>
-                        <h1>
-                            <?php 
-                                if (isset($_POST['buscarTabla'])) {
+                        <?php 
+                            $querytablass = mysqli_query($conn, "SELECT semana FROM tablas WHERE id = '$id_tabla'");
 
-                                    $nombre_tabla = $_POST['buscarTabla'];
-                                    
-                                    echo $nombre_tabla;
-                                } else {
-                                    echo $nombre_tabla;
+                            while ($rowTablaSem = mysqli_fetch_assoc($querytablass)) {
+                                $semana = $rowTablaSem['semana'];
+                            }
+
+                            if (isset($_POST['buscarTabla'])) {
+
+                                $nombre_tabla = $_POST['buscarTabla'];
+                                $id_tabla_ = $_POST['id_tabla_'];
+
+                                $querytablasbusc = mysqli_query($conn, "SELECT semana FROM tablas WHERE id = '$id_tabla_'");
+
+                                while ($rowTablaSem = mysqli_fetch_assoc($querytablasbusc)) {
+                                    $semana = $rowTablaSem['semana'];
                                 }
-                            ?>
-                        </h1>
+                                    
+                                echo "<h1>".$palabras['view_tablas']['tabla'].$nombre_tabla."</h1><br>";
+                                echo "<h2>".$palabras['view_tablas']['semana'].$semana."</h2>";
+                            } else {
+                                echo "<h1>".$palabras['view_tablas']['tabla'].$nombre_tabla."</h1><br>";
+                                echo "<h2>".$palabras['view_tablas']['semana'].$semana."</h2>";
+                            }
+                        ?>
                         <br>
                     </center>
                         <?php
@@ -289,6 +313,7 @@ if (mysqli_num_rows($querytablas) > 0) {
                                 <th class="grande"><?php echo $palabras['view_tablas']['miercoles']?></th>
                                 <th class="grande"><?php echo $palabras['view_tablas']['jueves']?></th>
                                 <th class="grande"><?php echo $palabras['view_tablas']['viernes']?></th>
+
                                 <th class="pequeño"><?php echo $palabras['view_tablas']['H']?></th>
                                 <th class="pequeño"><?php echo $palabras['view_tablas']['L']?></th>
                                 <th class="pequeño"><?php echo $palabras['view_tablas']['M']?></th>
@@ -357,6 +382,7 @@ if (mysqli_num_rows($querytablas) > 0) {
                         <form method="post" action="">
                             <div class="input-box">
                                 <input type="text" name="buscarTabla" placeholder="<?php echo $palabras['view_tablas']['buscar_place']; ?>" value="<?php echo isset($_POST['buscarTabla']) ? $_POST['buscarTabla'] : ''; ?>">
+                                <input type="hidden" name="id_tabla_" value="<?php echo $id_tabla; ?>">
                             </div>
                             <div class="button">
                                 <input type="submit" name="buscartabla" value="<?php echo $palabras['view_tablas']['buscar']; ?>"/>

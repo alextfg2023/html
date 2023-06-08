@@ -323,6 +323,8 @@
             "borrado_completo2": " has been successfully removed!",
             "volver": "Back to my Schedules"
         },
+        "tabla": "Schedule: ",
+        "semana": "Week: ",
         "H": "Hours",
         "L": "L",
         "M": "M",
