@@ -35,9 +35,7 @@ if (isset($_GET['id'])) {
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../assets/css/change.pass.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome5.12.1/css/all.min.css"/>
+    <link rel="stylesheet" href="../assets/css/change_pass.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <title><?php echo $palabras['config']['perfil_title']; ?></title>
@@ -202,15 +200,15 @@ if (isset($_GET['id'])) {
                             <div class="flex">
                                 <div class="inputBox">
                                     <span><?php echo $palabras['contraseña']['antigua']; ?></span>
-                                    <input type="password" name="pass_antig" placeholder="<?php echo $palabras['contraseña']['place_antigua']; ?>" class="box">
+                                    <input type="password" required name="pass_antig" placeholder="<?php echo $palabras['contraseña']['place_antigua']; ?>" class="box">
                                     <br>
                                     <br>
                                     <span><?php echo $palabras['contraseña']['nueva']; ?></span>
-                                    <input type="password" name="pass_n" placeholder="<?php echo $palabras['contraseña']['place_new']; ?>" class="box">
+                                    <input type="password" required minlength="8" name="pass_n" placeholder="<?php echo $palabras['contraseña']['place_new']; ?>" class="box">
                                 </div>
                                 <div class="inputBox">
                                     <span><?php echo $palabras['contraseña']['nueva_conf']; ?></span>
-                                    <input type="password" name="pass_n_conf" placeholder="<?php echo $palabras['contraseña']['place_conf']; ?>" class="box">
+                                    <input type="password" required  minlength="8" name="pass_n_conf" placeholder="<?php echo $palabras['contraseña']['place_conf']; ?>" class="box">
                                 </div>
                             </div>
                             <br>
@@ -222,19 +220,7 @@ if (isset($_GET['id'])) {
             </div>
         </div>
     </div>
-    <script>
-        $(document).ready(function(){
-            // Verifica si la pantalla es lo suficientemente grande para ejecutar el script
-            if (window.matchMedia("(min-width: 584px)").matches) {
-                // Código a ejecutar solo en pantallas grandes
-                $(".hamburger").click(function(){
-                    $(".wrapper").toggleClass("active");
-                });
-            }
-            $(".right_menu li .fas").click(function(){
-                    $(".profile_dd").toggleClass("active");
-                });
-        });
-    </script>
+    <script src="../complementosJS/show_pass.js"></script> 
+    <script src="../complementosJS/nav_bar.js"></script>
 </body>
 </html>

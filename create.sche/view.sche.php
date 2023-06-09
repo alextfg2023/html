@@ -422,19 +422,6 @@ if (mysqli_num_rows($querytablas) > 0) {
             </div>
         </div>
     </div>
-    <script>
-        $(document).ready(function(){
-            // Verifica si la pantalla es lo suficientemente grande para ejecutar el script
-            if (window.matchMedia("(min-width: 584px)").matches) {
-                // Código a ejecutar solo en pantallas grandes
-                $(".hamburger").click(function(){
-                    $(".wrapper").toggleClass("active");
-                });
-            }
-            $(".right_menu li .fas").click(function(){
-                    $(".profile_dd").toggleClass("active");
-                });
-        });
-    </script>
+    <script src="../complementosJS/nav_bar.js"></script>
 </body>
 </html>

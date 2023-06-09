@@ -300,8 +300,6 @@ option{
     border-radius: 50%;
 }
 
-/*FORMULARIO*/
-
 .main_container .container .item .btn,
 .main_container .container .item .delete-btn{
    width: 100%;
@@ -391,6 +389,7 @@ option{
    transition: all 0.3s ease;
    color: #333;
 }
+
 .error-container {
     position: fixed;
     top: 0;
