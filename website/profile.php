@@ -94,7 +94,7 @@ if (isset($_GET['id'])) {
                             <img src="<?php echo isset($imagen) ? $imagen : ''; ?>" alt="profile.pic" class="fas">
                             <div class="profile_dd">
                                 <div class="dd_item">
-                                    <a href="home.php"><?php echo $palabras['general']['volver']?></a>
+                                    <a href="home.php?id=<?php echo $id; ?>"><?php echo $palabras['general']['volver']?></a>
                                 </div>
                                 <div class="dd_item">
                                     <a href="../complementosPHP/logout.php"><?php echo $palabras['config']['cerrar_sesion']?></a>
