@@ -1,7 +1,9 @@
 <?php
+
 session_start();
+
 if (!isset($_SESSION['SESSION_EMAIL'])) {
-    header("Location: index.php");
+    header("Location: ../index.php");
 }
 
 include '../idiomas/idiomas.php';
